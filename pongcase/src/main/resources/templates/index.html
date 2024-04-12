@@ -38,6 +38,7 @@
             margin-right: 50px;
             position: relative;
             box-sizing: border-box;
+            overflow: hidden;
         }
 
         body {
@@ -143,13 +144,49 @@
             width: 100%;
 
         }
-        .quickmenu{
-            border: 1 solid black;
+        .quickmenu {
+            border: 2px solid black;
             position: absolute;
-            width: 20%;
+            width: 10%;
             height: 100px;
-            top:100px;
-            background-color: #95038e;
+            top: 300px;
+            background-color: #f9fe86;
+            right: 0;
+            text-decoration-line: none;
+        }
+
+
+        .quick{
+            padding-top: 10px;
+            padding-bottom: 5px;
+            padding-right: 30px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .quick>a{
+            color: black;
+        }
+        .quick:hover{
+            text-decoration: none;
+        }
+        a{
+            text-decoration-line: none;
+        }
+        ul{
+            list-style: none;
+        }
+        #toTop{
+            position: fixed;
+            bottom: 30px;
+            display: none;
+            z-index: 9999;
+            right: 20px;
+
+        }
+        #toTop>img{
+           width: 30px;
+        }
     </style>
 </head>
 
@@ -167,32 +204,32 @@
 <div class="main1">
     <div class="mySlides">
         <div class="numbertext">1 / 6</div>
-        <img src="/memberproductimg/img_woods_wide.jpg" style="width:100%">
+        <img src="../memberproductimg/img_woods_wide.jpg" style="width:100%">
     </div>
 
     <div class="mySlides">
         <div class="numbertext">2 / 6</div>
-        <img src="/memberproductimg/img_5terre_wide.jpg" style="width:100%">
+        <img src="../memberproductimg/img_5terre_wide.jpg" style="width:100%">
     </div>
 
     <div class="mySlides">
         <div class="numbertext">3 / 6</div>
-        <img src="/memberproductimg/img_mountains_wide.jpg" style="width:100%">
+        <img src="../memberproductimg/img_mountains_wide.jpg" style="width:100%">
     </div>
 
     <div class="mySlides">
         <div class="numbertext">4 / 6</div>
-        <img src="/memberproductimg/img_lights_wide.jpg" style="width:100%">
+        <img src="../memberproductimg/img_lights_wide.jpg" style="width:100%">
     </div>
 
     <div class="mySlides">
         <div class="numbertext">5 / 6</div>
-        <img src="/memberproductimg/img_nature_wide.jpg" style="width:100%">
+        <img src="../memberproductimg/img_nature_wide.jpg" style="width:100%">
     </div>
 
     <div class="mySlides">
         <div class="numbertext">6 / 6</div>
-        <img src="/memberproductimg/img_snow_wide.jpg" style="width:100%">
+        <img src="../memberproductimg/img_snow_wide.jpg" style="width:100%">
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">&#9664;</a>
@@ -200,22 +237,22 @@
 
     <div class="row">
         <div class="column">
-            <img class="demo cursor" src="/memberproductimg/img_woods_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+            <img class="demo cursor" src="../memberproductimg/img_woods_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
         </div>
         <div class="column">
-            <img class="demo cursor" src="/memberproductimg/img_5terre_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+            <img class="demo cursor" src="../memberproductimg/img_5terre_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
         </div>
         <div class="column">
-            <img class="demo cursor" src="/memberproductimg/img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+            <img class="demo cursor" src="../memberproductimg/img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
         </div>
         <div class="column">
-            <img class="demo cursor" src="/memberproductimg/img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+            <img class="demo cursor" src="../memberproductimg/img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
         </div>
         <div class="column">
-            <img class="demo cursor" src="/memberproductimg/img_nature_wide.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+            <img class="demo cursor" src="../memberproductimg/img_nature_wide.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
         </div>
         <div class="column">
-            <img class="demo cursor" src="/memberproductimg/img_snow_wide.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+            <img class="demo cursor" src="../memberproductimg/img_snow_wide.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
         </div>
     </div>
 </div>
@@ -255,9 +292,12 @@
 <h1>sdfdsfdsfsd</h1>
 <div class="quickmenu">
     <ul>
-        <li><a href="#">공지사항</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li class="quick"><a href="#">공지사항</a></li>
+        <li class="quick"><a href="#">FAQ</a></li>
     </ul>
+</div>
+<div class="arrow">
+    <a id="toTop" href="#"><img src="../memberproductimg/arrow-up-circle-fill.svg" title="위로 가기"></a>
 </div>
 
 
@@ -305,6 +345,7 @@
         dots[slideIndex-1].className += " active";
     }
 </script>
+
 <script>
         // 기본 위치(top)값
     var floatPosition = parseInt($(".quickmenu").css('top'));
@@ -319,8 +360,28 @@
        //이동 애니메이션
        $(".quickmenu").stop().animate({
          "top" : bannerTop
-       }, 500);
+       }, 80);
 
+    });
+</script>
+
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('#toTop').fadeIn();
+                $('#toTop').css('left', $('#sidebar').offset().left);
+            } else {
+                $('#toTop').fadeOut();
+            }
+        });
+
+        $("#toTop").click(function() {
+            $('html, body').animate({
+                scrollTop : 0
+            }, 400);
+            return false;
+        });
     });
 </script>
 </body>
