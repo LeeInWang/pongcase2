@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Checkout</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Wish shop project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="checkout.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/memberOrderPayment.css">
 </head>
 <body>
+<div class="container">
+    <div class="title">
+        <h2>주문하기</h2>
+    </div>
+    <div class="d-flex">
+        <form role="form" th:action="@{'/order'}" method="post" enctype="multipart/form-data">
+            <span class="fname">이름 <span class="required">*</span></span>
+            <label>
+                <input type="text" name="fname" placeholder="주문자명">
+            </label>
+            <span class="fname">전화번호 <span class="required">*</span></span>
+            <label>
+                <input type="tel" name="city" placeholder="-를 제외한 11글자">
+            </label>
+            <label class="address">
+                <input type="button" class="address" id="addressselect" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+            </label>
+            <label class="address">
+                <input type="text" class="address" id="postcode" placeholder="우편번호">
+            </label>
+            <label class="address">
+                <input type="text" class="address" id="roadAddress" placeholder="도로명주소">
+            </label>
+            <label class="address">
+                <input type="text" class="address" id="jibunAddress" placeholder="지번주소">
+            </label>
+            <label class="address">
+                <input type="text" name="apartment" placeholder="상세주소">
+            </label>
 
+            <span class="fname" id="requiredelivery">배송 요청 사항</span></span>
+            <label>
+                <input type="email" name="city">
+            </label>
+        </form>
+        <div class="Yorder">
+            <table>
+                <tr>
+                    <th colspan="2">Your order</th>
+                </tr>
+                <tr>
+                    <td>핸드폰1</td>
+                    <td>88000</td>
+                </tr>
+                <tr>
+                    <td>핸드폰2</td>
+                    <td>90000</td>
+                </tr>
+                <tr>
+                    <td>핸드폰3</td>
+                    <td>100000</td>
+                </tr>
+            </table><br>
+            <div>
+                <input type="radio" name="dbt" value="dbt" checked> 무통장입금
+            </div>
+            <div>
+                <input type="radio" name="dbt" value="cd"> 핸드폰 결제
+            </div>
+            <div>
+                <input type="radio" name="dbt" value="cd"> 신용/체크카드 <span>
+			<img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+			</span>
+            </div>
+            <button type="button">주문하기</button>
+        </div><!-- Yorder -->
+    </div>
+</div>
+
+<script src="/js/daumaddress.js"></script>
 </body>
 </html>

@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: 1000;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    font-family: 'SOYOMapleBoldTTF', 'omyu_pretty';
+}
+
+body{
+    background: #F6F4FC;
+    color: navy;
+    margin: 5% 0;
+}
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 1200px)
+{
+    .container{
+        max-width: 1140px;
+    }
+}
+
+
+.d-flex{
+    display: flex;
+    flex-direction: row;
+    background: #F6F4FC;
+    border-radius: 0 0 10px 10px;
+    padding: 25px;
+}
+form{
+    flex: 4;
+}
+.Yorder{
+    flex: 2;
+}
+.title{
+    /* background: -webkit-gradient(linear, left top, right bottom, color-stop(0, aliceblue), color-stop(100, #F8C8C4));
+    background: -moz-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+    background: -ms-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+    background: -o-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+    background: linear-gradient(to bottom right, aliceblue 0%, #F8C8C4 100%); */
+    background: #F8C8C4;
+    border-radius:5px 5px 0 0 ;
+    padding: 20px;
+    color: aliceblue;
+}
+h2{
+    margin: 0;
+    padding-left: 15px;
+}
+.required{
+    color: red;
+}
+
+
+label, table{
+    display: block;
+    margin: 15px;
+}
+label>span{
+    float: left;
+    width: 25%;
+    margin-top: 12px;
+    padding-right: 10px;
+}
+input[type="text"], input[type="tel"], input[type="email"], select
+{
+    width: 70%;
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border: 1px solid #dadada;
+    color: navy;
+}
+
+.Yorder{
+    margin-top: 15px;
+    height: 600px;
+    padding: 20px;
+    border: 1px solid #F8C8C4;
+}
+table{
+    margin: 0;
+    padding: 0;
+}
+th{
+    border-bottom: 1px solid #F8C8C4;
+    padding: 10px 0;
+}
+tr>td:nth-child(1){
+    text-align: left;
+    color: navy;
+}
+tr>td:nth-child(2){
+    text-align: right;
+    color: navy;
+}
+td{
+    border-bottom: 1px solid #F8C8C4;
+    padding: 25px 25px 25px 0;
+}
+
+p{
+    display: block;
+    color: navy;
+    margin: 0;
+    padding-left: 25px;
+}
+.Yorder>div{
+    padding: 15px 0;
+}
+
+button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #F8C8C4;
+    color: navy;
+    font-size: 15px;
+    font-weight: bold;
+}
+button:hover{
+    cursor: pointer;
+    background: #F8C8C4;
+}
+
+
+#postcode{
+    width: 20%;
+    margin: 0px;
+}
+
+.address{
+    margin: 0px;
+    margin-bottom: 1px;
+    padding-left: 15px;
+}
+#addressselect{
+    width: 20%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #F8C8C4;
+    color: navy;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.fname{
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+
+#requiredelivery{
+    margin-top: 20px;
+}
+
+@media (min-width:320px) and (max-width:767px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .Yorder {
+        order: 2; /* Yorder를 두 번째로 배치합니다. */
+    }
+
+    form {
+        order: 1; /* form을 첫 번째로 배치합니다. */
+    }
+}
