@@ -1,0 +1,226 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    
+    <!--
+        #visual studio code 링크 방식
+      <link href="css/memberLogin.css" rel="stylesheet"/>
+      <link href="css/basic.css" rel="stylesheet"/>
+      -->
+    
+    <!--
+    #springboot 링크 방식 -->
+    <link th:href="@{/css/memberLogin.css}" rel="stylesheet">
+    <link th:href="@{/css/basic.css}" rel="stylesheet">
+
+
+
+</head>
+
+<style>
+
+    html {
+        height: 100%; /* 전체 높이 */
+    }
+    body {
+        margin:0;
+        padding:0;
+        font-family: sans-serif;
+        background-color: aliceblue;
+    }
+
+    .login-box { /* 로그인 박스를 반응형처리 */
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        width: 500px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px;
+        border-radius: 10px;
+    }
+
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+        
+        padding: 16px;
+        background-color: white;
+    }
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        height: 0.5%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+        background-color: #b85c9c;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
+
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+    
+    /*  */
+    .form-group{
+        display: flex;
+    }
+
+</style>
+
+
+<body>
+
+<div class="login-box">
+    
+    <form action="#">
+        <div class="container">
+            <h1>퐁케이스</h1>
+            <br>
+            <p>회원가입</p>
+            <hr>
+            
+            <label for="userId">아이디:</label>
+            <div class="form-group">
+                <input type="text" class="input1" name="userId" id="userId"  required="required" placeholder="6~12자리 입력" minlength="6" maxlength="12">
+                <button type="button" class="btn" id="overlapCheck" onclick="registerFunction()">중복체크</button><br>
+                <span id="idText"></span>
+            
+            </div>
+            
+            <label for="userPwd1">비밀번호:</label>
+            <input type="password" class="input1" name="userPwd1" id="userPwd1"  required="required" placeholder="6~12자리 입력" minlength="6" maxlength="12">
+            
+            <label for="userPwd2">비밀번호 확인:</label>
+            <input type="password" class="input1" name="userPwd2" id="userPwd2" onkeyup="passwordCheckFunction()" required="required" placeholder="6~12자리 입력" minlength="6" maxlength="12">
+            <br><span id="passwordText"></span>
+            
+            <label for="userName">이름:</label>
+            <input type="text" id="userName" name="userName" >
+            
+            <label for="userPhoneNumber">휴대폰 번호:</label>
+            <div class="form-group phone">
+      
+                <input type="text" id="userPhoneNumber1" name="userPhoneNumber1"  required="required" readonly="readonly" value="010" >
+                <input type="text" id="userPhoneNumber2" name="userPhoneNumber2" required="required" placeholder="0000" minlength="4" maxlength="4">
+                <input type="text" id="userPhoneNumber3" name="userPhoneNumber3" required="required" placeholder="0000"minlength="4" maxlength="4">
+            </div>
+            
+            <label for="userPhoneNumber">이메일:</label>
+            <div class="form-group">
+                <input type="text" id="userEmail1" name="userEmail1">
+                
+                
+                
+                <select class="box" id="userEmail2" name="userEmail2">
+                    <option value="@naver.com">@naver.com</option>
+                    <option value="@google.com">@google.com</option>
+                    <option value="@hanmail.net">@hanmail.net</option>
+                    <option value="@nate.com">@nate.com</option>
+                    <option value="@kakao.com">@kakao.com</option>
+                </select>
+            </div>
+            
+            <button type="button" class="btn" id="zipbtn">우편번호</button>
+            <div class="form-group">
+                <label for="post"></label>
+                <br>
+                <br>
+                
+                <input type="text" class="input1 ipost" name="userZipcode" id="userZipcode" required="required">
+            </div>
+            
+            <label for="userAddress1">주소</label>
+            <div class="form-group">
+                <input type="text" class="input1 iaddress" name="userAddress1" id="userAddress1" readonly="readonly" required="required">
+            </div>
+            
+            <label for="userAddress2">상세주소</label>
+            <div class="form-group">
+                <input type="text" class="input1 iaddress" name="userAddress2" id="userAddress2">
+            </div>
+            
+            <label for="userAddress2">생년월일</label>
+            <div class="form-group">
+            
+                <input type="text" class="input1 iaddress" id="userBirthdayYear" name="userBirthdayYear" required="required" placeholder="0000" minlength="4" maxlength="4">년
+                <input type="text" class="input1 iaddress" id="userBirthdayMonth" name="userBirthdayMonth" required="required" placeholder="00" minlength="2" maxlength="2">월
+                <input type="text" class="input1 iaddress" id="userBirthdayDay" name="userBirthdayDay" required="required" placeholder="00" minlength="2" maxlength="2">일
+            </div>
+            
+            
+            
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            
+            <button type="submit" class="registerbtn">로그인</button>
+      
+            <div>
+                <a href="#" class="#">l 아이디 찾기 l</a>
+                <a href="#" class="#"> 비밀번호  찾기 l</a>
+            </div>
+        
+        </div>
+        
+        
+        <div class="container signin">
+            <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+    </form>
+    
+    </form>
+</div>
+
+</body>
+</html>

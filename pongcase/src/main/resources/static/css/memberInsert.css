@@ -1,0 +1,92 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+    min-width: 630px;
+}
+.wrapper {
+    top: 0;
+    margin-bottom : 150px;
+    z-index: 2;
+    display: block;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    margin-right: 200px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    border-color: black;
+    background-color: aliceblue;
+    float: right;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+
+/*  핸드폰  */
+#userPhoneNumber1, #userPhoneNumber2, #userPhoneNumber3{
+    width:8%;
+    text-align: center;
+}
+
+/*  이메일  */
+#userEmail1, #userEmail2{
+    width:25%;
+    text-align: center;
+}
+
+/*  주소 버튼  */
+#zipbtn{
+    width:20%;
+    text-align: center;
+}
+
+/*  주소  */
+#userZipcode, #userAddress1, #userAddress2{
+    width:50%;
+    text-align: center;
+}
+
+/*  년 월 일  */
+#userBirthdayYear, #userBirthdayMonth, #userBirthdayDay{
+    width:20%;
+    text-align: center;
+}
+
+
+
+
+.form-group button, #userInsertSubmit {
+    width: 80%;
+    padding: 10px;
+    background-color: #b85c9c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#overlapCheck{
+    width: 10%;
+}
+
+
+.form-group button:hover {
+    background-color: #b85c9c;
+}

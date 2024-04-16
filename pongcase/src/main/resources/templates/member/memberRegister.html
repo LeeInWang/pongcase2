@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="css/basic.css" rel="stylesheet"/>
-    <link href="css/memberInsert.css" rel="stylesheet"/>
+    <!--
+    #visual studio code 링크 방식
+  <link href="css/memberLogin.css" rel="stylesheet"/>
+  <link href="css/basic.css" rel="stylesheet"/>
+  -->
+    
+    <!--
+    #springboot 링크 방식 -->
+    <link th:href="@{/css/memberInsert.css}" rel="stylesheet">
+    <link th:href="@{/css/basic.css}" rel="stylesheet">
+    
+    
     
     <title>Document</title>
     <style>
@@ -69,7 +79,99 @@
             background-color: #ebe9e9;
             border-radius: 6px;
         }
-    
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+            min-width: 630px;
+        }
+        .wrapper {
+            top: 0;
+            margin-bottom : 150px;
+            z-index: 2;
+            display: block;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            margin-right: 200px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            border-color: black;
+            background-color: aliceblue;
+            float: right;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 1.2rem;
+        }
+
+        /*  핸드폰  */
+        #userPhoneNumber1, #userPhoneNumber2, #userPhoneNumber3{
+            width:8%;
+            text-align: center;
+        }
+
+        /*  이메일  */
+        #userEmail1, #userEmail2{
+            width:25%;
+            text-align: center;
+        }
+
+        /*  주소 버튼  */
+        #zipbtn{
+            width:20%;
+            text-align: center;
+        }
+
+        /*  주소  */
+        #userZipcode, #userAddress1, #userAddress2{
+            width:50%;
+            text-align: center;
+        }
+
+        /*  년 월 일  */
+        #userBirthdayYear, #userBirthdayMonth, #userBirthdayDay{
+            width:20%;
+            text-align: center;
+        }
+
+
+
+
+        .form-group button, #userInsertSubmit {
+            width: 80%;
+            padding: 10px;
+            background-color: #b85c9c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #overlapCheck{
+            width: 10%;
+        }
+
+
+        .form-group button:hover {
+            background-color: #b85c9c;
+        }
+        
     
     </style>
     
@@ -214,14 +316,14 @@
 
 <div class="wrap">
     <header>
-        <jsp:include page="/WEB-INF/phone/header.jsp" flush="true"/>
+    
     </header>
     
     <div class="wrapper">
         <article>
     </div>
     <aside class="side">
-        <jsp:include page="useraside.jsp" flush="true"/>
+    
     </aside>
     </article>
     <article>
@@ -232,7 +334,7 @@
                 
                 <div class="form-group">
                     
-                    <label for="userId ">아이디:</label>
+                    <label for="userId">아이디:</label>
                     <input type="text" class="input1" name="userId" id="userId"  required="required" placeholder="6~12자리 입력" minlength="6" maxlength="12">
                     <button type="button" class="btn" id="overlapCheck" onclick="registerFunction()">중복체크</button><br>
                     <span id="idText"></span>
@@ -317,7 +419,7 @@
 
 
 <footer>
-    <jsp:include page="/WEB-INF/phone/footer.jsp" flush="true"/>
+
 </footer>
 </body>
 </html>

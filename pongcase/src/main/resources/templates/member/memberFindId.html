@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    <link href="css/memberLogin.css" rel="stylesheet"/>
-    <link href="css/basic.css" rel="stylesheet"/>
+    <!--
+     #visual studio code 링크 방식
+   <link href="css/memberLogin.css" rel="stylesheet"/>
+   <link href="css/basic.css" rel="stylesheet"/>
+   -->
+    
+    <!--
+    #springboot 링크 방식 -->
+    <link th:href="@{/css/memberLogin.css}" rel="stylesheet">
+    <link th:href="@{/css/basic.css}" rel="stylesheet">
+    
 </head>
 
 <style>
+
+    html {
+        height: 100%; /* 전체 높이 */
+    }
+    body {
+        margin:0;
+        padding:0;
+        font-family: sans-serif;
+        background-color: aliceblue;
+    }
+
+    .login-box { /* 로그인 박스를 반응형처리 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 500px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px;
+        border-radius: 10px;
+    }
+    
 
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -83,22 +115,20 @@
         <div class="container">
             <h1>퐁케이스</h1>
             <br>
-            <p>아이디와 패스워드를 입력해주세요</p>
+            <p>아이디 찾기 : 이름, Email을 입력해주세요</p>
             <hr>
             
-            <label for="memberId"><b>ID</b></label>
+            <label for="memberId"><b>이름</b></label>
             <input type="text" placeholder="Enter Id" name="memberId" id="memberId" required>
             
-            <label for="memberPw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="memberPw" id="memberPw" required>
-            
+            <label for="memberPw"><b>E-mail</b></label>
+            <input type="email" placeholder="Enter Password" name="memberPw" id="memberPw" required>
+            <button type="submit" class="registerbtn">인증번호받기</button>
             <hr>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
             
-            <button type="submit" class="registerbtn">로그인</button>
-            <button type="submit" class="registerbtn">회원가입</button>
-            <button type="submit" class="registerbtn">아이디찾기</button>
-            <button type="submit" class="registerbtn">비밀번호찾기</button>
+            <label for="memberId"><b>인증번호</b></label>
+            <input type="text" placeholder="Enter Id" name="memberId" id="memberId" required>
+            <button type="submit" class="registerbtn">인증</button>
         </div>
         
         <div class="container signin">

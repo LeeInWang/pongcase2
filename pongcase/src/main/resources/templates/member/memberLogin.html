@@ -1,13 +1,49 @@
-<!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    <link href="css/memberLogin.css" rel="stylesheet"/>
-    <link href="css/basic.css" rel="stylesheet"/>
+    
+    <!--
+        #visual studio code 링크 방식
+      <link href="css/memberLogin.css" rel="stylesheet"/>
+      <link href="css/basic.css" rel="stylesheet"/>
+      -->
+    
+    <!--
+    #springboot 링크 방식 -->
+    <link th:href="@{/css/memberLogin.css}" rel="stylesheet">
+    <link th:href="@{/css/basic.css}" rel="stylesheet">
+    
+    
+    
 </head>
 
 <style>
+
+    html {
+        height: 100%; /* 전체 높이 */
+    }
+    body {
+        margin:0;
+        padding:0;
+        font-family: sans-serif;
+        background-color: aliceblue;
+    }
+
+    .login-box { /* 로그인 박스를 반응형처리 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 500px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px;
+        border-radius: 10px;
+    }
+    
 
     body {
         font-family: Arial, Helvetica, sans-serif;

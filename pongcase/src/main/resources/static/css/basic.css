@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+body{
+    width: 960px; /* 크기는 12로 나누어 떨어지는 값 */
+    margin: 0px auto; /* 위/아래는 0, 왼쪽과 오른쪽은 가운데 */
+}
+
+ol, ul, li{
+    margin:  0px;
+    padding: 0px;
+    list-style: none; /* 목록의 기호 */
+}
+
+a{
+    text-decoration: none; /* 밑줄 */
+    color: black;
+}
+
+a:visited{
+    text-decoration: none; /* 밑줄 */
+    color: black;
+}
+
+img{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
