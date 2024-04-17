@@ -1,12 +1,733 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Document</title>
+
+    <style>
+
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Oswald);
+        @import url(https://fonts.googleapis.com/css?family=Anton);
+        @font-face {
+            font-family: "United Sans";
+            font-style: normal;
+            font-weight: normal;
+            src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansRgHv.eot");
+            src: local("☺"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansRgHv.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansRgHv.ttf") format("truetype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansRgHv.svg") format("svg");
+        }
+        @font-face {
+            font-family: "United Sans Condensed";
+            font-style: normal;
+            font-weight: normal;
+            src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansCdBd.eot");
+            src: local("☺"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansCdBd.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansCdBd.ttf") format("truetype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/249779/UnitedSansCdBd.svg") format("svg");
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, "San Fransisco", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+        }
+
+        .order-detail {
+            background: transparent;
+            margin: 0 auto;
+            max-width: 1200px;
+            position: relative;
+            vertical-align: top;
+            width: 100%;
+        }
+        .order-detail--wrapper {
+            background-color: inherit;
+            display: inline-block;
+            padding: 32px 32px 32px 32px;
+            margin: 0 320px 0 0;
+            position: static;
+            vertical-align: top;
+            width: auto;
+        }
+        .order-detail--head, .order-detail--body {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+        .order-detail--head {
+            position: relative;
+        }
+        .order-detail--title {
+            display: inline-block;
+            float: left;
+            font-family: "United Sans Condensed";
+            font-size: 36px;
+            min-height: 40px;
+            margin: 0 0 0 0;
+            padding: 0 0 12px 0;
+            text-transform: uppercase;
+        }
+        .order-detail__legend {
+            display: inline-block;
+            float: right;
+            margin: 0;
+            padding: 0 0 12px 0;
+            position: absolute;
+            right: 0;
+            width: 50%;
+        }
+        .order-detail__legend--action {
+            display: none;
+        }
+        .order-detail__legend--item {
+            display: block;
+            min-height: 40px;
+            float: left;
+            font-size: 16px;
+            line-height: 2.5;
+            min-width: 50%;
+            padding: 0 8px;
+            text-align: center;
+            width: auto;
+        }
+
+        .cart-items {
+            clear: both;
+            height: auto;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            width: 100%;
+        }
+
+        .cart-item {
+            height: auto;
+            padding: 0 0 16px 0;
+            margin: 0;
+            position: relative;
+            vertical-align: top;
+        }
+        .cart-item--shopping-cart {
+            border-bottom: 1px solid currentColor;
+            padding: 0 0 0 0;
+        }
+        .cart-item--shopping-cart:first-child {
+            border-top: 1px solid currentColor;
+        }
+        .cart-item--shopping-cart .cart-item--details {
+            float: left;
+            width: 50%;
+        }
+        .cart-item--shopping-cart .cart-item--values {
+            clear: none;
+        }
+        .cart-item--shopping-cart .cart-item--price {
+            display: inline-block;
+            float: right;
+            font-size: 24px;
+            padding: 8px 8px 8px 8px;
+            width: 50%;
+            font-weight: bold;
+            text-align: center;
+        }
+        .cart-item--wrapper {
+            clear: both;
+            display: block;
+            height: auto;
+            min-height: 100%;
+            position: relative;
+        }
+        .cart-item--details {
+            display: block;
+            font-size: 16px;
+            height: inherit;
+            position: relative;
+            margin: 0 auto 0 0;
+            width: 100%;
+            zoom: 1;
+        }
+        .cart-item--details::before, .cart-item--details::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+        .cart-item--details::after {
+            clear: both;
+        }
+        .cart-item--title {
+            display: block;
+            font-family: "United Sans Condensed";
+            font-size: 24px;
+            padding: 0 0 0 0;
+            margin: 0 0 0 0;
+        }
+        .cart-item--number {
+            color: #888888;
+            font-size: 14px;
+            margin: 4px 0 0 0;
+        }
+        .cart-item--detail {
+            clear: both;
+            padding: 0 0 0 0;
+            position: relative;
+            margin: 0 0 8px 0;
+        }
+        .cart-item--link {
+            color: inherit;
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            text-decoration: none;
+            width: auto;
+        }
+        .cart-item--link:hover, .cart-item--link:focus, .cart-item--link:active {
+            color: inherit;
+            text-decoration: none;
+        }
+        .cart-item--image-link {
+            left: 0;
+            float: none;
+            position: absolute;
+        }
+        .cart-item--text-link {
+            cursor: pointer;
+            margin: 0 8px 8px 0;
+        }
+        .cart-item--image {
+            display: inline-block;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            width: auto;
+        }
+        .cart-item--image img {
+            background: #F8F8F8;
+            display: inline;
+            width: 120px;
+            height: 120px;
+        }
+        .cart-item--description {
+            display: block;
+            margin: 0 0 0 128px;
+            min-height: 120px;
+            padding: 8px 8px 8px 8px;
+            width: auto;
+        }
+        .cart-item--values {
+            bottom: 16px;
+            clear: both;
+            display: inline-block;
+            float: right;
+            padding: 0;
+            width: 50%;
+        }
+        .cart-item--price {
+            display: inline-block;
+            float: right;
+            font-size: 18px;
+            padding: 0 0 0 0;
+            width: auto;
+            font-weight: bold;
+            text-align: right;
+        }
+        .cart-item--quantity {
+            display: inline-block;
+            float: left;
+            padding: 8px 16px 8px 16px;
+            text-align: center;
+            width: 50%;
+        }
+        .cart-item--quantity-count {
+            background-color: #222222;
+            border-radius: 50%;
+            color: #FFFFFF;
+            display: block;
+            font-size: 14px;
+            height: 32px;
+            line-height: 1.25;
+            padding: 8px 5px 8px 3px;
+            position: absolute;
+            right: -12px;
+            text-align: center;
+            top: -8px;
+            width: 32px;
+        }
+        .cart-item--quantity-form {
+            position: relative;
+            vertical-align: top;
+        }
+        .cart-item--quantity-label {
+            color: transparent;
+            font-size: 1px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            height: 0;
+        }
+        .cart-item--quantity-input {
+            border: 2px solid #CCCCCC;
+            height: 40px;
+            margin: 0 0 4px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .cart-item--quantity-update {
+            background-color: #222222;
+            border: 0;
+            border-radius: 4px;
+            color: #FFFFFF;
+            height: 40px;
+            margin: 4px 0 0 0;
+            text-align: center;
+            width: 100%;
+        }
+        .cart-item--quantity-update:hover {
+            opacity: 0.7;
+        }
+        .cart-item--submit {
+            white-space: nowrap;
+        }
+        .cart-item--remove {
+            background-color: transparent;
+            border: 0;
+            border-bottom: 1px solid gray;
+            color: gray;
+            cursor: pointer;
+            display: inline;
+            font-size: 12px;
+            height: 16px;
+            line-height: 0;
+            padding: 0;
+            width: auto;
+        }
+
+        .cart-summary {
+            background-color: #F8F8F8;
+            bottom: 0;
+            display: inline-block;
+            margin: 0 0 0 0;
+            max-width: 320px;
+            padding: 84px 16px 32px 16px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            width: auto;
+        }
+        .cart-summary--title {
+            border-bottom: 1px solid currentColor;
+            border-top: 1px solid currentColor;
+            display: inline-block;
+            font-family: "United Sans Condensed";
+            margin: 0;
+            padding: 12px 0;
+            text-align: left;
+            width: 100%;
+        }
+        .cart-summary table {
+            border: none;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            table-layout: fill;
+            width: 100%;
+        }
+        .cart-summary table tbody {
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        .cart-summary table tfoot {
+            border-top: 1px solid currentColor;
+            border-bottom: 1px solid currentColor;
+        }
+        .cart-summary table tfoot td {
+            vertical-align: top;
+        }
+        .cart-summary table tfoot div {
+            border-top: 1px solid currentColor;
+            padding: 16px 0 8px 0;
+        }
+        .cart-summary table td {
+            padding: 6px 0 0 0;
+        }
+        .cart-summary table td:first-child {
+            color: currentColor;
+            text-align: left;
+        }
+        .cart-summary table td:last-child {
+            color: #666666;
+            text-align: right;
+            padding: 6px 0 6px 0;
+        }
+        .cart-summary--table-total {
+            color: #000000;
+            display: block;
+            font-size: 24px;
+            line-height: 1;
+            width: 100%;
+        }
+        .cart-summary--table-currency {
+            color: #666666;
+        }
+        .cart-summary--promo-code {
+            background-color: #CCCCCC;
+            height: 92px;
+            margin: 16px 0;
+            padding: 12px 16px;
+            width: 100%;
+        }
+        .cart-summary--promo-code-wrapper {
+            width: 100%;
+        }
+        .cart-summary--promo-code-label {
+            display: block;
+            font-weight: 400;
+            font-size: 14px;
+            padding: 2px 0;
+            text-align: left;
+        }
+        .cart-summary--promo-code-input {
+            border: 0;
+            color: currentColor;
+            height: 32px;
+            float: left;
+            padding: 2px 10px;
+            width: 66.666%;
+        }
+        .cart-summary--promo-code-input::placeholder {
+            color: #888888;
+        }
+        .cart-summary--promo-code-submit {
+            background-color: #222222;
+            border: 0;
+            border-radius: 0 2px 2px 0;
+            color: #FFFFFF;
+            height: 32px;
+            letter-spacing: 0.25px;
+            float: right;
+            font-size: 12px;
+            text-transform: uppercase;
+            width: 33.333%;
+        }
+        .cart-summary--promo-code-submit:hover {
+            color: #FFFFFF;
+            opacity: 0.7;
+        }
+        .cart-summary--order-actions {
+            min-height: 140px;
+        }
+        .cart-summary--order-action {
+            background-color: #000000;
+            color: #FFFFFF;
+            display: block;
+            font-size: 16px;
+            height: 44px;
+            line-height: 1.875;
+            margin: 0 0 10px 0;
+            text-decoration: none;
+        }
+        .cart-summary--order-action:hover {
+            color: #FFFFFF;
+            opacity: 0.7;
+        }
+
+        @media all and (max-width: 920px) {
+            .order-detail--wrapper {
+                display: block;
+                min-width: 100%;
+            }
+            .order-detail--body-mobile-reversed {
+                direction: rtl;
+            }
+            .order-detail--body-mobile-reversed, .order-detail--body-mobile-reversed > * {
+                transform: scaley(-1);
+            }
+
+            .cart-items,
+            .cart-summary {
+                display: inline-block;
+                direction: ltr;
+            }
+
+            .cart-summary {
+                display: block;
+                min-width: 100%;
+                padding: 32px 16px 32px 16px;
+                position: inherit;
+            }
+        }
+        @media all and (max-width: 640px) {
+            .order-detail--wrapper {
+                padding: 0 0 0 0;
+            }
+            .order-detail--title {
+                background-color: #F8F8F8;
+                line-height: 1;
+                padding: 16px 0 0 0;
+                text-align: center;
+                width: 100%;
+                vertical-align: middle;
+            }
+            .order-detail__legend {
+                background-color: #F8F8F8;
+                clear: both;
+                float: none;
+                padding: 16px 12px 16px 12px;
+                position: relative;
+                width: 100%;
+            }
+            .order-detail__legend--action {
+                background-color: #222222;
+                color: #FFFFFF;
+                display: block;
+                font-size: 16px;
+                height: 44px;
+                line-height: 1.875;
+                width: 100%;
+            }
+            .order-detail__legend--action:hover {
+                color: #FFFFFF;
+                opacity: 0.7;
+            }
+            .order-detail__legend--item {
+                display: none;
+            }
+
+            .cart-item--shopping-cart:last-child {
+                border-bottom: none;
+            }
+            .cart-item--shopping-cart .cart-item--details {
+                float: none;
+                width: 5%;
+            }
+            .cart-item--shopping-cart .cart-item--values {
+                clear: both;
+                float: none;
+                padding: 8px 0 8px 0;
+                position: relative;
+                top: 16px;
+                width: 100%;
+            }
+            .cart-item--shopping-cart .cart-item--quantity {
+                max-width: 120px;
+                min-height: 96px;
+                padding: 0;
+            }
+            .cart-item--shopping-cart .cart-item--price {
+                bottom: 0;
+                min-height: auto;
+                padding: 8px 8px 8px 8px;
+                position: absolute;
+                right: 0;
+                text-align: right;
+                vertical-align: bottom;
+            }
+
+            .cart-summary {
+                background-color: #FFFFFF;
+                padding: 0 0 32px 0;
+            }
+            .cart-summary table {
+                margin: 8px 0 0 0;
+            }
+            .cart-summary--fields {
+                background-color: #F8F8F8;
+                padding: 4px 16px 4px 16px;
+            }
+        }
+        @media all and (min-width: 640px) and (max-width: 920px) {
+            .order-detail--wrapper {
+                padding: 32px 0 0 0;
+            }
+
+            .cart-summary {
+                display: block;
+                min-width: 100%;
+                vertical-align: top;
+            }
+            .cart-summary table {
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+            .cart-summary--promo-code {
+                margin: 16px 0 16px 0;
+            }
+        }
+
+    </style>
+
 </head>
+
+
+
 <body>
+
+<section class="order-detail row">
+    <div class="order-detail--wrapper col-xs-12 col-md-12 col-lg-9">
+        <header class="order-detail--head row">
+            <h1 class="order-detail--title col-xs-12 col-md-12 col-lg-12">Shopping Cart</h1>
+            <div class="order-detail__legend row">
+                <a class="order-detail__legend--action btn" href="@Url.ContentUrl(Model.StartPage.CheckoutPage)">Checkout</a>
+                <div class="order-detail__legend--item" id="order-detail__legend--quantity" aria-hidden="true" role="presentation">Quantity</div>
+                <div class="order-detail__legend--item" id="order-detail__legend--price" aria-hidden="true" role="presentation">Price</div>
+            </div>
+        </header>
+        <div class="order-detail--body row">
+            <section class="cart-items col-xs-12 col-md-12 col-lg-9">
+                <div class="cart-item cart-item--shopping-cart row">
+                    <div class="cart-item--wrapper">
+                        <div class="cart-item--details">
+                            <a class="cart-item--link cart-item--image-link" href="@cartItem.LineItem.AddedFromUrl()">
+                                <div class="cart-item--image">
+                                    <img class="img-responsive" src="../images/1.jpg" alt="item1">
+                                </div>
+                            </a>
+                            <div class="cart-item--description">
+                                <a class="cart-item--link cart-item--text-link" href="@cartItem.LineItem.AddedFromUrl()">
+                                    <h2 class="cart-item--title">Cyclops Eyewear</h2>
+                                </a>
+                                <div class="cart-item--detail cart-item--size">Size: XL</div>
+                                <div class="cart-item--action">
+                                    <form action="/shopping-cart/removelineitem/" data-product-id="2880123" method="post" novalidate="novalidate"><input id="code" name="code" type="hidden" value="v-2880123">
+                                        <input id="code" name="code" type="hidden" value="v-2880123">
+                                        <button class="cart-item--submit cart-item--remove" type="submit">Remove from cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-item--values">
+                            <div class="cart-item--quantity">
+                                <form class="cart-item--quantity-form" method="post" novalidate="novalidate" aria-labelledby="order-detail__legend--quantity">
+                                    <input class="cart-item--quantity-input" value="1">
+                                    <button class="cart-item--quantity-update cart-item--submit" aria-label="Update Quantity" type="submit">Update</button>
+                                </form>
+                            </div>
+                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>$149.00</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item cart-item--shopping-cart row">
+                    <div class="cart-item--wrapper">
+                        <div class="cart-item--details">
+                            <a class="cart-item--link cart-item--image-link" href="@cartItem.LineItem.AddedFromUrl()">
+                                <div class="cart-item--image">
+                                    <img class="img-responsive" src="http://placekitten.com/g/80/80" alt="Cyclops Eyewear">
+                                </div>
+                            </a>
+                            <div class="cart-item--description">
+                                <a class="cart-item--link cart-item--text-link" href="@cartItem.LineItem.AddedFromUrl()">
+                                    <h2 class="cart-item--title">Cyclops Eyewear</h2>
+                                </a>
+                                <div class="cart-item--detail cart-item--size">Size: XL</div>
+                                <div class="cart-item--action">
+                                    <form action="/shopping-cart/removelineitem/" data-product-id="2880123" method="post" novalidate="novalidate"><input id="code" name="code" type="hidden" value="v-2880123">
+                                        <input id="code" name="code" type="hidden" value="v-2880123">
+                                        <button class="cart-item--submit cart-item--remove" type="submit">Remove from cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-item--values">
+                            <div class="cart-item--quantity">
+                                <form class="cart-item--quantity-form" method="post" novalidate="novalidate" aria-labelledby="order-detail__legend--quantity">
+                                    <input class="cart-item--quantity-input" value="1">
+                                    <button class="cart-item--quantity-update cart-item--submit" aria-label="Update Quantity" type="submit">Update</button>
+                                </form>
+                            </div>
+                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>$149.00</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item cart-item--shopping-cart row">
+                    <div class="cart-item--wrapper">
+                        <div class="cart-item--details">
+                            <a class="cart-item--link cart-item--image-link" href="@cartItem.LineItem.AddedFromUrl()">
+                                <div class="cart-item--image">
+                                    <img class="img-responsive" src="http://placekitten.com/g/80/80">
+                                </div>
+                            </a>
+                            <div class="cart-item--description">
+                                <a class="cart-item--link cart-item--text-link" href="@cartItem.LineItem.AddedFromUrl()">
+                                    <h2 class="cart-item--title">Men's Riding Jacket - Black/Grey</h2>
+                                    <p class="cart-item--number">Item #286787402</p>
+                                </a>
+                                <div class="cart-item--detail cart-item--size">Size: XL</div>
+                                <div class="cart-item--action">
+                                    <form action="/shopping-cart/removelineitem/" data-product-id="2880123" method="post" novalidate="novalidate"><input id="code" name="code" type="hidden" value="v-2880123">
+                                        <input id="code" name="code" type="hidden" value="v-2880123">
+                                        <button class="cart-item--submit cart-item--remove" type="submit">Remove from cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-item--values">
+                            <div class="cart-item--quantity">
+                                <form class="cart-item--quantity-form" method="post" novalidate="novalidate" aria-labelledby="order-detail__legend--quantity">
+                                    <label class="cart-item--quantity-label" for="v-286787402">Current Quantity</label>
+                                    <input class="cart-item--quantity-input" value="1" id="v-286787402" required>
+                                    <button class="cart-item--quantity-update cart-item--submit" aria-label="Update Quantity" type="submit">Update</button>
+                                </form>
+                            </div>
+                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>$149.00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <aside class="cart-summary col-xs-12 col-md-12 col-lg-3">
+                <table class="cart-summary--table">
+                    <thead class="cart-summary--table-head">
+                    <th colspan="2">
+                        <h2 class="cart-summary--title row">Order Summary</h2>
+                    </th>
+                    </thead>
+                    <tbody class="cart-summary--table-body">
+                    <tr class="cart-summary--table-row">
+                        <td class="cart-summary--table-col" scope="row">Items</td>
+                        <td class="cart-summary--table-col">$256.00</td>
+                    </tr>
+                    <tr class="cart-summary--table-row">
+                        <td class="cart-summary--table-col" scope="row">Shipping</td>
+                        <td class="cart-summary--table-col">$6.99</td>
+                    </tr>
+                    <tr class="cart-summary--table-row">
+                        <td class="cart-summary--table-col" scope="row">Estimated Tax</td>
+                        <td class="cart-summary--table-col">$22.00</td>
+                    </tr>
+                    </tbody>
+                    <tfoot class="cart-summary--table-foot">
+                    <tr class="cart-summary--table-row">
+                        <td class="cart-summary--table-col" scope="row">
+                            <div>Estimated Order Total</div>
+                        </td>
+                        <td class="cart-summary--table-col">
+                            <div>
+                                <span class="cart-summary--table-total">$284.99</span>
+                                <span class="cart-summary--table-currency">USD</span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <section class="cart-summary--fields">
+                    <section class="cart-summary--promo-code">
+                        <form class="cart-summary--promo-code-form">
+                            <label class="cart-summary--promo-code-label" for="promocode">Add a Promotion Code</label>
+                            <div class="cart-summary--promo-code-wrapper">
+                                <input class="cart-summary--promo-code-input" type="text" placeholder="Enter code" id="promocode"></input>
+                                <button class="cart-summary--promo-code-submit btn" type="submit">Apply</button>
+                            </div>
+                        </form>
+                    </section>
+                    <section class="cart-summary--order-actions">
+                        <a class="btn cart-summary--order-action" href="@Url.ContentUrl(Model.StartPage.CheckoutPage)">Checkout</a>
+                        <a class="btn cart-summary--order-action" href="@Model.ContinueShoppingUrl">Continue Shopping</a>
+                    </section>
+                </section>
+            </aside>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
