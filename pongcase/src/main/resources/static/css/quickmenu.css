@@ -1,0 +1,32 @@
+.quickmenu {
+    border: 2px solid black;
+    position: absolute;
+    width: 10%;
+    height: 100px;
+    top: 300px;
+    background-color: #f9fe86;
+    right: 0;
+    text-decoration-line: none;
+}
+
+
+.quick{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 30px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.quick>a{
+    color: black;
+}
+.quick:hover{
+    text-decoration: none;
+}
+a{
+    text-decoration-line: none;
+}
+ul{
+    list-style: none;
+}

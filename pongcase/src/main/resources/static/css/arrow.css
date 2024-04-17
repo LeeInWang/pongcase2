@@ -1,0 +1,11 @@
+#toTop{
+    position: fixed;
+    bottom: 30px;
+    display: none;
+    z-index: 9999;
+    right: 20px;
+
+}
+#toTop>img{
+    width: 30px;
+}
