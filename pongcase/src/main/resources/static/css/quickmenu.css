@@ -1,21 +1,50 @@
+/*@media (min-width:320px) and (max-width:767px) {*/
+/*    .quick{*/
+/*        padding: 10%;*/
+/*        font-weight: bold;*/
+/*        font-size: 0.3em;*/
+/*        text-align: center;*/
+/*    }*/
+/*}*/
+/*@media (min-width:768px) and (max-width:1023px) {*/
+/*    .quick{*/
+/*        padding: 10%;*/
+/*        font-weight: bold;*/
+/*        font-size: 0.5em;*/
+/*    }*/
+/*}*/
+/*@media (min-width:1024px){*/
+/*    .quick{*/
+/*        padding: 10%;*/
+/*        font-weight: bold;*/
+/*        font-size: 0.8em;*/
+/*    }*/
+/*}*/
 .quickmenu {
     border: 2px solid black;
     position: absolute;
-    width: 10%;
-    height: 100px;
+    width: auto;
+    max-width: 10%;
+    height: auto;
     top: 300px;
     background-color: #f9fe86;
     right: 0;
     text-decoration-line: none;
+    text-align: left; /* 수정 */
+    white-space: nowrap; /* 내용이 넘칠 때 줄 바꿈을 방지 */
+    overflow: hidden; /* 넘치는 컨텐츠를 숨김 */
+    padding: 20px; /* 텍스트와 박스의 여백 설정 */
 }
 
 
 .quick{
-    padding-top: 10px;
-    padding-bottom: 5px;
-    padding-right: 30px;
+    display: block;
+    padding: 10px;
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.8em;
+    vertical-align: middle; /* 텍스트를 수직으로 가운데로 정렬 */
+    text-align: left; /* 텍스트를 수평으로 가운데로 정렬 */
+    line-height: 1.4;
 }
 
 .quick>a{
@@ -29,4 +58,33 @@ a{
 }
 ul{
     list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.quick{
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .quickmenu {
+        /* 테블릿에 대한 스타일 설정 */
+        max-width: 60%;
+        top: 200px;
+    }
+
+    .quick {
+        font-size: 0.7em; /* 테블릿에 대한 폰트 크기 축소 */
+    }
+}
+
+/* 모바일에 대한 스타일 */
+@media only screen and (max-width: 480px) {
+    .quickmenu {
+        /* 모바일에 대한 스타일 설정 */
+        display: none;
+    }
+
+    .quick {
+        display: none;
+    }
 }

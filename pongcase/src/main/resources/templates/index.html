@@ -22,11 +22,13 @@
     <div class="quickmenu">
         <ul>
             <li class="quick"><a th:href="@{/order}">공지사항</a></li>
+        </ul>
+        <ul>
             <li class="quick"><a th:href="@{/faq}">FAQ</a></li>
         </ul>
     </div>
     <div class="arrow">
-        <a id="toTop" href="#"><img src="../static/memberproductimg/arrow-up-circle-fill.svg" title="위로 가기"></a>
+        <a id="toTop" href="#"><img th:src="@{/memberproductimg/arrow-up-circle-fill.svg}" title="위로 가기"></a>
     </div>
 
     <script src="/js/quickmenu.js"></script>
