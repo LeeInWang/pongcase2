@@ -1,12 +1,117 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Member Product Page</title>
+
+    <style>
+        @font-face {
+            font-family: 'SOYOMapleBoldTTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+            font-weight: 700; // weight 조절 400 얇은 글씨, 700 굵은 글씨
+            font-style: normal;
+        } /* 폰트 */
+
+        /*.wrap {*/
+        /*    width: 100%;*/
+        /*}*/
+
+        .productArea {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 기본적으로 3개의 상품을 나란히 배치 */
+            gap: 20px; /* 상품 사이의 간격 */
+            font-family: 'SOYOMapleBoldTTF';
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        .productItem {
+            border: 1px solid #ccc; /* 상품 테두리 */
+            border-radius: 10px; /* 상품 모서리 둥글게 */
+            overflow: hidden; /* 내용이 상자 밖으로 넘어가지 않도록 처리 */
+            margin-right: 30px;
+        }
+
+        .productImg {
+            width: 100%; /* 이미지가 상품 상자 크기에 맞게 조절되도록 */
+            height: auto; /* 이미지 비율 유지 */
+        }
+
+        .productName, .productPrice {
+            padding: 10px; /* 이름과 가격 주변 여백 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
+
+        .productName {
+            font-family: 'SOYOMapleBoldTTF';
+            font-size: 18px; /* 제품명 폰트 사이즈 */
+            font-weight: bold; /* 제품명 두께 */
+        }
+
+        .productPrice {
+            font-family: 'SOYOMapleBoldTTF';
+            color: #007BFF; /* 가격 색상 */
+            font-size: 12px; /* 가격 폰트 사이즈 */
+        }
+
+        /* 태블릿 화면 크기에 대응하는 미디어 쿼리 */
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            .productArea {
+                grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2개의 상품을 나란히 배치 */
+            }
+        }
+    </style>
 </head>
+
 <body>
+<div class="wrap">
+<!-- 헤더부분 -->
+<div layout:replace="content" class="content">
+    <form action="/products/proList" method="get" role="form">
+        <div class="productArea">
+            <!-- JPA로부터 productName과 productPrice를 받아와서 렌더링 -->
+            <div class="productItem" th:each="product : ${products}">
+                <img th:src="${product.imageUrl}" th:alt="${product.name}" class="productImg">
+                <div class="productName" th:text="${product.name}">인기 젤리케이스~!</div>
+                <div class="productPrice" th:text="${product.price}">10000</div>
+            </div>
+
+
+        <!-- 상품 3개를 렌더링 -->
+        <div class="productItem">
+            <img th:src="2번상품이미지경로.jpg" th:alt="Product 2 Name" class="productImg">
+            <div class="productName">튼튼 젤리케이스~!</div>
+            <div class="productPrice">4000</div>
+        </div>
+        <div class="productItem">
+            <img th:src="3번상품이미지경로.jpg" th:alt="Product 3 Name" class="productImg">
+            <div class="productName">가죽 젤리케이스~</div>
+            <div class="productPrice">5000</div>
+        </div>
+        <div class="productItem">
+            <img th:src="4번상품이미지경로.jpg" th:alt="Product 4 Name" class="productImg">
+            <div class="productName">하드 젤리케이스!~</div>
+            <div class="productPrice">3000</div>
+        </div>
+            <div class="productItem">
+                <img th:src="5번상품이미지경로.jpg" th:alt="Product 5 Name" class="productImg">
+                <div class="productName">하드 젤리케이스!~</div>
+                <div class="productPrice">100000</div>
+            </div>
+            <div class="productItem">
+                <img th:src="6번상품이미지경로.jpg" th:alt="Product 6 Name" class="productImg">
+                <div class="productName">패턴 젤리케이스!~</div>
+                <div class="productPrice">70000</div>
+            </div>
+        </div>
+
+
+</form>
+</div>
+</div>
 
 </body>
 </html>
