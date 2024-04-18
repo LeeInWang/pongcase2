@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/phongcase.iml" filepath="$PROJECT_DIR$/.idea/phongcase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pongcase2.iml" filepath="$PROJECT_DIR$/.idea/pongcase2.iml" />
       <module fileurl="file://$PROJECT_DIR$/pongcase/pong.iml" filepath="$PROJECT_DIR$/pongcase/pong.iml" />
     </modules>
   </component>
