@@ -1,0 +1,43 @@
+body{
+    color: navy;
+}
+.wrap{
+    margin-top: 150px;
+    width: 100%;
+    height: 80%;
+
+}
+
+.th2, .td2{
+    text-align: center;
+}
+#tableheader{
+    background-color: #F7CAC9;
+}
+#tablebody{
+    background-color: #F6F4FC;
+}
+#bordertable{
+    width: 100%;
+}
+th, td{
+    text-align: center;
+    color: navy;
+}
+td{
+    border-top: none; /* 위쪽 선 없애기 */
+    border-bottom: none; /* 아랫선 없애기 */
+}
+.th1, .td1{
+    width:5%;
+    text-align: left;
+}
+.th2, .td2{
+    width:60%
+}
+.th3, .td3{
+    width:10%
+}
+.th4, .td4{
+    width:10%
+}
