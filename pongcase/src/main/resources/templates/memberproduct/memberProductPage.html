@@ -1,12 +1,172 @@
+<!-- memberProductPage + 상품이미지만 -->
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <title>Member Product Page</title>
+
+    <style>
+        /* 폰트 */
+        @font-face {
+            font-family: 'SOYOMapleBoldTTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+            font-style: normal; /* weight 조절 400 얇은 글씨, 700 굵은 글씨 */
+        }
+
+        @font-face {
+            font-family: 'omyu_pretty';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 모바일~태블릿 */
+        @media (min-width: 480px) and (max-width: 767px) {
+            .navLogo {
+                font-size: 1rem; /* 제목 크기를 줄임 */
+            }
+
+            .navIcon button {
+                font-size: 1rem; /* 아이콘 크기를 줄임 */
+            }
+
+            .navbar {
+                font-size: 1rem; /* 아이콘 크기를\ 줄임 */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar .searchNav {
+                float: none;
+            }
+
+            .navbar a, .navbar input[type=text], .navbar {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .navbar input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        /* 상품 */
+        .productArea {
+            display: flex;
+            flex-wrap: wrap; /* 요소들을 여러 줄에 걸쳐 표시 */
+            grid-template-columns: repeat(3, 1fr); /* 기본적으로 3개의 상품을 나란히 배치 */
+            justify-content: space-around;
+            /*gap: 20px; !* 상품 사이의 간격 *!*/
+            font-family: 'SOYOMapleBoldTTF';
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 100px;
+            height: 150px;
+        }
+
+        .productItem {
+            width: calc(33.33% - 60px); /* 가로 공간을 3등분하여 각 박스의 크기를 설정합니다. */
+            margin-bottom: 20px; /* 아래 여백을 설정합니다. */
+            background-color: #f0f0f0; /* 박스 배경색을 설정합니다. */
+            box-sizing: border-box; /* 내부 여백과 테두리를 포함하여 요소의 크기를 계산합니다. */
+            padding: 30px;
+            border: 1px solid #FFC0CB; /* 상품 테두리 핑크 */
+            border-radius: 20px; /* 상품 모서리 둥글게 */
+            background-color: transparent;
+            /*overflow: hidden; !* 내용이 상자 밖으로 넘어가지 않도록 처리 *!*/
+            /*margin-right: 30px;*/
+            /*padding-bottom: 20px;*/
+        }
+
+        .productImg {
+            border-radius: 20px; /* 상품 모서리 둥글게 */
+            max-width: 100%; /* 이미지가 부모 요소의 최대 너비를 따라가도록 설정합니다. */
+            height: auto; /* 이미지의 높이를 자동으로 조정하여 가로세로 비율을 유지합니다. */
+        }
+
+        .productName, .productPrice {
+            padding: 10px; /* 이름과 가격 주변 여백 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
+
+        .productName {
+            font-family: 'SOYOMapleBoldTTF';
+            font-size: 18px; /* 제품명 폰트 사이즈 */
+            font-weight: bold; /* 제품명 두께 */
+            margin-top: 10px;
+        }
+
+        .productPrice {
+            font-family: 'SOYOMapleBoldTTF';
+            color: #87CEEB; /* 가격 청록 */
+            font-size: 12px; /* 가격 폰트 사이즈 */
+
+        }
+
+        /* 태블릿 화면 크기에 대응하는 미디어 쿼리 */
+        @media screen and (min-width: 480px) and (max-width: 1023px) {
+            .productArea {
+                grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2개의 상품을 나란히 배치 */
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+<!-- 상품 -->
+<div class="proWrap">
+
+    <form action="/products/proList" method="get" role="form">
+        <div class="productArea">
+            <!-- JPA로부터 productName과 productPrice를 받아와서 렌더링 -->
+            <div class="productItem" th:each="product : ${products}">
+                <!--                <img th:src="${product.imageUrl}" th:alt="${product.name}" class="productImg">-->
+                <img src="/static/memberproductimg/jelly11.jpeg" class="productImg" style="border-radius: 20px;">
+                <div class="productName" th:text="${product.name}">(젤리) 기본 젤리 케이스</div>
+                <div class="productPrice" th:text="${product.price}">5000</div>
+            </div>
+
+
+            <!-- 상품 3개를 렌더링 -->
+            <div class="productItem">
+                <!--                    <img th:src="../static/memberproductimg/img_mountains_wide.jpg" th:alt="Product_2_Name" class="productImg">-->
+                <img src="/static/memberproductimg/basiccaseBeige.jpeg" class="productImg">
+                <div class="productName">(하드) 기본 베이지 케이스</div>
+                <div class="productPrice">10000</div>
+            </div>
+            <div class="productItem">
+                <img src="/static/memberproductimg/basiccaseMint.jpeg" alt="Product_3_Name" class="productImg">
+                <div class="productName">(하드) 기본 민트 케이스</div>
+                <div class="productPrice">15000</div>
+            </div>
+            <div class="productItem">
+                <img src="/static/memberproductimg/basiccaseRed.jpeg" alt="Product_4_Name" class="productImg">
+                <div class="productName">(하드) 기본 레드 케이스</div>
+                <div class="productPrice">15000</div>
+            </div>
+            <div class="productItem">
+                <img src="/static/memberproductimg/basiccaseNavy.jpeg" alt="Product_5_Name" class="productImg">
+                <div class="productName">(하드) 기본 네이비 케이스</div>
+                <div class="productPrice">15000</div>
+            </div>
+            <div class="productItem">
+                <img src="/static/memberproductimg/basiccaseBlack.jpeg" alt="Product_6_Name" class="productImg">
+                <div class="productName">(하드) 기본 블랙 케이스</div>
+                <div class="productPrice">15000</div>
+            </div>
+        </div>
+
+    </form>
+</div>
 </body>
 </html>

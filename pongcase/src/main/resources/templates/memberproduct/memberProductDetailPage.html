@@ -1,117 +1,495 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout}">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Product Page</title>
-
-    <style>
-        @font-face {
-            font-family: 'SOYOMapleBoldTTF';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
-            font-weight: 700; // weight 조절 400 얇은 글씨, 700 굵은 글씨
-            font-style: normal;
-        } /* 폰트 */
-
-        /*.wrap {*/
-        /*    width: 100%;*/
-        /*}*/
-
-        .productArea {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 기본적으로 3개의 상품을 나란히 배치 */
-            gap: 20px; /* 상품 사이의 간격 */
-            font-family: 'SOYOMapleBoldTTF';
-            margin-left: 200px;
-            margin-right: 200px;
-        }
-
-        .productItem {
-            border: 1px solid #ccc; /* 상품 테두리 */
-            border-radius: 10px; /* 상품 모서리 둥글게 */
-            overflow: hidden; /* 내용이 상자 밖으로 넘어가지 않도록 처리 */
-            margin-right: 30px;
-        }
-
-        .productImg {
-            width: 100%; /* 이미지가 상품 상자 크기에 맞게 조절되도록 */
-            height: auto; /* 이미지 비율 유지 */
-        }
-
-        .productName, .productPrice {
-            padding: 10px; /* 이름과 가격 주변 여백 */
-            text-align: center; /* 텍스트 중앙 정렬 */
-        }
-
-        .productName {
-            font-family: 'SOYOMapleBoldTTF';
-            font-size: 18px; /* 제품명 폰트 사이즈 */
-            font-weight: bold; /* 제품명 두께 */
-        }
-
-        .productPrice {
-            font-family: 'SOYOMapleBoldTTF';
-            color: #007BFF; /* 가격 색상 */
-            font-size: 12px; /* 가격 폰트 사이즈 */
-        }
-
-        /* 태블릿 화면 크기에 대응하는 미디어 쿼리 */
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-            .productArea {
-                grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2개의 상품을 나란히 배치 */
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 </head>
+<style>
+    /* 폰트 */
+    @font-face {
+        font-family: 'SOYOMapleBoldTTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+        font-style: normal; /* weight 조절 400 얇은 글씨, 700 굵은 글씨 */
+    }
+
+    @font-face {
+        font-family: 'omyu_pretty';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* 모바일~태블릿 */
+    @media (min-width: 480px) and (max-width: 767px) {
+        .navLogo {
+            font-size: 1rem; /* 제목 크기를 줄임 */
+        }
+
+        .navIcon button {
+            font-size: 1rem; /* 아이콘 크기를 줄임 */
+        }
+
+        .navbar {
+            font-size: 1rem; /* 아이콘 크기를\ 줄임 */
+            background-color: #f0f8ff; /* 앨리스 블루 */
+        }
+
+        .product-content {
+            margin-left: 10px;
+        }
+    }
+
+
+    @media (max-width: 767px) {
+        .navbar .searchNav {
+            float: none;
+        }
+
+        .navbar a, .navbar input[type=text], .navbar {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+
+        .navbar input[type=text] {
+            border: 1px solid #ccc;
+        }
+    }
+
+    /* 상품 디테일 */
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: 'omyu_pretty';
+        background-color: #F6F4FC;
+    }
+
+    body {
+        line-height: 1.5;
+    }
+    .card {
+        margin-bottom: 100px;
+    }
+    .card-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        padding-bottom: 50px;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    .img-showcase {
+        display: flex;
+        width: 100%;
+        transition: all 0.5s ease;
+    }
+
+    .img-showcase img {
+        min-width: 100%;
+    }
+
+    .img-select {
+        display: flex;
+    }
+
+    .img-item {
+        margin: 0.35rem;
+    }
+
+    .img-item:nth-child(1),
+    .img-item:nth-child(2),
+    .img-item:nth-child(3) {
+        margin-right: 0;
+    }
+
+    .img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover, #social-links4:hover {
+        opacity: 0.8;
+    }
+
+    .product-title {
+        font-size: 45px;
+        font-weight: bold;
+        position: relative;
+        color: navy;
+    }
+
+    hr {
+        width: 500px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .hr2 {
+        width: 500px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .hr3 {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .imgContent {
+        max-width: 1100px;
+        margin: auto;
+        margin-top: 50px;
+        display: block;
+
+    }
+
+    .product-content {
+        width: 100%;
+        margin-left: 50px;
+        margin-bottom: 50px;
+    }
+
+    .product-detail {
+        display: flex;
+    }
+
+    .product-detail > h2, .product-detail > p {
+        justify-content: space-between;
+    }
+
+    .product-detail > p {
+        margin-left: 70px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+
+    .last-price, .new-price, .product-detail > h2, .product-code2, .purchase-info1, .form-select1, .form-select2, .product-option, .product-option {
+        font-size: 40px;
+        line-height: 50px;
+        font-weight: normal;
+    }
+
+    .last-price span, .new-price span, .product-code2 span, .form-select1, .form-select2 {
+        margin-left: 70px;
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+    #galaxy-options, #iphone-options {
+        font-size: 25px;
+        line-height: 50px;
+        border: 1.5px solid #ddd;
+    }
+
+    .purchase-info2 {
+        width: auto;
+        margin-left: 130px;
+        font-size: 35px;
+        line-height: 50px;
+        border-radius: 10px;
+    }
+
+    .last-price span {
+        color: #f64749;
+        text-decoration: line-through;
+    }
+
+    .new-price span {
+        color: #256eff;
+    }
+
+    .purchase-info input,
+    .purchase-info .btn {
+        font-size: 30px;
+        border: 1.5px solid #ddd;
+        border-radius: 10px;
+        text-align: center;
+        width: 105px;
+        outline: 0;
+        margin-right: 0.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .purchase-info {
+        opacity: 0.9;
+    }
+
+    .purchase-info, .product-option {
+        display: flex;
+    }
+
+    .purchase-info1, .purchase-info2 {
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+
+    .form-select1, .form-select2 {
+        margin-left: 130px;
+        justify-content: space-between;
+        border-radius: 10px;
+        border: 1.5px solid #ddd;
+    }
+
+    .btn {
+        margin-right: 40px;
+        font-size: 40px;
+        color: navy;
+        background-color: #F8C8C4;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 10px;
+    }
+
+    .btn:hover {
+        background-color: #F0F8FF;
+        color: navy;
+    }
+
+    .social-links {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        font-size: 25px;
+        border-radius: 10px;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        color: navy;
+        /*border: 1px solid #000;*/
+        margin: 0 0.2rem;
+        margin-left: 20px;
+        border-style: hidden;
+        /*border-radius: 50%;*/
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.5s ease;
+    }
+
+    .form-select2 {
+        display: none;
+    }
+
+    #galaxy-options, #iphone-options {
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+
+    @media screen and (min-width: 992px) {
+        .card {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1.5rem;
+        }
+
+        .card-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-imgs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-content {
+            padding-top: 0;
+        }
+    }
+</style>
 
 <body>
-<div class="wrap">
-<!-- 헤더부분 -->
-<div layout:replace="content" class="content">
-    <form action="/products/proList" method="get" role="form">
-        <div class="productArea">
-            <!-- JPA로부터 productName과 productPrice를 받아와서 렌더링 -->
-            <div class="productItem" th:each="product : ${products}">
-                <img th:src="${product.imageUrl}" th:alt="${product.name}" class="productImg">
-                <div class="productName" th:text="${product.name}">인기 젤리케이스~!</div>
-                <div class="productPrice" th:text="${product.price}">10000</div>
+<div class="card-wrapper">
+    <div class="card">
+        <!-- card left -->
+        <div class="product-imgs">
+            <!-- 1. 큰 이미지 -->
+            <div class="img-showcase">
+                <img src="/static/memberproductimg/jelly1.jpeg" alt="">
             </div>
-
-
-        <!-- 상품 3개를 렌더링 -->
-        <div class="productItem">
-            <img th:src="2번상품이미지경로.jpg" th:alt="Product 2 Name" class="productImg">
-            <div class="productName">튼튼 젤리케이스~!</div>
-            <div class="productPrice">4000</div>
-        </div>
-        <div class="productItem">
-            <img th:src="3번상품이미지경로.jpg" th:alt="Product 3 Name" class="productImg">
-            <div class="productName">가죽 젤리케이스~</div>
-            <div class="productPrice">5000</div>
-        </div>
-        <div class="productItem">
-            <img th:src="4번상품이미지경로.jpg" th:alt="Product 4 Name" class="productImg">
-            <div class="productName">하드 젤리케이스!~</div>
-            <div class="productPrice">3000</div>
-        </div>
-            <div class="productItem">
-                <img th:src="5번상품이미지경로.jpg" th:alt="Product 5 Name" class="productImg">
-                <div class="productName">하드 젤리케이스!~</div>
-                <div class="productPrice">100000</div>
-            </div>
-            <div class="productItem">
-                <img th:src="6번상품이미지경로.jpg" th:alt="Product 6 Name" class="productImg">
-                <div class="productName">패턴 젤리케이스!~</div>
-                <div class="productPrice">70000</div>
+            <!-- 2. 상세 이미지 -->
+            <div class="img-select">
+                <div class="img-item">
+                    <a href="#" data-id="1">
+                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="2">
+                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="3">
+                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="4">
+                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
+                    </a>
+                </div>
             </div>
         </div>
+        <!-- card right -->
+        <div class="product-content">
+            <h2 class="product-title">(젤리) 기본 케이스 </h2>
+            <hr>
 
+            <h2 class="product-price">
+                <p class="last-price">정상가격: <span>20000</span></p>
+                <p class="new-price">할인가격: <span>15000 (25%)</span></p>
+            </h2>
 
-</form>
+            <h2 class="product-code1">
+                <p class="product-code2">상품코드: <span>H-2404-001</span></p>
+            </h2>
+
+            <div class="product-detail">
+                <h2 class="product-detail1">상세설명:</h2>
+                <p class="product-detail2"> 깔끔한 디자인과 탁월한 보호 기능!<br>변색 걱정 없는 케이스!<br>색상별로 있습니다~</p>
+            </div>
+
+            <div class="product-option">기종:
+                <select class="form-select1" id="first-option"> <!-- 1차옵션 -->
+                    <option value="아이폰">아이폰</option>
+                    <option value="갤럭시">갤럭시</option>
+                </select>
+
+                <select class="form-select2" id="iphone-options"> <!-- 2차옵션-아이폰 -->
+                    <option>12 mini</option>
+                    <option>12 / 12 Pro</option>
+                    <option>12 Pro Max</option>
+                    <option>13 mini</option>
+                    <option>13</option>
+                    <option>13 Pro</option>
+                    <option>13 Pro Max</option>
+                    <option>14</option>
+                    <option>14 플러스</option>
+                    <option>14 Pro</option>
+                    <option>14 Pro Max</option>
+                    <option>15</option>
+                    <option>15 플러스</option>
+                    <option>15 Pro</option>
+                    <option>15 Pro Max</option>
+                </select>
+
+                <select class="form-select2" id="galaxy-options"> <!-- 2차옵션-갤럭시 -->
+                    <option>갤럭시S 21</option>
+                    <option>갤럭시S 21 플러스</option>
+                    <option>갤럭시S 21 울트라</option>
+                    <option>갤럭시S 22</option>
+                    <option>갤럭시S 22 플러스</option>
+                    <option>갤럭시S 22 울트라</option>
+                    <option>갤럭시S 23</option>
+                    <option>갤럭시S 23 플러스</option>
+                    <option>갤럭시S 23 울트라</option>
+                    <option>갤럭시S 24</option>
+                    <option>갤럭시S 24 플러스</option>
+                    <option>갤럭시S 24 울트라</option>
+                    <option>노트20</option>
+                    <option>노트20 울트라</option>
+                </select>
+            </div>
+            <div class="purchase-info">
+                <p class="purchase-info1">수량: </p>
+                <input class="purchase-info2" type="number" min="0" value="1">
+            </div>
+
+            <div class="social-links">
+                <p style="font-size: 35px; margin-right: 35px;">Share At: </p>
+
+                <a href="javascript:sendNaverLine();">
+                    <img id="social-links1" src="/static/memberproductimg/LineIcon.png" alt="네이버라인"/>
+                </a>
+
+                <a href="#">
+                    <img id="social-links2" src="/static/memberproductimg/facebookIcon.png" alt="페이스북"/>
+                </a>
+
+                <a href="#">
+                    <img id="social-links3" src="/static/memberproductimg/InstagramIcon.png" alt="인스타그램"/>
+                </a>
+
+                <a href="#">
+                    <img id="social-links4" src="/static/memberproductimg/kakaoIcon.png" alt="카카오톡"/>
+                </a>
+
+            </div>
+            <hr class="hr2">
+            <button type="button" class="btn">
+                장바구니 담기 <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button type="button" class="btn">구매하기</button>
+        </div>
+    </div>
+
 </div>
+<hr class="hr3">
+<div class="imgContent">
+    <img src="/static/memberproductimg/jelly1.jpeg" alt="Jelly">
+</div>
+<div class="imgContent">
+    <img src="/static/memberproductimg/purple.jpeg" alt="Purple">
+</div>
+<div class="imgContent">
+    <img src="/static/memberproductimg/heart.jpeg" alt="Heart">
+</div>
+<div class="imgContent">
+    <img src="/static/memberproductimg/moon.jpeg" alt="Moon">
 </div>
 
 </body>
+<script>
+    window.onload = function () {
+        // 1차 옵션 선택 시
+        document.getElementById('first-option').addEventListener('change', function () {
+            var selectedOption = this.value
+            var iphoneOptions = document.getElementById('iphone-options');
+            var galaxyOptions = document.getElementById('galaxy-options');
+
+            // 아이폰을 선택한 경우
+            if (selectedOption.toLowerCase() === '아이폰') {
+                iphoneOptions.classList.remove('form-select2');
+                galaxyOptions.classList.add('form-select2');
+            }
+            // 갤럭시를 선택한 경우
+            else if (selectedOption.toLowerCase() === '갤럭시') {
+                iphoneOptions.classList.add('form-select2');
+                galaxyOptions.classList.remove('form-select2');
+            }
+            // 기본 선택(선택 안 함)인 경우
+            else {
+                iphoneOptions.classList.add('form-select2');
+                galaxyOptions.classList.add('form-select2');
+            }
+        });
+    };
+
+    //share sns API
+    //Line
+    var sns_title = "퐁케이스";
+    var sns_br = "\n";
+    var sns_summary = "핸드폰 쇼핑몰 퐁케이스~!"
+    var sns_br = "\n";
+    var sns_img = "/static/memberproductimg/shareimg.jpg";
+    var link = "http://localhost:8080/";
+    var url = "http://line.me/R/msg/text/?" + encodeURIComponent(sns_title + sns_br + sns_summary + sns_br + sns_link);
+
+</script>
 </html>

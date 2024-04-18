@@ -12,4 +12,9 @@ public class MainController {
     public String order(Model model){
         return "index";
     }
+    @GetMapping("/quick")
+    public String quick(Model model){return  "fragments/quickmenu";}
+
+    @GetMapping("/arrow")
+    public String arrow(Model model){return  "fragments/arrow";}
 }

@@ -14,3 +14,4 @@ $(window).scroll(function() {
     }, 80);
 
 });
+
