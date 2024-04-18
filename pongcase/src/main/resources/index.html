@@ -105,7 +105,10 @@
             font-family: 'SOYOMapleBoldTTF';
         }
         /* 태블릿 */
-        @media screen and (min-width: 481px) and (max-width: 767px) {
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            h1 {
+                font-size: 1.5rem; /* 제목 크기를 크게 조정 */
+            }
             .header {
                 height: 10%;
             }
@@ -168,13 +171,6 @@
             .menu-item {
                 padding: 10px;
                 border-bottom: 1px solid #CCC; /* 메뉴 항목 구분선 */
-            }
-            /* 너비 최대: 1023px */
-            @media (min-width: 768px) and (max-width: 1023px) {
-                h1 {
-                    font-size: 1.5rem; /* 제목 크기를 크게 조정 */
-                }
-
             }
         }
     </style>
