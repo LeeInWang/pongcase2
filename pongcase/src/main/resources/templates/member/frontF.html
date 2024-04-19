@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    
+    
+    
+    
+    <style>
+        /* CSS 리셋 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*
+        1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
+        2. 테블릿 가로 : 768px ~ 1023px
+        3. 모바일 가로, 태블릿 : 480px ~ 767px
+        4. 모바일 : ~ 480px
+         */
+        
+        
+        /* 반응형 스타일 */
+        @media screen and (min-width: 1024px) {
+
+            .navHeader{
+                display: none;
+            }
+
+        }
+        
+
+        /* 반응형 스타일 */
+        @media screen and (min-width: 768px) {
+
+            .navHeader{
+                display: none;
+            }
+
+        }
+
+
+
+        /* 반응형 스타일 */
+        @media screen and (max-width: 480px) {  /* 3. 모바일 가로, 태블릿 : 480px ~ 767px	 4. 모바일 : ~ 480px	*/
+            nav ul li {
+                text-align: center;
+            }
+
+            /* 네비게이션 바 스타일 */
+            nav {
+                background-color: #333;
+                display: flex; /*1) 수직 설정*/
+                flex-direction: column; /* 1)수직 설정*/
+                color: white;
+            }
+
+            /* header */
+            .divMenuLogo, .divloginLogoutMyInfoShoppingBasket, .divSearch{
+                display: flex; /*2) 수평 설정(부모)*/
+                text-align: center;
+                padding: 14px 16px;
+            }
+
+            /* 메뉴 오른쪽 */
+            .menu{
+                margin-left: auto; /*2) 수평 설정(자식)*/
+            }
+
+            /* 로그인, 내정보, 장바구니*/
+            .divloginLogoutMyInfoShoppingBasket{
+                justify-content: space-between; /* 좌우 간격조절(부모)*/
+            }
+
+            /* 로그인, 내정보, 장바구니*/
+            .divloginLogoutMyInfoShoppingBasket > div {
+                flex: 1;  /* 좌우 간격조절*/
+                text-align: center; /* 좌우 간격조절*/
+                padding: 10px;/* 좌우 간격조절*/
+
+            }
+
+
+            body {
+                font-family: 'Lato', sans-serif;
+            }
+
+            .overlay {
+                height: 0%;
+                width: 100%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0, 0.9);
+                overflow-y: hidden;
+                transition: 0.5s;
+            }
+
+            .overlay-content {
+                position: relative;
+                top: 25%;
+                width: 100%;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .overlay a {
+                padding: 8px;
+                text-decoration: none;
+                font-size: 36px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .overlay a:hover, .overlay a:focus {
+                color: #f1f1f1;
+            }
+
+            .overlay .closebtn {
+                position: absolute;
+                top: 20px;
+                right: 45px;
+                font-size: 60px;
+            }
+
+            @media screen and (max-height: 450px) {
+                .overlay {overflow-y: auto;}
+                .overlay a {font-size: 20px}
+                .overlay .closebtn {
+                    font-size: 40px;
+                    top: 15px;
+                    right: 35px;
+                }
+            }
+            
+
+        }
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+
+
+<nav class="navHeader">
+    <ul>
+        
+        <div class="divMenuLogo">
+            <div class="logo">로고</div>
+            <div class="menu"> <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span></div>
+        </div>
+        
+        <div class="divloginLogoutMyInfoShoppingBasket">
+            <div class="loginLogout">로그인</div>
+            <div class="myInfo">내정보</div>
+            <div class="shoppingBasket ">장바구니</div>
+        </div>
+        
+        <div class="divSearch">
+            <div class="Search">검색</div>
+        </div>
+    
+    </ul>
+</nav>
+
+
+
+
+
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <a href="#">하드케이스</a>
+        <a href="#">젤리케이스</a>
+        <a href="#">카드수납케이스</a>
+        <a href="#">투명케이스</a>
+        <a href="#">Z-플립케이스</a>
+    </div>
+</div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
