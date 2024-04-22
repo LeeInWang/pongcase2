@@ -1,0 +1,93 @@
+/* 모바일~태블릿 */
+@media (min-width: 480px) and (max-width: 767px) {
+    .navLogo {
+        font-size: 1rem; /* 제목 크기를 줄임 */
+    }
+
+    .navIcon button {
+        font-size: 1rem; /* 아이콘 크기를 줄임 */
+    }
+
+    .navbar {
+        font-size: 1rem; /* 아이콘 크기를\ 줄임 */
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar .searchNav {
+        float: none;
+    }
+
+    .navbar a, .navbar input[type=text], .navbar {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+
+    .navbar input[type=text] {
+        border: 1px solid #ccc;
+    }
+}
+
+/* 상품 */
+.productArea {
+    display: flex;
+    flex-wrap: wrap; /* 요소들을 여러 줄에 걸쳐 표시 */
+    grid-template-columns: repeat(3, 1fr); /* 기본적으로 3개의 상품을 나란히 배치 */
+    justify-content: space-around;
+    /*gap: 20px; !* 상품 사이의 간격 *!*/
+    font-family: 'SOYOMapleBoldTTF';
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 100px;
+    height: 150px;
+}
+
+.productItem {
+    width: calc(33.33% - 60px); /* 가로 공간을 3등분하여 각 박스의 크기를 설정합니다. */
+    margin-bottom: 20px; /* 아래 여백을 설정합니다. */
+    background-color: #f0f0f0; /* 박스 배경색을 설정합니다. */
+    box-sizing: border-box; /* 내부 여백과 테두리를 포함하여 요소의 크기를 계산합니다. */
+    padding: 30px;
+    border: 1px solid #FFC0CB; /* 상품 테두리 핑크 */
+    border-radius: 20px; /* 상품 모서리 둥글게 */
+    background-color: transparent;
+    /*overflow: hidden; !* 내용이 상자 밖으로 넘어가지 않도록 처리 *!*/
+    /*margin-right: 30px;*/
+    /*padding-bottom: 20px;*/
+}
+
+.productImg {
+    border-radius: 20px; /* 상품 모서리 둥글게 */
+    max-width: 100%; /* 이미지가 부모 요소의 최대 너비를 따라가도록 설정합니다. */
+    height: auto; /* 이미지의 높이를 자동으로 조정하여 가로세로 비율을 유지합니다. */
+}
+
+.productName, .productPrice {
+    padding: 10px; /* 이름과 가격 주변 여백 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.productName {
+    font-family: 'SOYOMapleBoldTTF';
+    font-size: 30px; /* 제품명 폰트 사이즈 */
+    font-weight: bold; /* 제품명 두께 */
+    margin-top: 10px;
+}
+
+.productPrice {
+    font-family: 'SOYOMapleBoldTTF';
+    color: #87CEEB; /* 가격 청록 */
+    font-size: 30px; /* 가격 폰트 사이즈 */
+
+}
+
+/* 태블릿 화면 크기에 대응하는 미디어 쿼리 */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+    .productArea {
+        grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2개의 상품을 나란히 배치 */
+    }
+}

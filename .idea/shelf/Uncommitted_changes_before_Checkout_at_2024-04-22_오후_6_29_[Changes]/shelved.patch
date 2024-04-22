@@ -1,0 +1,1334 @@
+Index: pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\" xmlns:th=\"http://www.thymeleaf.org\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html b/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html
+--- a/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html	(revision 56ff8553c5df02ed758d536ba8cae67c0a3dab35)
++++ b/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html	(date 1713777736564)
+@@ -1,12 +1,505 @@
+ <!DOCTYPE html>
+-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
++<html lang="ko" xmlns:th="http://www.thymeleaf.org"
++      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+ 
+ <head>
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Title</title>
++    <meta name="viewport" content="width=device-width, initial-scale=1">
++    <link rel="stylesheet"
++          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
++    <link rel="/static/css/memberProductDetailPage.css" href="stylesheet" />
++    <link rel="/static/css/font.css" href="stylesheet" />
+ </head>
++<style>
++    @font-face {
++        font-family: 'omyu_pretty';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
++        font-weight: 1000;
++        font-style: normal;
++    }
++    @font-face {
++        font-family: 'SOYOMapleBoldTTF';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
++        font-weight: 700;
++        font-style: normal;
++    }
++    @font-face {
++        font-family: 'SOYOMapleBoldTTF';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
++        font-weight: 400;
++        font-style: normal;
++    }
++
++    *{
++        font-family: 'SOYOMapleBoldTTF', 'omyu_pretty';
++    }
++
++    /* 모바일~태블릿 */
++    @media (min-width: 480px) and (max-width: 767px) {
++        .navLogo {
++            font-size: 1rem; /* 제목 크기를 줄임 */
++        }
++
++        .navIcon button {
++            font-size: 1rem; /* 아이콘 크기를 줄임 */
++        }
++
++        .navbar {
++            font-size: 1rem; /* 아이콘 크기를\ 줄임 */
++            background-color: #f0f8ff; /* 앨리스 블루 */
++        }
++
++        .product-content {
++            margin-left: 10px;
++        }
++    }
++
++
++    @media (max-width: 767px) {
++        .navbar .searchNav {
++            float: none;
++        }
++
++        .navbar a, .navbar input[type=text], .navbar {
++            float: none;
++            display: block;
++            text-align: left;
++            width: 100%;
++            margin: 0;
++            padding: 14px;
++        }
++
++        .navbar input[type=text] {
++            border: 1px solid #ccc;
++        }
++    }
++
++    /* 상품 디테일 */
++    * {
++        box-sizing: border-box;
++        padding: 0;
++        margin: 0;
++        font-family: 'omyu_pretty';
++        background-color: #F6F4FC;
++    }
++
++    body {
++        line-height: 1.5;
++    }
++    .card {
++        margin-bottom: 100px;
++    }
++    .card-wrapper {
++        max-width: 1100px;
++        margin: 0 auto;
++        display: flex;
++        padding-bottom: 50px;
++    }
++
++    img {
++        width: 100%;
++        display: block;
++    }
++
++    .img-showcase {
++        display: flex;
++        width: 100%;
++        transition: all 0.5s ease;
++    }
++
++    .img-showcase img {
++        min-width: 100%;
++    }
++
++    .img-select {
++        display: flex;
++    }
++
++    .img-item {
++        margin: 0.35rem;
++    }
++
++    .img-item:nth-child(1),
++    .img-item:nth-child(2),
++    .img-item:nth-child(3) {
++        margin-right: 0;
++    }
++
++    .img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover, #social-links4:hover {
++        opacity: 0.8;
++    }
++
++    .product-title {
++        font-size: 45px;
++        font-weight: bold;
++        position: relative;
++        color: navy;
++    }
++
++    hr {
++        width: 500px;
++        margin-top: 10px;
++        margin-bottom: 10px;
++    }
++
++    .hr2 {
++        width: 500px;
++        margin-top: 20px;
++        margin-bottom: 20px;
++    }
++
++    .hr3 {
++        width: 90%;
++        margin: 0 auto;
++    }
++
++    .imgContent {
++        max-width: 1100px;
++        margin: auto;
++        margin-top: 50px;
++        display: block;
++
++    }
++
++    .product-content {
++        width: 100%;
++        margin-left: 50px;
++        margin-bottom: 50px;
++    }
++
++    .product-detail {
++        display: flex;
++    }
++
++    .product-detail > h2, .product-detail > p {
++        justify-content: space-between;
++    }
++
++    .product-detail > p {
++        margin-left: 70px;
++        margin-top: 10px;
++        margin-bottom: 10px;
++        font-size: 25px;
++    }
++
++    .last-price, .new-price, .product-detail > h2, .product-code2, .purchase-info1, .form-select1, .form-select2, .product-option, .product-option {
++        font-size: 40px;
++        line-height: 50px;
++        font-weight: normal;
++    }
++
++    .last-price span, .new-price span, .product-code2 span, .form-select1, .form-select2 {
++        margin-left: 70px;
++        font-size: 35px;
++        line-height: 50px;
++    }
++
++    #galaxy-options, #iphone-options {
++        font-size: 25px;
++        line-height: 50px;
++        border: 1.5px solid #ddd;
++    }
++
++    .purchase-info2 {
++        width: auto;
++        margin-left: 130px;
++        font-size: 35px;
++        line-height: 50px;
++        border-radius: 10px;
++    }
++
++    .last-price span {
++        color: #f64749;
++        text-decoration: line-through;
++    }
++
++    .new-price span {
++        color: #256eff;
++    }
++
++    .purchase-info input,
++    .purchase-info .btn {
++        font-size: 30px;
++        border: 1.5px solid #ddd;
++        border-radius: 10px;
++        text-align: center;
++        width: 105px;
++        outline: 0;
++        margin-right: 0.2rem;
++        margin-bottom: 1rem;
++    }
++
++    .purchase-info {
++        opacity: 0.9;
++    }
++
++    .purchase-info, .product-option {
++        display: flex;
++    }
++
++    .purchase-info1, .purchase-info2 {
++        margin-top: 10px;
++        justify-content: space-between;
++    }
++
++    .form-select1, .form-select2 {
++        margin-left: 130px;
++        justify-content: space-between;
++        border-radius: 10px;
++        border: 1.5px solid #ddd;
++    }
++
++    .btn {
++        margin-right: 40px;
++        font-size: 40px;
++        color: navy;
++        background-color: #F8C8C4;
++        align-items: center;
++        justify-content: space-around;
++        border-radius: 10px;
++    }
++
++    .btn:hover {
++        background-color: #F0F8FF;
++        color: navy;
++    }
++
++    .social-links {
++        display: flex;
++        align-items: center;
++        margin-top: 5px;
++        font-size: 25px;
++        border-radius: 10px;
++    }
++
++    .social-links a {
++        display: flex;
++        align-items: center;
++        justify-content: center;
++        width: 35px;
++        height: 35px;
++        color: navy;
++        /*border: 1px solid #000;*/
++        margin: 0 0.2rem;
++        margin-left: 20px;
++        border-style: hidden;
++        /*border-radius: 50%;*/
++        text-decoration: none;
++        font-size: 1rem;
++        transition: all 0.5s ease;
++    }
++
++    .form-select2 {
++        display: none;
++    }
++
++    #galaxy-options, #iphone-options {
++        margin-left: 10px;
++        border-radius: 10px;
++    }
++
++    @media screen and (min-width: 992px) {
++        .card {
++            display: grid;
++            grid-template-columns: repeat(2, 1fr);
++            grid-gap: 1.5rem;
++        }
++
++        .card-wrapper {
++            height: 100vh;
++            display: flex;
++            justify-content: center;
++            align-items: center;
++        }
++
++        .product-imgs {
++            display: flex;
++            flex-direction: column;
++            justify-content: center;
++        }
++
++        .product-content {
++            padding-top: 0;
++        }
++    }
++</style>
+ <body>
++<div class="card-wrapper">
++    <div class="card">
++        <!-- card left -->
++        <div class="product-imgs">
++            <!-- 1. 큰 이미지 -->
++            <div class="img-showcase">
++                <img src="/static/memberproductimg/jelly1.jpeg" alt="">
++            </div>
++            <!-- 2. 상세 이미지 -->
++            <div class="img-select">
++                <div class="img-item">
++                    <a href="#" data-id="1">
++                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
++                    </a>
++                </div>
++                <div class="img-item">
++                    <a href="#" data-id="2">
++                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
++                    </a>
++                </div>
++                <div class="img-item">
++                    <a href="#" data-id="3">
++                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
++                    </a>
++                </div>
++                <div class="img-item">
++                    <a href="#" data-id="4">
++                        <img src="/static/memberproductimg/jelly1.jpeg" alt="">
++                    </a>
++                </div>
++            </div>
++        </div>
++        <!-- card right -->
++        <div class="product-content">
++            <h2 class="product-title">(젤리) 기본 케이스 </h2>
++            <hr>
++
++            <h2 class="product-price">
++                <p class="last-price">정상가격: <span>20000</span></p>
++                <p class="new-price">할인가격: <span>15000 (25%)</span></p>
++            </h2>
++
++            <h2 class="product-code1">
++                <p class="product-code2">상품코드: <span>H-2404-001</span></p>
++            </h2>
++
++            <div class="product-detail">
++                <h2 class="product-detail1">상세설명:</h2>
++                <p class="product-detail2"> 깔끔한 디자인과 탁월한 보호 기능!<br>변색 걱정 없는 케이스!<br>색상별로 있습니다~</p>
++            </div>
++
++            <div class="product-option">기종:
++                <select class="form-select1" id="first-option"> <!-- 1차옵션 -->
++                    <option value="아이폰">아이폰</option>
++                    <option value="갤럭시">갤럭시</option>
++                </select>
++
++                <select class="form-select2" id="iphone-options"> <!-- 2차옵션-아이폰 -->
++                    <option>12 mini</option>
++                    <option>12 / 12 Pro</option>
++                    <option>12 Pro Max</option>
++                    <option>13 mini</option>
++                    <option>13</option>
++                    <option>13 Pro</option>
++                    <option>13 Pro Max</option>
++                    <option>14</option>
++                    <option>14 플러스</option>
++                    <option>14 Pro</option>
++                    <option>14 Pro Max</option>
++                    <option>15</option>
++                    <option>15 플러스</option>
++                    <option>15 Pro</option>
++                    <option>15 Pro Max</option>
++                </select>
++
++                <select class="form-select2" id="galaxy-options"> <!-- 2차옵션-갤럭시 -->
++                    <option>갤럭시S 21</option>
++                    <option>갤럭시S 21 플러스</option>
++                    <option>갤럭시S 21 울트라</option>
++                    <option>갤럭시S 22</option>
++                    <option>갤럭시S 22 플러스</option>
++                    <option>갤럭시S 22 울트라</option>
++                    <option>갤럭시S 23</option>
++                    <option>갤럭시S 23 플러스</option>
++                    <option>갤럭시S 23 울트라</option>
++                    <option>갤럭시S 24</option>
++                    <option>갤럭시S 24 플러스</option>
++                    <option>갤럭시S 24 울트라</option>
++                    <option>노트20</option>
++                    <option>노트20 울트라</option>
++                </select>
++            </div>
++            <div class="purchase-info">
++                <p class="purchase-info1">수량: </p>
++                <input class="purchase-info2" type="number" min="0" value="1">
++            </div>
++
++            <div class="social-links">
++                <p style="font-size: 35px; margin-right: 35px;">Share At: </p>
++
++                <a href="javascript:sendNaverLine();">
++                    <img id="social-links1" src="/static/memberproductimg/LineIcon.png" alt="네이버라인"/>
++                </a>
++
++                <a href="#">
++                    <img id="social-links2" src="/static/memberproductimg/facebookIcon.png" alt="페이스북"/>
++                </a>
++
++                <a href="#">
++                    <img id="social-links3" src="/static/memberproductimg/InstagramIcon.png" alt="인스타그램"/>
++                </a>
++
++                <a href="#">
++                    <img id="social-links4" src="/static/memberproductimg/kakaoIcon.png" alt="카카오톡"/>
++                </a>
++
++            </div>
++            <hr class="hr2">
++            <button type="button" class="btn">
++                장바구니 담기 <i class="fas fa-shopping-cart"></i>
++            </button>
++            <button type="button" class="btn">구매하기</button>
++        </div>
++    </div>
++
++</div>
++<hr class="hr3">
++<div class="imgContent">
++    <img src="/static/memberproductimg/jelly1.jpeg" alt="Jelly">
++</div>
++<div class="imgContent">
++    <img src="/static/memberproductimg/purple.jpeg" alt="Purple">
++</div>
++<div class="imgContent">
++    <img src="/static/memberproductimg/heart.jpeg" alt="Heart">
++</div>
++<div class="imgContent">
++    <img src="/static/memberproductimg/moon.jpeg" alt="Moon">
++</div>
+ 
+ </body>
++<script>
++    window.onload = function () {
++        // 1차 옵션 선택 시
++        document.getElementById('first-option').addEventListener('change', function () {
++            var selectedOption = this.value
++            var iphoneOptions = document.getElementById('iphone-options');
++            var galaxyOptions = document.getElementById('galaxy-options');
++
++            // 아이폰을 선택한 경우
++            if (selectedOption.toLowerCase() === '아이폰') {
++                iphoneOptions.classList.remove('form-select2');
++                galaxyOptions.classList.add('form-select2');
++            }
++            // 갤럭시를 선택한 경우
++            else if (selectedOption.toLowerCase() === '갤럭시') {
++                iphoneOptions.classList.add('form-select2');
++                galaxyOptions.classList.remove('form-select2');
++            }
++            // 기본 선택(선택 안 함)인 경우
++            else {
++                iphoneOptions.classList.add('form-select2');
++                galaxyOptions.classList.add('form-select2');
++            }
++        });
++    };
++
++    //share sns API
++    //Line
++    var sns_title = "퐁케이스";
++    var sns_br = "\n";
++    var sns_summary = "핸드폰 쇼핑몰 퐁케이스~!"
++    var sns_br = "\n";
++    var sns_img = "/static/memberproductimg/shareimg.jpg";
++    var link = "http://localhost:8080/";
++    var url = "http://line.me/R/msg/text/?" + encodeURIComponent(sns_title + sns_br + sns_summary + sns_br + sns_link);
++
++</script>
+ </html>
+\ No newline at end of file
+Index: pongcase/src/main/resources/static/css/memberOrderPayment.css
+===================================================================
+diff --git a/pongcase/src/main/resources/static/css/memberOrderPayment.css b/pongcase/src/main/resources/static/css/memberOrderPayment.css
+deleted file mode 100644
+--- a/pongcase/src/main/resources/static/css/memberOrderPayment.css	(revision 56ff8553c5df02ed758d536ba8cae67c0a3dab35)
++++ /dev/null	(revision 56ff8553c5df02ed758d536ba8cae67c0a3dab35)
+@@ -1,195 +0,0 @@
+-@font-face {
+-    font-family: 'omyu_pretty';
+-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+-    font-weight: 1000;
+-    font-style: normal;
+-}
+-@font-face {
+-    font-family: 'SOYOMapleBoldTTF';
+-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+-    font-weight: 700;
+-    font-style: normal;
+-}
+-@font-face {
+-    font-family: 'SOYOMapleBoldTTF';
+-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+-    font-weight: 400;
+-    font-style: normal;
+-}
+-
+-*{
+-    font-family: 'SOYOMapleBoldTTF', 'omyu_pretty';
+-}
+-
+-body{
+-    background: #F6F4FC;
+-    color: navy;
+-    margin: 5% 0;
+-}
+-.container{
+-    width: 100%;
+-    padding-right: 15px;
+-    padding-left: 15px;
+-    margin-right: auto;
+-    margin-left: auto;
+-}
+-@media (min-width: 1200px)
+-{
+-    .container{
+-        max-width: 1140px;
+-    }
+-}
+-
+-
+-.d-flex{
+-    display: flex;
+-    flex-direction: row;
+-    background: #F6F4FC;
+-    border-radius: 0 0 10px 10px;
+-    padding: 25px;
+-}
+-form{
+-    flex: 4;
+-}
+-.Yorder{
+-    flex: 2;
+-}
+-.title{
+-    /* background: -webkit-gradient(linear, left top, right bottom, color-stop(0, aliceblue), color-stop(100, #F8C8C4));
+-    background: -moz-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+-    background: -ms-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+-    background: -o-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+-    background: linear-gradient(to bottom right, aliceblue 0%, #F8C8C4 100%); */
+-    background: #F8C8C4;
+-    border-radius:5px 5px 0 0 ;
+-    padding: 20px;
+-    color: aliceblue;
+-}
+-h2{
+-    margin: 0;
+-    padding-left: 15px;
+-}
+-.required{
+-    color: red;
+-}
+-
+-
+-label, table{
+-    display: block;
+-    margin: 15px;
+-}
+-label>span{
+-    float: left;
+-    width: 25%;
+-    margin-top: 12px;
+-    padding-right: 10px;
+-}
+-input[type="text"], input[type="tel"], input[type="email"], select
+-{
+-    width: 70%;
+-    height: 30px;
+-    padding: 5px 10px;
+-    margin-bottom: 5px;
+-    border: 1px solid #dadada;
+-    color: navy;
+-}
+-
+-.Yorder{
+-    margin-top: 15px;
+-    height: 600px;
+-    padding: 20px;
+-    border: 1px solid #F8C8C4;
+-}
+-table{
+-    margin: 0;
+-    padding: 0;
+-}
+-th{
+-    border-bottom: 1px solid #F8C8C4;
+-    padding: 10px 0;
+-}
+-tr>td:nth-child(1){
+-    text-align: left;
+-    color: navy;
+-}
+-tr>td:nth-child(2){
+-    text-align: right;
+-    color: navy;
+-}
+-td{
+-    border-bottom: 1px solid #F8C8C4;
+-    padding: 25px 25px 25px 0;
+-}
+-
+-p{
+-    display: block;
+-    color: navy;
+-    margin: 0;
+-    padding-left: 25px;
+-}
+-.Yorder>div{
+-    padding: 15px 0;
+-}
+-
+-button{
+-    width: 100%;
+-    margin-top: 10px;
+-    padding: 10px;
+-    border: none;
+-    border-radius: 30px;
+-    background: #F8C8C4;
+-    color: navy;
+-    font-size: 15px;
+-    font-weight: bold;
+-}
+-button:hover{
+-    cursor: pointer;
+-    background: #F8C8C4;
+-}
+-
+-
+-#postcode{
+-    width: 20%;
+-    margin: 0px;
+-}
+-
+-.address{
+-    margin: 0px;
+-    margin-bottom: 1px;
+-    padding-left: 15px;
+-}
+-#addressselect{
+-    width: 20%;
+-    padding: 15px;
+-    margin-bottom: 10px;
+-    border: none;
+-    border-radius: 30px;
+-    background: #F8C8C4;
+-    color: navy;
+-    font-size: 10px;
+-    font-weight: bold;
+-}
+-
+-.fname{
+-    padding: 5px 10px;
+-    margin-bottom: 5px;
+-    padding-left: 15px;
+-}
+-
+-#requiredelivery{
+-    margin-top: 20px;
+-}
+-
+-@media (min-width:320px) and (max-width:767px) {
+-    .d-flex {
+-        flex-direction: column;
+-    }
+-
+-    .Yorder {
+-        order: 2; /* Yorder를 두 번째로 배치합니다. */
+-    }
+-
+-    form {
+-        order: 1; /* form을 첫 번째로 배치합니다. */
+-    }
+-}
+Index: pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\" xmlns:th=\"http://www.thymeleaf.org\">\r\n<head>\r\n    <title>Checkout</title>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"description\" content=\"Wish shop project\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js\" integrity=\"sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+\" crossorigin=\"anonymous\"></script>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"checkout.css\">\r\n\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script>\r\n    <script src=\"//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js\"></script>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/memberOrderPayment.css\">\r\n</head>\r\n<body>\r\n<div class=\"container\">\r\n    <div class=\"title\">\r\n        <h2>주문하기</h2>\r\n    </div>\r\n    <div class=\"d-flex\">\r\n        <form role=\"form\" th:action=\"@{'/order'}\" method=\"post\" enctype=\"multipart/form-data\">\r\n            <span class=\"fname\">이름 <span class=\"required\">*</span></span>\r\n            <label>\r\n                <input type=\"text\" name=\"fname\" placeholder=\"주문자명\">\r\n            </label>\r\n            <span class=\"fname\">전화번호 <span class=\"required\">*</span></span>\r\n            <label>\r\n                <input type=\"tel\" name=\"city\" placeholder=\"-를 제외한 11글자\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"button\" class=\"address\" id=\"addressselect\" onclick=\"execDaumPostcode()\" value=\"우편번호 찾기\"><br>\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" class=\"address\" id=\"postcode\" placeholder=\"우편번호\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" class=\"address\" id=\"roadAddress\" placeholder=\"도로명주소\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" class=\"address\" id=\"jibunAddress\" placeholder=\"지번주소\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" name=\"apartment\" placeholder=\"상세주소\">\r\n            </label>\r\n\r\n            <span class=\"fname\" id=\"requiredelivery\">배송 요청 사항</span></span>\r\n            <label>\r\n                <input type=\"email\" name=\"city\">\r\n            </label>\r\n        </form>\r\n        <div class=\"Yorder\">\r\n            <table>\r\n                <tr>\r\n                    <th colspan=\"2\">Your order</th>\r\n                </tr>\r\n                <tr>\r\n                    <td>핸드폰1</td>\r\n                    <td>88000</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>핸드폰2</td>\r\n                    <td>90000</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>핸드폰3</td>\r\n                    <td>100000</td>\r\n                </tr>\r\n            </table><br>\r\n            <div>\r\n                <input type=\"radio\" name=\"dbt\" value=\"dbt\" checked> 무통장입금\r\n            </div>\r\n            <div>\r\n                <input type=\"radio\" name=\"dbt\" value=\"cd\"> 핸드폰 결제\r\n            </div>\r\n            <div>\r\n                <input type=\"radio\" name=\"dbt\" value=\"cd\"> 신용/체크카드 <span>\r\n\t\t\t<img src=\"https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg\" alt=\"\" width=\"50\">\r\n\t\t\t</span>\r\n            </div>\r\n            <button type=\"button\">주문하기</button>\r\n        </div><!-- Yorder -->\r\n    </div>\r\n</div>\r\n\r\n<script src=\"/js/daumaddress.js\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html b/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html
+--- a/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html	(revision 56ff8553c5df02ed758d536ba8cae67c0a3dab35)
++++ b/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html	(date 1713777736610)
+@@ -13,7 +13,7 @@
+ 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+-    <link rel="stylesheet" type="text/css" href="/css/memberOrderPayment.css">
++    <link rel="stylesheet" type="text/css" href="/css/memberProductDetailPage.css">
+ </head>
+ <body>
+ <div class="container">
+Index: pongcase/src/main/resources/templates/member/memberRegister.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\" xmlns:th=\"http://www.thymeleaf.org\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pongcase/src/main/resources/templates/member/memberRegister.html b/pongcase/src/main/resources/templates/member/memberRegister.html
+--- a/pongcase/src/main/resources/templates/member/memberRegister.html	(revision 56ff8553c5df02ed758d536ba8cae67c0a3dab35)
++++ b/pongcase/src/main/resources/templates/member/memberRegister.html	(date 1713777736620)
+@@ -1,12 +1,576 @@
+-<!DOCTYPE html>
+-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+-
++<html lang="ko" xmlns:th="http://www.thymeleaf.org"
++      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
++<meta name="viewport" content="width=device-width, initial-scale=1">
+ <head>
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Title</title>
++    <title>Insert title here</title>
++
++    <!--
++        #visual studio code 링크 방식
++      <link href="css/memberLogin.css" rel="stylesheet"/>
++      <link href="css/basic.css" rel="stylesheet"/>
++      -->
++
++    <!--
++    #springboot 링크 방식 -->
++    <link th:href="@{/css/memberLogin.css}" rel="stylesheet">
++    <link th:href="@{/css/basic.css}" rel="stylesheet">
++
++
++
++    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
++
++
++    <meta charset="utf-8">
++    <meta http-equiv="imagetoolbar" content="no">
++    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1">
++    <title>회원가입약관 | 샘플페이지</title>
++    <link rel="stylesheet" href="https://moden939.gabia.io/css/default.css?ver=171253">
++    <link rel="stylesheet" href="https://moden939.gabia.io/skin/member/basic/style.css?ver=171253">
++    <link rel="stylesheet" href="https://moden939.gabia.io/skin/member/basic/style2.css?ver=171253">
++    <!--[if lte IE 8]>
++    <script src="https://moden939.gabia.io/js/html5.js"></script>
++    <![endif]-->
++    <script>
++        // 자바스크립트에서 사용하는 전역변수 선언
++        var g5_url       = "https://moden939.gabia.io";
++        var g5_bbs_url   = "https://moden939.gabia.io/bbs";
++        var g5_is_member = "";
++        var g5_is_admin  = "";
++        var g5_is_mobile = "";
++        var g5_bo_table  = "";
++        var g5_sca       = "";
++        var g5_editor    = "";
++        var g5_cookie_domain = "";
++    </script>
++    <script src="https://moden939.gabia.io/js/jquery-1.8.3.min.js"></script>
++    <script src="https://moden939.gabia.io/js/jquery.menu.js?ver=171253"></script>
++    <script src="https://moden939.gabia.io/js/common.js?ver=171253"></script>
++    <script src="https://moden939.gabia.io/js/wrest.js?ver=171253"></script>
++    <script src="https://moden939.gabia.io/js/placeholders.min.js"></script>
++    <link rel="stylesheet" href="https://moden939.gabia.io/js/font-awesome/css/font-awesome.min.css">
++
++
++
+ </head>
++
++<style>
++
++    <!-- 하늘소요체 -->
++    @font-face {
++        font-family: 'SOYOMapleBoldTTF';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
++        font-weight: 700; // weight 조절 400 얇은 글씨, 700 굵은 글씨
++    font-style: normal;
++    }
++
++
++    /*
++       1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
++       2. 테블릿 가로 : 768px ~ 1023px
++       3. 모바일 가로, 태블릿 : 480px ~ 767px
++       4. 모바일 : ~ 480px
++        */
++
++
++    /* 반응형 스타일 */
++    @media screen and (min-width: 1024px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: 'SOYOMapleBoldTTF', sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 500px;
++            padding: 40px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++
++
++    }
++
++
++    /* 반응형 스타일 */
++    @media screen and (min-width: 768px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 500px;
++            padding: 40px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++
++    }
++
++
++
++    /* 모바일 가로 버전 */
++    @media screen and (max-width: 767px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 90%;
++            padding: 40px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++    }
++
++    /* 모바일 세로 버전 */
++    @media screen and (max-width: 480px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 90%;
++            padding: 20px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++
++    }
++
++    .read1{
++        width: 80%;
++        height: 100px;
++    }
++
++    .btn_submit, .btn_confirm{
++        margin-bottom: 20px;
++        padding: 10px;
++        border: none;
++        border-radius: 30px;
++        background: #F8C8C4;
++        color: navy;
++        font-size: 20px;
++        font-weight: bold;
++    }
++
++    .btn_confirm:hover , .btn_submit:hover{
++        background-color: aliceblue;
++    }
++    .btn_submit {
++        margin-top: 10px;
++    }
++
++</style>
++
++
+ <body>
+ 
++<div class="login-box">
++
++    <form action="#">
++        <div class="container">
++            <h1>퐁케이스</h1>
++            <br>
++            <hr>
++
++            <form name="fregister" id="fregister" action="/templates/member/memberRegister.html" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
++
++                <!-- <p style="margin: 10px 0;">회원가입약관 및 개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.</p> -->
++                <div id="fregister_chkall" class="checks2">
++                    <input type="checkbox" name="chk_all" value="1" id="chk_all">
++                    <label for="chk_all">회원가입 약관에 모두 동의합니다</label>
++                </div>
++                <br>
++                <hr>
++
++                <section id="fregister_term">
++                    <div class="fregister_agree2 checks2">
++                        <input type="checkbox" name="agree" value="1" id="agree11">
++                        <label for="agree11">이용약관 동의<span>(필수)</span></label>
++                    </div>
++
++                    <textarea class="read1" readonly="">제1조(목적) 이 약관은 업체 회사(전자상거래 사업자)가 운영하는 업체 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
++
++ </textarea>
++
++                </section>
++
++                <section id="fregister_private">
++                    <fieldset class="fregister_agree2 checks2">
++                        <input type="checkbox" name="agree2" value="1" id="agree21">
++                        <label for="agree21">개인정보 수집 및 이용 동의<span>(필수)</span></label>
++                    </fieldset>
++
++                    <textarea class="read1" readonly="">개인정보처리방침
++
++
++현 개인정보처리방침은 2017년 9월 22일에 제정되었으며, 정부 및 회사의 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 경우에는 개정 최소 7일 전부터 ‘공지사항’란을 통해 고지하며, 본 정책은 시행 일자에 시행됩니다.
++1) 공고일자 : 2018년 05월 01일
++2) 시행일자 : 2018년 05월 01일 </textarea>
++                </section>
++                <div class="btn_in1">
++
++                    <div>
++                        <input type="submit" class="btn_submit" value="가입하기" id="btn_submit">
++                    </div>
++                </div>
++            </form>
++
++
++
++            <script>
++                function fregister_submit(f)
++                {
++                    if (!f.agree.checked) {
++                        alert("회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
++                        f.agree.focus();
++                        return false;
++                    }
++
++                    if (!f.agree2.checked) {
++                        alert("개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
++                        f.agree2.focus();
++                        return false;
++                    }
++
++                    return true;
++                }
++
++                jQuery(function($){
++                    // 모두선택
++                    $("input[name=chk_all]").click(function() {
++                        if ($(this).prop('checked')) {
++                            $("input[name^=agree]").prop('checked', true);
++                        } else {
++                            $("input[name^=agree]").prop("checked", false);
++                        }
++                    });
++                });
++
++            </script>
++
++        </div>
++
++
++        <div class="container signin">
++            <p>Already have an account? <a href="#">Sign in</a>.</p>
++        </div>
++    </form>
++
++    </form>
++</div>
++
+ </body>
+ </html>
+\ No newline at end of file

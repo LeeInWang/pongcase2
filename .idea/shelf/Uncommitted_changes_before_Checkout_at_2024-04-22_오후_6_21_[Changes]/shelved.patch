@@ -1,0 +1,872 @@
+Index: pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\" xmlns:th=\"http://www.thymeleaf.org\"\r\n      xmlns:sec=\"http://www.thymeleaf.org/extras/spring-security\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <link rel=\"stylesheet\"\r\n          href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200\"/>\r\n</head>\r\n<style>\r\n    /* 폰트 */\r\n    @font-face {\r\n        font-family: 'SOYOMapleBoldTTF';\r\n        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');\r\n        font-style: normal; /* weight 조절 400 얇은 글씨, 700 굵은 글씨 */\r\n    }\r\n\r\n    @font-face {\r\n        font-family: 'omyu_pretty';\r\n        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');\r\n        font-weight: normal;\r\n        font-style: normal;\r\n    }\r\n\r\n    /* 모바일~태블릿 */\r\n    @media (min-width: 480px) and (max-width: 767px) {\r\n        .navLogo {\r\n            font-size: 1rem; /* 제목 크기를 줄임 */\r\n        }\r\n\r\n        .navIcon button {\r\n            font-size: 1rem; /* 아이콘 크기를 줄임 */\r\n        }\r\n\r\n        .navbar {\r\n            font-size: 1rem; /* 아이콘 크기를\\ 줄임 */\r\n            background-color: #f0f8ff; /* 앨리스 블루 */\r\n        }\r\n\r\n        .product-content {\r\n            margin-left: 10px;\r\n        }\r\n    }\r\n\r\n\r\n    @media (max-width: 767px) {\r\n        .navbar .searchNav {\r\n            float: none;\r\n        }\r\n\r\n        .navbar a, .navbar input[type=text], .navbar {\r\n            float: none;\r\n            display: block;\r\n            text-align: left;\r\n            width: 100%;\r\n            margin: 0;\r\n            padding: 14px;\r\n        }\r\n\r\n        .navbar input[type=text] {\r\n            border: 1px solid #ccc;\r\n        }\r\n    }\r\n\r\n    /* 상품 디테일 */\r\n    * {\r\n        box-sizing: border-box;\r\n        padding: 0;\r\n        margin: 0;\r\n        font-family: 'omyu_pretty';\r\n        background-color: #F6F4FC;\r\n    }\r\n\r\n    body {\r\n        line-height: 1.5;\r\n    }\r\n    .card {\r\n        margin-bottom: 100px;\r\n    }\r\n    .card-wrapper {\r\n        max-width: 1100px;\r\n        margin: 0 auto;\r\n        display: flex;\r\n        padding-bottom: 50px;\r\n    }\r\n\r\n    img {\r\n        width: 100%;\r\n        display: block;\r\n    }\r\n\r\n    .img-showcase {\r\n        display: flex;\r\n        width: 100%;\r\n        transition: all 0.5s ease;\r\n    }\r\n\r\n    .img-showcase img {\r\n        min-width: 100%;\r\n    }\r\n\r\n    .img-select {\r\n        display: flex;\r\n    }\r\n\r\n    .img-item {\r\n        margin: 0.35rem;\r\n    }\r\n\r\n    .img-item:nth-child(1),\r\n    .img-item:nth-child(2),\r\n    .img-item:nth-child(3) {\r\n        margin-right: 0;\r\n    }\r\n\r\n    .img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover, #social-links4:hover {\r\n        opacity: 0.8;\r\n    }\r\n\r\n    .product-title {\r\n        font-size: 45px;\r\n        font-weight: bold;\r\n        position: relative;\r\n        color: navy;\r\n    }\r\n\r\n    hr {\r\n        width: 500px;\r\n        margin-top: 10px;\r\n        margin-bottom: 10px;\r\n    }\r\n\r\n    .hr2 {\r\n        width: 500px;\r\n        margin-top: 20px;\r\n        margin-bottom: 20px;\r\n    }\r\n\r\n    .hr3 {\r\n        width: 90%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .imgContent {\r\n        max-width: 1100px;\r\n        margin: auto;\r\n        margin-top: 50px;\r\n        display: block;\r\n\r\n    }\r\n\r\n    .product-content {\r\n        width: 100%;\r\n        margin-left: 50px;\r\n        margin-bottom: 50px;\r\n    }\r\n\r\n    .product-detail {\r\n        display: flex;\r\n    }\r\n\r\n    .product-detail > h2, .product-detail > p {\r\n        justify-content: space-between;\r\n    }\r\n\r\n    .product-detail > p {\r\n        margin-left: 70px;\r\n        margin-top: 10px;\r\n        margin-bottom: 10px;\r\n        font-size: 25px;\r\n    }\r\n\r\n    .last-price, .new-price, .product-detail > h2, .product-code2, .purchase-info1, .form-select1, .form-select2, .product-option, .product-option {\r\n        font-size: 40px;\r\n        line-height: 50px;\r\n        font-weight: normal;\r\n    }\r\n\r\n    .last-price span, .new-price span, .product-code2 span, .form-select1, .form-select2 {\r\n        margin-left: 70px;\r\n        font-size: 35px;\r\n        line-height: 50px;\r\n    }\r\n\r\n    #galaxy-options, #iphone-options {\r\n        font-size: 25px;\r\n        line-height: 50px;\r\n        border: 1.5px solid #ddd;\r\n    }\r\n\r\n    .purchase-info2 {\r\n        width: auto;\r\n        margin-left: 130px;\r\n        font-size: 35px;\r\n        line-height: 50px;\r\n        border-radius: 10px;\r\n    }\r\n\r\n    .last-price span {\r\n        color: #f64749;\r\n        text-decoration: line-through;\r\n    }\r\n\r\n    .new-price span {\r\n        color: #256eff;\r\n    }\r\n\r\n    .purchase-info input,\r\n    .purchase-info .btn {\r\n        font-size: 30px;\r\n        border: 1.5px solid #ddd;\r\n        border-radius: 10px;\r\n        text-align: center;\r\n        width: 105px;\r\n        outline: 0;\r\n        margin-right: 0.2rem;\r\n        margin-bottom: 1rem;\r\n    }\r\n\r\n    .purchase-info {\r\n        opacity: 0.9;\r\n    }\r\n\r\n    .purchase-info, .product-option {\r\n        display: flex;\r\n    }\r\n\r\n    .purchase-info1, .purchase-info2 {\r\n        margin-top: 10px;\r\n        justify-content: space-between;\r\n    }\r\n\r\n    .form-select1, .form-select2 {\r\n        margin-left: 130px;\r\n        justify-content: space-between;\r\n        border-radius: 10px;\r\n        border: 1.5px solid #ddd;\r\n    }\r\n\r\n    .btn {\r\n        margin-right: 40px;\r\n        font-size: 40px;\r\n        color: navy;\r\n        background-color: #F8C8C4;\r\n        align-items: center;\r\n        justify-content: space-around;\r\n        border-radius: 10px;\r\n    }\r\n\r\n    .btn:hover {\r\n        background-color: #F0F8FF;\r\n        color: navy;\r\n    }\r\n\r\n    .social-links {\r\n        display: flex;\r\n        align-items: center;\r\n        margin-top: 5px;\r\n        font-size: 25px;\r\n        border-radius: 10px;\r\n    }\r\n\r\n    .social-links a {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n        width: 35px;\r\n        height: 35px;\r\n        color: navy;\r\n        /*border: 1px solid #000;*/\r\n        margin: 0 0.2rem;\r\n        margin-left: 20px;\r\n        border-style: hidden;\r\n        /*border-radius: 50%;*/\r\n        text-decoration: none;\r\n        font-size: 1rem;\r\n        transition: all 0.5s ease;\r\n    }\r\n\r\n    .form-select2 {\r\n        display: none;\r\n    }\r\n\r\n    #galaxy-options, #iphone-options {\r\n        margin-left: 10px;\r\n        border-radius: 10px;\r\n    }\r\n\r\n    @media screen and (min-width: 992px) {\r\n        .card {\r\n            display: grid;\r\n            grid-template-columns: repeat(2, 1fr);\r\n            grid-gap: 1.5rem;\r\n        }\r\n\r\n        .card-wrapper {\r\n            height: 100vh;\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n        }\r\n\r\n        .product-imgs {\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: center;\r\n        }\r\n\r\n        .product-content {\r\n            padding-top: 0;\r\n        }\r\n    }\r\n</style>\r\n\r\n<body>\r\n<div class=\"card-wrapper\">\r\n    <div class=\"card\">\r\n        <!-- card left -->\r\n        <div class=\"product-imgs\">\r\n            <!-- 1. 큰 이미지 -->\r\n            <div class=\"img-showcase\">\r\n                <img src=\"/static/memberproductimg/jelly1.jpeg\" alt=\"\">\r\n            </div>\r\n            <!-- 2. 상세 이미지 -->\r\n            <div class=\"img-select\">\r\n                <div class=\"img-item\">\r\n                    <a href=\"#\" data-id=\"1\">\r\n                        <img src=\"/static/memberproductimg/jelly1.jpeg\" alt=\"\">\r\n                    </a>\r\n                </div>\r\n                <div class=\"img-item\">\r\n                    <a href=\"#\" data-id=\"2\">\r\n                        <img src=\"/static/memberproductimg/jelly1.jpeg\" alt=\"\">\r\n                    </a>\r\n                </div>\r\n                <div class=\"img-item\">\r\n                    <a href=\"#\" data-id=\"3\">\r\n                        <img src=\"/static/memberproductimg/jelly1.jpeg\" alt=\"\">\r\n                    </a>\r\n                </div>\r\n                <div class=\"img-item\">\r\n                    <a href=\"#\" data-id=\"4\">\r\n                        <img src=\"/static/memberproductimg/jelly1.jpeg\" alt=\"\">\r\n                    </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!-- card right -->\r\n        <div class=\"product-content\">\r\n            <h2 class=\"product-title\">(젤리) 기본 케이스 </h2>\r\n            <hr>\r\n\r\n            <h2 class=\"product-price\">\r\n                <p class=\"last-price\">정상가격: <span>20000</span></p>\r\n                <p class=\"new-price\">할인가격: <span>15000 (25%)</span></p>\r\n            </h2>\r\n\r\n            <h2 class=\"product-code1\">\r\n                <p class=\"product-code2\">상품코드: <span>H-2404-001</span></p>\r\n            </h2>\r\n\r\n            <div class=\"product-detail\">\r\n                <h2 class=\"product-detail1\">상세설명:</h2>\r\n                <p class=\"product-detail2\"> 깔끔한 디자인과 탁월한 보호 기능!<br>변색 걱정 없는 케이스!<br>색상별로 있습니다~</p>\r\n            </div>\r\n\r\n            <div class=\"product-option\">기종:\r\n                <select class=\"form-select1\" id=\"first-option\"> <!-- 1차옵션 -->\r\n                    <option value=\"아이폰\">아이폰</option>\r\n                    <option value=\"갤럭시\">갤럭시</option>\r\n                </select>\r\n\r\n                <select class=\"form-select2\" id=\"iphone-options\"> <!-- 2차옵션-아이폰 -->\r\n                    <option>12 mini</option>\r\n                    <option>12 / 12 Pro</option>\r\n                    <option>12 Pro Max</option>\r\n                    <option>13 mini</option>\r\n                    <option>13</option>\r\n                    <option>13 Pro</option>\r\n                    <option>13 Pro Max</option>\r\n                    <option>14</option>\r\n                    <option>14 플러스</option>\r\n                    <option>14 Pro</option>\r\n                    <option>14 Pro Max</option>\r\n                    <option>15</option>\r\n                    <option>15 플러스</option>\r\n                    <option>15 Pro</option>\r\n                    <option>15 Pro Max</option>\r\n                </select>\r\n\r\n                <select class=\"form-select2\" id=\"galaxy-options\"> <!-- 2차옵션-갤럭시 -->\r\n                    <option>갤럭시S 21</option>\r\n                    <option>갤럭시S 21 플러스</option>\r\n                    <option>갤럭시S 21 울트라</option>\r\n                    <option>갤럭시S 22</option>\r\n                    <option>갤럭시S 22 플러스</option>\r\n                    <option>갤럭시S 22 울트라</option>\r\n                    <option>갤럭시S 23</option>\r\n                    <option>갤럭시S 23 플러스</option>\r\n                    <option>갤럭시S 23 울트라</option>\r\n                    <option>갤럭시S 24</option>\r\n                    <option>갤럭시S 24 플러스</option>\r\n                    <option>갤럭시S 24 울트라</option>\r\n                    <option>노트20</option>\r\n                    <option>노트20 울트라</option>\r\n                </select>\r\n            </div>\r\n            <div class=\"purchase-info\">\r\n                <p class=\"purchase-info1\">수량: </p>\r\n                <input class=\"purchase-info2\" type=\"number\" min=\"0\" value=\"1\">\r\n            </div>\r\n\r\n            <div class=\"social-links\">\r\n                <p style=\"font-size: 35px; margin-right: 35px;\">Share At: </p>\r\n\r\n                <a href=\"javascript:sendNaverLine();\">\r\n                    <img id=\"social-links1\" src=\"/static/memberproductimg/LineIcon.png\" alt=\"네이버라인\"/>\r\n                </a>\r\n\r\n                <a href=\"#\">\r\n                    <img id=\"social-links2\" src=\"/static/memberproductimg/facebookIcon.png\" alt=\"페이스북\"/>\r\n                </a>\r\n\r\n                <a href=\"#\">\r\n                    <img id=\"social-links3\" src=\"/static/memberproductimg/InstagramIcon.png\" alt=\"인스타그램\"/>\r\n                </a>\r\n\r\n                <a href=\"#\">\r\n                    <img id=\"social-links4\" src=\"/static/memberproductimg/kakaoIcon.png\" alt=\"카카오톡\"/>\r\n                </a>\r\n\r\n            </div>\r\n            <hr class=\"hr2\">\r\n            <button type=\"button\" class=\"btn\">\r\n                장바구니 담기 <i class=\"fas fa-shopping-cart\"></i>\r\n            </button>\r\n            <button type=\"button\" class=\"btn\">구매하기</button>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n<hr class=\"hr3\">\r\n<div class=\"imgContent\">\r\n    <img src=\"/static/memberproductimg/jelly1.jpeg\" alt=\"Jelly\">\r\n</div>\r\n<div class=\"imgContent\">\r\n    <img src=\"/static/memberproductimg/purple.jpeg\" alt=\"Purple\">\r\n</div>\r\n<div class=\"imgContent\">\r\n    <img src=\"/static/memberproductimg/heart.jpeg\" alt=\"Heart\">\r\n</div>\r\n<div class=\"imgContent\">\r\n    <img src=\"/static/memberproductimg/moon.jpeg\" alt=\"Moon\">\r\n</div>\r\n\r\n</body>\r\n<script>\r\n    window.onload = function () {\r\n        // 1차 옵션 선택 시\r\n        document.getElementById('first-option').addEventListener('change', function () {\r\n            var selectedOption = this.value\r\n            var iphoneOptions = document.getElementById('iphone-options');\r\n            var galaxyOptions = document.getElementById('galaxy-options');\r\n\r\n            // 아이폰을 선택한 경우\r\n            if (selectedOption.toLowerCase() === '아이폰') {\r\n                iphoneOptions.classList.remove('form-select2');\r\n                galaxyOptions.classList.add('form-select2');\r\n            }\r\n            // 갤럭시를 선택한 경우\r\n            else if (selectedOption.toLowerCase() === '갤럭시') {\r\n                iphoneOptions.classList.add('form-select2');\r\n                galaxyOptions.classList.remove('form-select2');\r\n            }\r\n            // 기본 선택(선택 안 함)인 경우\r\n            else {\r\n                iphoneOptions.classList.add('form-select2');\r\n                galaxyOptions.classList.add('form-select2');\r\n            }\r\n        });\r\n    };\r\n\r\n    //share sns API\r\n    //Line\r\n    var sns_title = \"퐁케이스\";\r\n    var sns_br = \"\\n\";\r\n    var sns_summary = \"핸드폰 쇼핑몰 퐁케이스~!\"\r\n    var sns_br = \"\\n\";\r\n    var sns_img = \"/static/memberproductimg/shareimg.jpg\";\r\n    var link = \"http://localhost:8080/\";\r\n    var url = \"http://line.me/R/msg/text/?\" + encodeURIComponent(sns_title + sns_br + sns_summary + sns_br + sns_link);\r\n\r\n</script>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html b/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html
+--- a/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html	(revision 47d438a9cd3426c3a7f8bc6151ce5bbffd60e111)
++++ b/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html	(date 1713777647010)
+@@ -7,22 +7,33 @@
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet"
+           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
++    <link rel="/static/css/memberProductDetailPage.css" href="stylesheet" />
++    <link rel="/static/css/font.css" href="stylesheet" />
+ </head>
+ <style>
+-    /* 폰트 */
++    @font-face {
++        font-family: 'omyu_pretty';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
++        font-weight: 1000;
++        font-style: normal;
++    }
+     @font-face {
+         font-family: 'SOYOMapleBoldTTF';
+         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+-        font-style: normal; /* weight 조절 400 얇은 글씨, 700 굵은 글씨 */
++        font-weight: 700;
++        font-style: normal;
+     }
+-
+     @font-face {
+-        font-family: 'omyu_pretty';
+-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+-        font-weight: normal;
++        font-family: 'SOYOMapleBoldTTF';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
++        font-weight: 400;
+         font-style: normal;
+     }
+ 
++    *{
++        font-family: 'SOYOMapleBoldTTF', 'omyu_pretty';
++    }
++
+     /* 모바일~태블릿 */
+     @media (min-width: 480px) and (max-width: 767px) {
+         .navLogo {
+@@ -312,7 +323,6 @@
+         }
+     }
+ </style>
+-
+ <body>
+ <div class="card-wrapper">
+     <div class="card">
+Index: pongcase/src/main/resources/static/css/memberOrderPayment.css
+===================================================================
+diff --git a/pongcase/src/main/resources/static/css/memberOrderPayment.css b/pongcase/src/main/resources/static/css/memberOrderPayment.css
+deleted file mode 100644
+--- a/pongcase/src/main/resources/static/css/memberOrderPayment.css	(revision 47d438a9cd3426c3a7f8bc6151ce5bbffd60e111)
++++ /dev/null	(revision 47d438a9cd3426c3a7f8bc6151ce5bbffd60e111)
+@@ -1,195 +0,0 @@
+-@font-face {
+-    font-family: 'omyu_pretty';
+-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+-    font-weight: 1000;
+-    font-style: normal;
+-}
+-@font-face {
+-    font-family: 'SOYOMapleBoldTTF';
+-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+-    font-weight: 700;
+-    font-style: normal;
+-}
+-@font-face {
+-    font-family: 'SOYOMapleBoldTTF';
+-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+-    font-weight: 400;
+-    font-style: normal;
+-}
+-
+-*{
+-    font-family: 'SOYOMapleBoldTTF', 'omyu_pretty';
+-}
+-
+-body{
+-    background: #F6F4FC;
+-    color: navy;
+-    margin: 5% 0;
+-}
+-.container{
+-    width: 100%;
+-    padding-right: 15px;
+-    padding-left: 15px;
+-    margin-right: auto;
+-    margin-left: auto;
+-}
+-@media (min-width: 1200px)
+-{
+-    .container{
+-        max-width: 1140px;
+-    }
+-}
+-
+-
+-.d-flex{
+-    display: flex;
+-    flex-direction: row;
+-    background: #F6F4FC;
+-    border-radius: 0 0 10px 10px;
+-    padding: 25px;
+-}
+-form{
+-    flex: 4;
+-}
+-.Yorder{
+-    flex: 2;
+-}
+-.title{
+-    /* background: -webkit-gradient(linear, left top, right bottom, color-stop(0, aliceblue), color-stop(100, #F8C8C4));
+-    background: -moz-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+-    background: -ms-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+-    background: -o-linear-gradient(top left, aliceblue 0%, #F8C8C4 100%);
+-    background: linear-gradient(to bottom right, aliceblue 0%, #F8C8C4 100%); */
+-    background: #F8C8C4;
+-    border-radius:5px 5px 0 0 ;
+-    padding: 20px;
+-    color: aliceblue;
+-}
+-h2{
+-    margin: 0;
+-    padding-left: 15px;
+-}
+-.required{
+-    color: red;
+-}
+-
+-
+-label, table{
+-    display: block;
+-    margin: 15px;
+-}
+-label>span{
+-    float: left;
+-    width: 25%;
+-    margin-top: 12px;
+-    padding-right: 10px;
+-}
+-input[type="text"], input[type="tel"], input[type="email"], select
+-{
+-    width: 70%;
+-    height: 30px;
+-    padding: 5px 10px;
+-    margin-bottom: 5px;
+-    border: 1px solid #dadada;
+-    color: navy;
+-}
+-
+-.Yorder{
+-    margin-top: 15px;
+-    height: 600px;
+-    padding: 20px;
+-    border: 1px solid #F8C8C4;
+-}
+-table{
+-    margin: 0;
+-    padding: 0;
+-}
+-th{
+-    border-bottom: 1px solid #F8C8C4;
+-    padding: 10px 0;
+-}
+-tr>td:nth-child(1){
+-    text-align: left;
+-    color: navy;
+-}
+-tr>td:nth-child(2){
+-    text-align: right;
+-    color: navy;
+-}
+-td{
+-    border-bottom: 1px solid #F8C8C4;
+-    padding: 25px 25px 25px 0;
+-}
+-
+-p{
+-    display: block;
+-    color: navy;
+-    margin: 0;
+-    padding-left: 25px;
+-}
+-.Yorder>div{
+-    padding: 15px 0;
+-}
+-
+-button{
+-    width: 100%;
+-    margin-top: 10px;
+-    padding: 10px;
+-    border: none;
+-    border-radius: 30px;
+-    background: #F8C8C4;
+-    color: navy;
+-    font-size: 15px;
+-    font-weight: bold;
+-}
+-button:hover{
+-    cursor: pointer;
+-    background: #F8C8C4;
+-}
+-
+-
+-#postcode{
+-    width: 20%;
+-    margin: 0px;
+-}
+-
+-.address{
+-    margin: 0px;
+-    margin-bottom: 1px;
+-    padding-left: 15px;
+-}
+-#addressselect{
+-    width: 20%;
+-    padding: 15px;
+-    margin-bottom: 10px;
+-    border: none;
+-    border-radius: 30px;
+-    background: #F8C8C4;
+-    color: navy;
+-    font-size: 10px;
+-    font-weight: bold;
+-}
+-
+-.fname{
+-    padding: 5px 10px;
+-    margin-bottom: 5px;
+-    padding-left: 15px;
+-}
+-
+-#requiredelivery{
+-    margin-top: 20px;
+-}
+-
+-@media (min-width:320px) and (max-width:767px) {
+-    .d-flex {
+-        flex-direction: column;
+-    }
+-
+-    .Yorder {
+-        order: 2; /* Yorder를 두 번째로 배치합니다. */
+-    }
+-
+-    form {
+-        order: 1; /* form을 첫 번째로 배치합니다. */
+-    }
+-}
+Index: pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\" xmlns:th=\"http://www.thymeleaf.org\">\r\n<head>\r\n    <title>Checkout</title>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"description\" content=\"Wish shop project\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js\" integrity=\"sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+\" crossorigin=\"anonymous\"></script>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"checkout.css\">\r\n\r\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js\"></script>\r\n    <script src=\"//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js\"></script>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/memberOrderPayment.css\">\r\n</head>\r\n<body>\r\n<div class=\"container\">\r\n    <div class=\"title\">\r\n        <h2>주문하기</h2>\r\n    </div>\r\n    <div class=\"d-flex\">\r\n        <form role=\"form\" th:action=\"@{'/order'}\" method=\"post\" enctype=\"multipart/form-data\">\r\n            <span class=\"fname\">이름 <span class=\"required\">*</span></span>\r\n            <label>\r\n                <input type=\"text\" name=\"fname\" placeholder=\"주문자명\">\r\n            </label>\r\n            <span class=\"fname\">전화번호 <span class=\"required\">*</span></span>\r\n            <label>\r\n                <input type=\"tel\" name=\"city\" placeholder=\"-를 제외한 11글자\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"button\" class=\"address\" id=\"addressselect\" onclick=\"execDaumPostcode()\" value=\"우편번호 찾기\"><br>\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" class=\"address\" id=\"postcode\" placeholder=\"우편번호\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" class=\"address\" id=\"roadAddress\" placeholder=\"도로명주소\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" class=\"address\" id=\"jibunAddress\" placeholder=\"지번주소\">\r\n            </label>\r\n            <label class=\"address\">\r\n                <input type=\"text\" name=\"apartment\" placeholder=\"상세주소\">\r\n            </label>\r\n\r\n            <span class=\"fname\" id=\"requiredelivery\">배송 요청 사항</span></span>\r\n            <label>\r\n                <input type=\"email\" name=\"city\">\r\n            </label>\r\n        </form>\r\n        <div class=\"Yorder\">\r\n            <table>\r\n                <tr>\r\n                    <th colspan=\"2\">Your order</th>\r\n                </tr>\r\n                <tr>\r\n                    <td>핸드폰1</td>\r\n                    <td>88000</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>핸드폰2</td>\r\n                    <td>90000</td>\r\n                </tr>\r\n                <tr>\r\n                    <td>핸드폰3</td>\r\n                    <td>100000</td>\r\n                </tr>\r\n            </table><br>\r\n            <div>\r\n                <input type=\"radio\" name=\"dbt\" value=\"dbt\" checked> 무통장입금\r\n            </div>\r\n            <div>\r\n                <input type=\"radio\" name=\"dbt\" value=\"cd\"> 핸드폰 결제\r\n            </div>\r\n            <div>\r\n                <input type=\"radio\" name=\"dbt\" value=\"cd\"> 신용/체크카드 <span>\r\n\t\t\t<img src=\"https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg\" alt=\"\" width=\"50\">\r\n\t\t\t</span>\r\n            </div>\r\n            <button type=\"button\">주문하기</button>\r\n        </div><!-- Yorder -->\r\n    </div>\r\n</div>\r\n\r\n<script src=\"/js/daumaddress.js\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html b/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html
+--- a/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html	(revision 47d438a9cd3426c3a7f8bc6151ce5bbffd60e111)
++++ b/pongcase/src/main/resources/templates/memberorder/memberOrderPayment.html	(date 1713777469890)
+@@ -13,7 +13,7 @@
+ 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+-    <link rel="stylesheet" type="text/css" href="/css/memberOrderPayment.css">
++    <link rel="stylesheet" type="text/css" href="/css/memberProductDetailPage.css">
+ </head>
+ <body>
+ <div class="container">
+Index: pongcase/src/main/resources/templates/member/memberRegister.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\" xmlns:th=\"http://www.thymeleaf.org\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pongcase/src/main/resources/templates/member/memberRegister.html b/pongcase/src/main/resources/templates/member/memberRegister.html
+--- a/pongcase/src/main/resources/templates/member/memberRegister.html	(revision 47d438a9cd3426c3a7f8bc6151ce5bbffd60e111)
++++ b/pongcase/src/main/resources/templates/member/memberRegister.html	(date 1713517018964)
+@@ -1,12 +1,576 @@
+-<!DOCTYPE html>
+-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+-
++<html lang="ko" xmlns:th="http://www.thymeleaf.org"
++      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
++<meta name="viewport" content="width=device-width, initial-scale=1">
+ <head>
+     <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Title</title>
++    <title>Insert title here</title>
++
++    <!--
++        #visual studio code 링크 방식
++      <link href="css/memberLogin.css" rel="stylesheet"/>
++      <link href="css/basic.css" rel="stylesheet"/>
++      -->
++
++    <!--
++    #springboot 링크 방식 -->
++    <link th:href="@{/css/memberLogin.css}" rel="stylesheet">
++    <link th:href="@{/css/basic.css}" rel="stylesheet">
++
++
++
++    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
++
++
++    <meta charset="utf-8">
++    <meta http-equiv="imagetoolbar" content="no">
++    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1">
++    <title>회원가입약관 | 샘플페이지</title>
++    <link rel="stylesheet" href="https://moden939.gabia.io/css/default.css?ver=171253">
++    <link rel="stylesheet" href="https://moden939.gabia.io/skin/member/basic/style.css?ver=171253">
++    <link rel="stylesheet" href="https://moden939.gabia.io/skin/member/basic/style2.css?ver=171253">
++    <!--[if lte IE 8]>
++    <script src="https://moden939.gabia.io/js/html5.js"></script>
++    <![endif]-->
++    <script>
++        // 자바스크립트에서 사용하는 전역변수 선언
++        var g5_url       = "https://moden939.gabia.io";
++        var g5_bbs_url   = "https://moden939.gabia.io/bbs";
++        var g5_is_member = "";
++        var g5_is_admin  = "";
++        var g5_is_mobile = "";
++        var g5_bo_table  = "";
++        var g5_sca       = "";
++        var g5_editor    = "";
++        var g5_cookie_domain = "";
++    </script>
++    <script src="https://moden939.gabia.io/js/jquery-1.8.3.min.js"></script>
++    <script src="https://moden939.gabia.io/js/jquery.menu.js?ver=171253"></script>
++    <script src="https://moden939.gabia.io/js/common.js?ver=171253"></script>
++    <script src="https://moden939.gabia.io/js/wrest.js?ver=171253"></script>
++    <script src="https://moden939.gabia.io/js/placeholders.min.js"></script>
++    <link rel="stylesheet" href="https://moden939.gabia.io/js/font-awesome/css/font-awesome.min.css">
++
++
++
+ </head>
++
++<style>
++
++    <!-- 하늘소요체 -->
++    @font-face {
++        font-family: 'SOYOMapleBoldTTF';
++        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
++        font-weight: 700; // weight 조절 400 얇은 글씨, 700 굵은 글씨
++    font-style: normal;
++    }
++
++
++    /*
++       1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
++       2. 테블릿 가로 : 768px ~ 1023px
++       3. 모바일 가로, 태블릿 : 480px ~ 767px
++       4. 모바일 : ~ 480px
++        */
++
++
++    /* 반응형 스타일 */
++    @media screen and (min-width: 1024px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: 'SOYOMapleBoldTTF', sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 500px;
++            padding: 40px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++
++
++    }
++
++
++    /* 반응형 스타일 */
++    @media screen and (min-width: 768px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 500px;
++            padding: 40px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++
++    }
++
++
++
++    /* 모바일 가로 버전 */
++    @media screen and (max-width: 767px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 90%;
++            padding: 40px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++    }
++
++    /* 모바일 세로 버전 */
++    @media screen and (max-width: 480px) {
++
++        html {
++            height: 100%; /* 전체 높이 */
++        }
++        body {
++            margin:0;
++            padding:0;
++            font-family: sans-serif;
++            background-color: aliceblue;
++        }
++
++        .login-box { /* 로그인 박스를 반응형처리 */
++            position: absolute;
++            top: 50%;
++            left: 50%;
++            width: 90%;
++            padding: 20px;
++            transform: translate(-50%, -50%);
++            box-sizing: border-box;
++            box-shadow: 0 15px 25px;
++            border-radius: 10px;
++        }
++
++
++        body {
++            font-family: Arial, Helvetica, sans-serif;
++            background-color: white;
++        }
++
++        * {
++            box-sizing: border-box;
++        }
++
++        /* Add padding to containers */
++        .container {
++            padding: 16px;
++            background-color: white;
++        }
++
++        /* Full-width input fields */
++        input[type=text], input[type=password] {
++            width: 100%;
++            padding: 15px;
++            margin: 5px 0 22px 0;
++            display: inline-block;
++            border: none;
++            background: #f1f1f1;
++        }
++
++        input[type=text]:focus, input[type=password]:focus {
++            background-color: #ddd;
++            outline: none;
++        }
++
++        /* Overwrite default styles of hr */
++        hr {
++            border: 1px solid #f1f1f1;
++            margin-bottom: 25px;
++        }
++
++        /* Set a style for the submit button */
++        .registerbtn {
++            background-color: #F8C8C4;
++            color: white;
++            padding: 16px 20px;
++            margin: 8px 0;
++            border: none;
++            cursor: pointer;
++            width: 100%;
++            opacity: 0.9;
++        }
++
++        .registerbtn:hover {
++            opacity: 1;
++        }
++
++        /* Add a blue text color to links */
++        a {
++            color: dodgerblue;
++        }
++
++        /* Set a grey background color and center the text of the "sign in" section */
++        .signin {
++            background-color: #f1f1f1;
++            text-align: center;
++        }
++
++
++
++    }
++
++    .read1{
++        width: 80%;
++        height: 100px;
++    }
++
++    .btn_submit, .btn_confirm{
++        margin-bottom: 20px;
++        padding: 10px;
++        border: none;
++        border-radius: 30px;
++        background: #F8C8C4;
++        color: navy;
++        font-size: 20px;
++        font-weight: bold;
++    }
++
++    .btn_confirm:hover , .btn_submit:hover{
++        background-color: aliceblue;
++    }
++    .btn_submit {
++        margin-top: 10px;
++    }
++
++</style>
++
++
+ <body>
+ 
++<div class="login-box">
++
++    <form action="#">
++        <div class="container">
++            <h1>퐁케이스</h1>
++            <br>
++            <hr>
++
++            <form name="fregister" id="fregister" action="/templates/member/memberRegister.html" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
++
++                <!-- <p style="margin: 10px 0;">회원가입약관 및 개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.</p> -->
++                <div id="fregister_chkall" class="checks2">
++                    <input type="checkbox" name="chk_all" value="1" id="chk_all">
++                    <label for="chk_all">회원가입 약관에 모두 동의합니다</label>
++                </div>
++                <br>
++                <hr>
++
++                <section id="fregister_term">
++                    <div class="fregister_agree2 checks2">
++                        <input type="checkbox" name="agree" value="1" id="agree11">
++                        <label for="agree11">이용약관 동의<span>(필수)</span></label>
++                    </div>
++
++                    <textarea class="read1" readonly="">제1조(목적) 이 약관은 업체 회사(전자상거래 사업자)가 운영하는 업체 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
++
++ </textarea>
++
++                </section>
++
++                <section id="fregister_private">
++                    <fieldset class="fregister_agree2 checks2">
++                        <input type="checkbox" name="agree2" value="1" id="agree21">
++                        <label for="agree21">개인정보 수집 및 이용 동의<span>(필수)</span></label>
++                    </fieldset>
++
++                    <textarea class="read1" readonly="">개인정보처리방침
++
++
++현 개인정보처리방침은 2017년 9월 22일에 제정되었으며, 정부 및 회사의 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 경우에는 개정 최소 7일 전부터 ‘공지사항’란을 통해 고지하며, 본 정책은 시행 일자에 시행됩니다.
++1) 공고일자 : 2018년 05월 01일
++2) 시행일자 : 2018년 05월 01일 </textarea>
++                </section>
++                <div class="btn_in1">
++
++                    <div>
++                        <input type="submit" class="btn_submit" value="가입하기" id="btn_submit">
++                    </div>
++                </div>
++            </form>
++
++
++
++            <script>
++                function fregister_submit(f)
++                {
++                    if (!f.agree.checked) {
++                        alert("회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
++                        f.agree.focus();
++                        return false;
++                    }
++
++                    if (!f.agree2.checked) {
++                        alert("개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
++                        f.agree2.focus();
++                        return false;
++                    }
++
++                    return true;
++                }
++
++                jQuery(function($){
++                    // 모두선택
++                    $("input[name=chk_all]").click(function() {
++                        if ($(this).prop('checked')) {
++                            $("input[name^=agree]").prop('checked', true);
++                        } else {
++                            $("input[name^=agree]").prop("checked", false);
++                        }
++                    });
++                });
++
++            </script>
++
++        </div>
++
++
++        <div class="container signin">
++            <p>Already have an account? <a href="#">Sign in</a>.</p>
++        </div>
++    </form>
++
++    </form>
++</div>
++
+ </body>
+ </html>
+\ No newline at end of file
