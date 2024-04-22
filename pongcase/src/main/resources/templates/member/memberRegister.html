@@ -1,12 +1,576 @@
-<!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Insert title here</title>
+
+    <!--
+        #visual studio code 링크 방식
+      <link href="css/memberLogin.css" rel="stylesheet"/>
+      <link href="css/basic.css" rel="stylesheet"/>
+      -->
+
+    <!--
+    #springboot 링크 방식 -->
+    <link th:href="@{/css/memberLogin.css}" rel="stylesheet">
+    <link th:href="@{/css/basic.css}" rel="stylesheet">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원가입약관 | 샘플페이지</title>
+    <link rel="stylesheet" href="https://moden939.gabia.io/css/default.css?ver=171253">
+    <link rel="stylesheet" href="https://moden939.gabia.io/skin/member/basic/style.css?ver=171253">
+    <link rel="stylesheet" href="https://moden939.gabia.io/skin/member/basic/style2.css?ver=171253">
+    <!--[if lte IE 8]>
+    <script src="https://moden939.gabia.io/js/html5.js"></script>
+    <![endif]-->
+    <script>
+        // 자바스크립트에서 사용하는 전역변수 선언
+        var g5_url       = "https://moden939.gabia.io";
+        var g5_bbs_url   = "https://moden939.gabia.io/bbs";
+        var g5_is_member = "";
+        var g5_is_admin  = "";
+        var g5_is_mobile = "";
+        var g5_bo_table  = "";
+        var g5_sca       = "";
+        var g5_editor    = "";
+        var g5_cookie_domain = "";
+    </script>
+    <script src="https://moden939.gabia.io/js/jquery-1.8.3.min.js"></script>
+    <script src="https://moden939.gabia.io/js/jquery.menu.js?ver=171253"></script>
+    <script src="https://moden939.gabia.io/js/common.js?ver=171253"></script>
+    <script src="https://moden939.gabia.io/js/wrest.js?ver=171253"></script>
+    <script src="https://moden939.gabia.io/js/placeholders.min.js"></script>
+    <link rel="stylesheet" href="https://moden939.gabia.io/js/font-awesome/css/font-awesome.min.css">
+
+
+
 </head>
+
+<style>
+
+    <!-- 하늘소요체 -->
+    @font-face {
+        font-family: 'SOYOMapleBoldTTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+        font-weight: 700; // weight 조절 400 얇은 글씨, 700 굵은 글씨
+    font-style: normal;
+    }
+
+
+    /*
+       1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
+       2. 테블릿 가로 : 768px ~ 1023px
+       3. 모바일 가로, 태블릿 : 480px ~ 767px
+       4. 모바일 : ~ 480px
+        */
+
+
+    /* 반응형 스타일 */
+    @media screen and (min-width: 1024px) {
+
+        html {
+            height: 100%; /* 전체 높이 */
+        }
+        body {
+            margin:0;
+            padding:0;
+            font-family: 'SOYOMapleBoldTTF', sans-serif;
+            background-color: aliceblue;
+        }
+
+        .login-box { /* 로그인 박스를 반응형처리 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px;
+            border-radius: 10px;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #F8C8C4;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+
+
+
+    }
+
+
+    /* 반응형 스타일 */
+    @media screen and (min-width: 768px) {
+
+        html {
+            height: 100%; /* 전체 높이 */
+        }
+        body {
+            margin:0;
+            padding:0;
+            font-family: sans-serif;
+            background-color: aliceblue;
+        }
+
+        .login-box { /* 로그인 박스를 반응형처리 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px;
+            border-radius: 10px;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #F8C8C4;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+
+
+    }
+
+
+
+    /* 모바일 가로 버전 */
+    @media screen and (max-width: 767px) {
+
+        html {
+            height: 100%; /* 전체 높이 */
+        }
+        body {
+            margin:0;
+            padding:0;
+            font-family: sans-serif;
+            background-color: aliceblue;
+        }
+
+        .login-box { /* 로그인 박스를 반응형처리 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px;
+            border-radius: 10px;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #F8C8C4;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+
+    }
+
+    /* 모바일 세로 버전 */
+    @media screen and (max-width: 480px) {
+
+        html {
+            height: 100%; /* 전체 높이 */
+        }
+        body {
+            margin:0;
+            padding:0;
+            font-family: sans-serif;
+            background-color: aliceblue;
+        }
+
+        .login-box { /* 로그인 박스를 반응형처리 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            padding: 20px;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px;
+            border-radius: 10px;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #F8C8C4;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+
+
+    }
+
+    .read1{
+        width: 80%;
+        height: 100px;
+    }
+
+    .btn_submit, .btn_confirm{
+        margin-bottom: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 30px;
+        background: #F8C8C4;
+        color: navy;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .btn_confirm:hover , .btn_submit:hover{
+        background-color: aliceblue;
+    }
+    .btn_submit {
+        margin-top: 10px;
+    }
+
+</style>
+
+
 <body>
+
+<div class="login-box">
+
+    <form action="#">
+        <div class="container">
+            <h1>퐁케이스</h1>
+            <br>
+            <hr>
+
+            <form name="fregister" id="fregister" action="/templates/member/memberRegister.html" onsubmit="return fregister_submit(this);" method="POST" autocomplete="off">
+
+                <!-- <p style="margin: 10px 0;">회원가입약관 및 개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.</p> -->
+                <div id="fregister_chkall" class="checks2">
+                    <input type="checkbox" name="chk_all" value="1" id="chk_all">
+                    <label for="chk_all">회원가입 약관에 모두 동의합니다</label>
+                </div>
+                <br>
+                <hr>
+
+                <section id="fregister_term">
+                    <div class="fregister_agree2 checks2">
+                        <input type="checkbox" name="agree" value="1" id="agree11">
+                        <label for="agree11">이용약관 동의<span>(필수)</span></label>
+                    </div>
+
+                    <textarea class="read1" readonly="">제1조(목적) 이 약관은 업체 회사(전자상거래 사업자)가 운영하는 업체 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
+
+ </textarea>
+
+                </section>
+
+                <section id="fregister_private">
+                    <fieldset class="fregister_agree2 checks2">
+                        <input type="checkbox" name="agree2" value="1" id="agree21">
+                        <label for="agree21">개인정보 수집 및 이용 동의<span>(필수)</span></label>
+                    </fieldset>
+
+                    <textarea class="read1" readonly="">개인정보처리방침
+
+
+현 개인정보처리방침은 2017년 9월 22일에 제정되었으며, 정부 및 회사의 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 경우에는 개정 최소 7일 전부터 ‘공지사항’란을 통해 고지하며, 본 정책은 시행 일자에 시행됩니다.
+1) 공고일자 : 2018년 05월 01일
+2) 시행일자 : 2018년 05월 01일 </textarea>
+                </section>
+                <div class="btn_in1">
+
+                    <div>
+                        <input type="submit" class="btn_submit" value="가입하기" id="btn_submit">
+                    </div>
+                </div>
+            </form>
+
+
+
+            <script>
+                function fregister_submit(f)
+                {
+                    if (!f.agree.checked) {
+                        alert("회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
+                        f.agree.focus();
+                        return false;
+                    }
+
+                    if (!f.agree2.checked) {
+                        alert("개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
+                        f.agree2.focus();
+                        return false;
+                    }
+
+                    return true;
+                }
+
+                jQuery(function($){
+                    // 모두선택
+                    $("input[name=chk_all]").click(function() {
+                        if ($(this).prop('checked')) {
+                            $("input[name^=agree]").prop('checked', true);
+                        } else {
+                            $("input[name^=agree]").prop("checked", false);
+                        }
+                    });
+                });
+
+            </script>
+
+        </div>
+
+
+        <div class="container signin">
+            <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+    </form>
+
+    </form>
+</div>
 
 </body>
 </html>
