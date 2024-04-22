@@ -1,9 +1,18 @@
+<!-- 하늘소요체 -->
+@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 700; // weight 조절 400 얇은 글씨, 700 굵은 글씨
+font-style: normal;
+}
+
+
 /*
-       1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
-       2. 테블릿 가로 : 768px ~ 1023px
-       3. 모바일 가로, 태블릿 : 480px ~ 767px
-       4. 모바일 : ~ 480px
-        */
+   1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
+   2. 테블릿 가로 : 768px ~ 1023px
+   3. 모바일 가로, 태블릿 : 480px ~ 767px
+   4. 모바일 : ~ 480px
+    */
 
 
 /* 반응형 스타일 */
@@ -15,7 +24,7 @@
     body {
         margin:0;
         padding:0;
-        font-family: sans-serif;
+        font-family: 'SOYOMapleBoldTTF', sans-serif;
         background-color: aliceblue;
     }
 
@@ -70,7 +79,7 @@
 
     /* Set a style for the submit button */
     .registerbtn {
-        background-color: #b85c9c;
+        background-color: #F8C8C4;
         color: white;
         padding: 16px 20px;
         margin: 8px 0;
@@ -165,7 +174,7 @@
 
     /* Set a style for the submit button */
     .registerbtn {
-        background-color: #b85c9c;
+        background-color: #F8C8C4;
         color: white;
         padding: 16px 20px;
         margin: 8px 0;
@@ -260,7 +269,7 @@
 
     /* Set a style for the submit button */
     .registerbtn {
-        background-color: #b85c9c;
+        background-color: #F8C8C4;
         color: white;
         padding: 16px 20px;
         margin: 8px 0;
@@ -352,7 +361,7 @@
 
     /* Set a style for the submit button */
     .registerbtn {
-        background-color: #b85c9c;
+        background-color: #F8C8C4;
         color: white;
         padding: 16px 20px;
         margin: 8px 0;
@@ -380,5 +389,32 @@
 
 
 }
-    
-    
+
+.read1{
+    width: 80%;
+    height: 100px;
+    margin-left: 10px;
+    border: 1px solid gray;
+}
+
+.btn_submit, .btn_confirm{
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #F8C8C4;
+    color: #F6F4FC;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn_confirm:hover , .btn_submit:hover{
+    background-color: #F8C8C4;
+}
+.btn_submit {
+    margin-top: 10px;
+}
+
+.title{
+    font-size: 20px;
+}
