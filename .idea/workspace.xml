@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="04.18 장바구니, 메인페이지 완료(2)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_29__Changes_.xml" afterDir="false" />
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0422">
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/java/com/pongcase/controller/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/index2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberCart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/java/com/pongcase/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/java/com/pongcase/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/membercart/memberCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/membercart/memberCart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,16 +25,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="jihye1" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,10 +62,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.memberCart.html.executor": "Run",
+    "JavaScript Debug.memberProductDetailPage.html.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.PongApplication (1).executor": "Run",
@@ -85,18 +94,16 @@
       <recent name="C:\pongcase2\pongcase\src\main\resources\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\springbootshop\pongcase2\pongcase\src\main\resources\templates" />
+      <recent name="C:\springbootshop\pongcase2\pongcase\src\main\resources" />
       <recent name="C:\pongcase2\pongcase\src\main\resources\memberproductimg" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.pongcase" />
+      <recent name="com" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PongApplication (1)">
-    <configuration name="PongApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="pong" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pongcase.PongApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PongApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="pong" />
@@ -105,12 +112,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PongApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="pong" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pongcase.PongApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
       </set>
     </attachedChunks>
@@ -130,6 +143,7 @@
       <workItem from="1713525309927" duration="8000" />
       <workItem from="1713776744564" duration="4821000" />
       <workItem from="1713781600705" duration="1954000" />
+      <workItem from="1713830376485" duration="4519000" />
     </task>
     <task id="LOCAL-00001" summary="0419-test">
       <option name="closed" value="true" />
@@ -185,8 +199,8 @@
     <MESSAGE value="0418" />
     <MESSAGE value="0419" />
     <MESSAGE value="0422" />
-    <MESSAGE value="04.18 장바구니, 메인페이지 완료(2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="04.18 장바구니, 메인페이지 완료(2)" />
+    <MESSAGE value="04.22 장바구니, 메인페이지 완료(4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="04.22 장바구니, 메인페이지 완료(4)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
