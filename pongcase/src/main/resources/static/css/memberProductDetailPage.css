@@ -50,14 +50,12 @@
 body {
     line-height: 1.5;
 }
-.card {
-    margin-bottom: 100px;
-}
+
 .card-wrapper {
     max-width: 1100px;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
 }
 
 img {
@@ -67,34 +65,40 @@ img {
 
 .img-showcase {
     display: flex;
-    width: 100%;
-    transition: all 0.5s ease;
+    width: 100%; /* 예시로 600px로 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-top: 100px;
+    /*width: 100%;*/
+    /*transition: all 0.5s ease;*/
 }
 
 .img-showcase img {
     min-width: 100%;
+    margin-top: 50px;
 }
 
 .img-select {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-
 .img-item {
-    margin: 0.35rem;
+    width: calc(25% - 10px); /* 각 이미지 너비의 25% (4개의 이미지가 가로폭에 균등하게 배치되도록) */
+    margin-bottom: 10px; /* 이미지 간격을 조절할 수 있습니다. */
 }
 
-.img-item:nth-child(1),
-.img-item:nth-child(2),
-.img-item:nth-child(3) {
-    margin-right: 0;
+.img-item img {
+    margin: 0.25rem;
+    width: 100%;
+    height: 60%;
 }
 
-.img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover, #social-links4:hover {
+.img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover, #social-links4:hover, #social-links4:hover {
     opacity: 0.8;
 }
 
 .product-title {
-    font-size: 45px;
+    font-size: 35px;
     font-weight: bold;
     position: relative;
     color: navy;
@@ -102,31 +106,31 @@ img {
 
 hr {
     width: 500px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 .hr2 {
     width: 500px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 .hr3 {
     width: 90%;
-    margin: 0 auto;
+    margin: 150px; /* 위쪽 여백을 100px로 설정하고 가운데 정렬 */
+    margin-left: 100px;
 }
 
 .imgContent {
     max-width: 1100px;
     margin: auto;
-    margin-top: 50px;
     display: block;
-
 }
 
 .product-content {
     width: 100%;
+    margin-top: 150px;
     margin-left: 50px;
     margin-bottom: 50px;
 }
@@ -140,35 +144,46 @@ hr {
 }
 
 .product-detail > p {
-    margin-left: 70px;
+    margin-left: 75px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-.last-price, .new-price, .product-detail > h2, .product-code2, .purchase-info1, .form-select1, .form-select2, .product-option, .product-option {
-    font-size: 40px;
-    line-height: 50px;
+.last-price, .new-price, .product-detail > h2, .product-code2, .purchase-info1,
+.product-option, .product-option {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.last-price span, .new-price span, .product-code2 span {
+    margin-left: 70px;
+    font-size: 20px;
+    line-height: 30px;
+}
+.design-options {
+    font-size: 20px;
+    line-height: 30px;
     font-weight: normal;
 }
 
-.last-price span, .new-price span, .product-code2 span, .form-select1, .form-select2 {
-    margin-left: 70px;
-    font-size: 35px;
-    line-height: 50px;
-}
-
-#galaxy-options, #iphone-options {
-    font-size: 25px;
-    line-height: 50px;
+.form-select1 {
+    font-weight: normal;
+    margin-left: 85px;
+    font-size: 20px;
+    line-height: 100px;
     border: 1.5px solid #ddd;
+    justify-content: space-between;
 }
 
 .purchase-info2 {
     width: auto;
-    margin-left: 130px;
-    font-size: 35px;
-    line-height: 50px;
+    margin-left: 110px;
+    font-size: 20px;
+    line-height: 30px;
     border-radius: 10px;
 }
 
@@ -183,11 +198,11 @@ hr {
 
 .purchase-info input,
 .purchase-info .btn {
-    font-size: 30px;
+    font-size: 20px;
     border: 1.5px solid #ddd;
     border-radius: 10px;
     text-align: center;
-    width: 105px;
+    width: 60px;
     outline: 0;
     margin-right: 0.2rem;
     margin-bottom: 1rem;
@@ -206,8 +221,24 @@ hr {
     justify-content: space-between;
 }
 
-.form-select1, .form-select2 {
-    margin-left: 130px;
+#galaxy-options, #iphone-options {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #ddd;
+    line-height: 50px;
+}
+#case-options {
+    border-radius: 10px;
+    line-height: 100px;
+}
+
+.form-select2 {
+    display: none;
+}
+
+.form-select2, .form-select {
+    margin-left: 110px;
+    font-size: 20px;
     justify-content: space-between;
     border-radius: 10px;
     border: 1.5px solid #ddd;
@@ -215,12 +246,13 @@ hr {
 
 .btn {
     margin-right: 40px;
-    font-size: 40px;
+    font-size: 25px;
     color: navy;
     background-color: #F8C8C4;
     align-items: center;
     justify-content: space-around;
     border-radius: 10px;
+    border: none;
 }
 
 .btn:hover {
@@ -232,7 +264,7 @@ hr {
     display: flex;
     align-items: center;
     margin-top: 5px;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 10px;
 }
 
@@ -243,23 +275,15 @@ hr {
     width: 35px;
     height: 35px;
     color: navy;
-    /*border: 1px solid #000;*/
     margin: 0 0.2rem;
     margin-left: 20px;
     border-style: hidden;
-    /*border-radius: 50%;*/
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.5s ease;
 }
-
-.form-select2 {
-    display: none;
-}
-
-#galaxy-options, #iphone-options {
-    margin-left: 10px;
-    border-radius: 10px;
+.social-links button{
+    border: none;
 }
 
 @media screen and (min-width: 992px) {

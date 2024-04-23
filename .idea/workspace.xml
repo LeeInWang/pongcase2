@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0422">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" afterDir="false" />
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0422-Jihye">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberProductDetailPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberProductDetailPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,8 @@
       <workItem from="1713515498108" duration="1528000" />
       <workItem from="1713525309927" duration="8000" />
       <workItem from="1713776744564" duration="4821000" />
-      <workItem from="1713781600705" duration="1954000" />
+      <workItem from="1713781600705" duration="8956000" />
+      <workItem from="1713862708905" duration="5237000" />
     </task>
     <task id="LOCAL-00001" summary="0419-test">
       <option name="closed" value="true" />
@@ -173,7 +173,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713778199105</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="0422-Jihye">
+      <option name="closed" value="true" />
+      <created>1713783802911</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713783802911</updated>
+    </task>
+    <task id="LOCAL-00006" summary="0422-Jihye">
+      <option name="closed" value="true" />
+      <created>1713783931529</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713783931529</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +211,8 @@
     <MESSAGE value="0418" />
     <MESSAGE value="0419" />
     <MESSAGE value="0422" />
-    <option name="LAST_COMMIT_MESSAGE" value="0422" />
+    <MESSAGE value="0422-Jihye" />
+    <option name="LAST_COMMIT_MESSAGE" value="0422-Jihye" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
