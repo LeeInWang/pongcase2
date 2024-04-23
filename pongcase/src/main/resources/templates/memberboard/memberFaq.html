@@ -1,47 +1,46 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/faq.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/font.css"/>
+
     <title>FAQ</title>
-    <style>
 
-    </style>
-</head>
-<body>
-<div class= "wrapfaq">
-    <h2 class="faqh2">FAQ</h2>
-    <br>
-    <div class="faq-item">
+    <div layout:fragment="content" class="content">
+        <div class= "wrapfaq">
+            <h2 class="faqh2">FAQ</h2>
+            <br>
+            <div class="faq-item">
 
-        <div id="acodiv">
-            <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
-            <div class="panel">
-                <p class="faqfont">${b.getBoardFaqContent()}</p>
-            </div>
-            <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
-            <div class="panel">
-                <p class="faqfont">${b.getBoardFaqContent()}</p>
-            </div>
-            <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
-            <div class="panel">
-                <p class="faqfont">${b.getBoardFaqContent()}</p>
-            </div>
-            <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
-            <div class="panel">
-                <p class="faqfont">${b.getBoardFaqContent()}</p>
-            </div>
-        </div>
+                <div id="acodiv">
+                    <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
+                    <div class="panel">
+                        <p class="faqfont">${b.getBoardFaqContent()}</p>
+                    </div>
+                    <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
+                    <div class="panel">
+                        <p class="faqfont">${b.getBoardFaqContent()}</p>
+                    </div>
+                    <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
+                    <div class="panel">
+                        <p class="faqfont">${b.getBoardFaqContent()}</p>
+                    </div>
+                    <button class="accordion"><p>${b.getBoardFaqTitle()}</p></button>
+                    <div class="panel">
+                        <p class="faqfont">${b.getBoardFaqContent()}</p>
+                    </div>
+                </div>
 
+            </div>
     </div>
-</div>
 
-<script src="/js/faq.js"></script>
-</body>
+
+
+</div>
 </html>

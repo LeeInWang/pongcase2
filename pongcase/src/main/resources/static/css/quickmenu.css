@@ -65,11 +65,11 @@ ul{
     width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1023px) {
     .quickmenu {
         /* 테블릿에 대한 스타일 설정 */
         max-width: 60%;
-        top: 200px;
+        top: 300px;
     }
 
     .quick {
@@ -78,7 +78,7 @@ ul{
 }
 
 /* 모바일에 대한 스타일 */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     .quickmenu {
         /* 모바일에 대한 스타일 설정 */
         display: none;
