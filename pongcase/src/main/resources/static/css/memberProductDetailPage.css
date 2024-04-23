@@ -9,7 +9,7 @@
     }
 
     .navbar {
-        font-size: 1rem; /* 아이콘 크기를\ 줄임 */
+        font-size: 1rem; /* 아이콘 크기를 줄임 */
         background-color: #f0f8ff; /* 앨리스 블루 */
     }
 
@@ -38,7 +38,6 @@
     }
 }
 
-/* 상품 디테일 */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -65,11 +64,9 @@ img {
 
 .img-showcase {
     display: flex;
-    width: 100%; /* 예시로 600px로 설정 */
+    width: 100%;
     margin: 0 auto; /* 가운데 정렬 */
     margin-top: 100px;
-    /*width: 100%;*/
-    /*transition: all 0.5s ease;*/
 }
 
 .img-showcase img {
@@ -82,9 +79,10 @@ img {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 .img-item {
-    width: calc(25% - 10px); /* 각 이미지 너비의 25% (4개의 이미지가 가로폭에 균등하게 배치되도록) */
-    margin-bottom: 10px; /* 이미지 간격을 조절할 수 있습니다. */
+    width: calc(25% - 10px); /* 각 이미지 너비의 25% (4개 이미지를 균등배치) */
+    margin-bottom: 10px; /* 이미지 간격을 10px로 조절 */
 }
 
 .img-item img {
@@ -93,7 +91,8 @@ img {
     height: 60%;
 }
 
-.img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover, #social-links4:hover, #social-links4:hover {
+.img-item:hover, #social-links1:hover, #social-links2:hover, #social-links3:hover,
+#social-links4:hover, #social-links4:hover {
     opacity: 0.8;
 }
 
@@ -123,7 +122,6 @@ hr {
 }
 
 .imgContent {
-    /*max-width: 1100px;*/
     margin: auto;
     margin-bottom: 10px;
     display: block;
@@ -230,6 +228,7 @@ hr {
     border: 1.5px solid #ddd;
     line-height: 50px;
 }
+
 #case-options {
     border-radius: 10px;
     line-height: 100px;
@@ -285,6 +284,7 @@ hr {
     font-size: 1rem;
     transition: all 0.5s ease;
 }
+
 .social-links button{
     border: none;
 }

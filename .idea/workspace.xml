@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0423-Jihye">
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0423-Jihye (1)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberProductDetailPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberProductDetailPage.css" afterDir="false" />
     </list>
@@ -138,7 +138,7 @@
       <workItem from="1713525309927" duration="8000" />
       <workItem from="1713776744564" duration="4821000" />
       <workItem from="1713781600705" duration="8956000" />
-      <workItem from="1713862708905" duration="5487000" />
+      <workItem from="1713862708905" duration="5626000" />
     </task>
     <task id="LOCAL-00001" summary="0419-test">
       <option name="closed" value="true" />
@@ -196,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713868013359</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="0423-Jihye (1)">
+      <option name="closed" value="true" />
+      <created>1713868264114</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713868264114</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +228,8 @@
     <MESSAGE value="0422" />
     <MESSAGE value="0422-Jihye" />
     <MESSAGE value="0423-Jihye" />
-    <option name="LAST_COMMIT_MESSAGE" value="0423-Jihye" />
+    <MESSAGE value="0423-Jihye (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="0423-Jihye (1)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
