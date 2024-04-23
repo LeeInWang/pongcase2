@@ -3,9 +3,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
 
-<th:block layout:fragment="css">
-    <link rel="stylesheet" type="text/css" href="/css/arrow.css">
-</th:block>
 
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +13,8 @@
 
     <div th:fragment="arrow">
         <div class="arrow">
-            <a id="toTop" href="#"><img th:src="@{/memberproductimg/arrow-up-circle-fill.svg}" title="위로 가기"></a>
+            <a id="toTop" href="#"><img src="/memberproductimg/arrow-up-circle.svg" title="위로 가기"></a>
           </div>
-          <script src="/js/arrow.js"></script>
     </div>
 
 
