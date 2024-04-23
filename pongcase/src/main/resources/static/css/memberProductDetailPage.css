@@ -123,9 +123,12 @@ hr {
 }
 
 .imgContent {
-    max-width: 1100px;
+    /*max-width: 1100px;*/
     margin: auto;
+    margin-bottom: 10px;
     display: block;
+    width: 60%;
+    height: 50%;
 }
 
 .product-content {
