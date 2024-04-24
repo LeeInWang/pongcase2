@@ -40,22 +40,22 @@
     }
 
     /* navbar 한줄에 나오도록 */
-    * {
-        box-sizing: border-box; /* 모든 요소의 박스 크기가 요소의 너비와 높이에 포함되도록 설정 */
-        position: relative; /* 요소를 일반 문서 흐름에 따라 배치, 상대적으로 설정 */
-        background-color: #F6F4FC;
-    }
+    /** {*/
+    /*    box-sizing: border-box; !* 모든 요소의 박스 크기가 요소의 너비와 높이에 포함되도록 설정 *!*/
+    /*    position: relative; !* 요소를 일반 문서 흐름에 따라 배치, 상대적으로 설정 *!*/
+    /*    background-color: #F6F4FC;*/
+    /*}*/
 
-    .wrap {
-        width: calc(100% - 100px); /* 너비를 화면 너비 - 100px로 설정 */
-        margin-left: 50px; /* 왼쪽 여백 */
-        margin-right: 50px; /* 오른쪽 여백 */
-    }
+    /*.wrap {*/
+    /*    width: calc(100% - 100px); !* 너비를 화면 너비 - 100px로 설정 *!*/
+    /*    margin-left: 50px; !* 왼쪽 여백 *!*/
+    /*    margin-right: 50px; !* 오른쪽 여백 *!*/
+    /*}*/
 
-    body {
-        text-align: center; /* body의 텍스트를 중앙 정렬 */
-        margin: 0; /* body의 마진을 0으로 설정 */
-    }
+    /*body {*/
+    /*    text-align: center; !* body의 텍스트를 중앙 정렬 *!*/
+    /*    margin: 0; !* body의 마진을 0으로 설정 *!*/
+    /*}*/
 
     .nav {
         margin-top: 10px; /* 상단 여백 설정 */
@@ -178,6 +178,7 @@
 </style>
 
 <body>
+
 <!-- 공통영역을 설정, header라는이름으로 공통영역으로 사용할게 -->
 <div th:fragment="header">
 

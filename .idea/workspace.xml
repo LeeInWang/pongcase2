@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="quick">
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/basic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/board.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberboard/memberBoard.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberboard/memberBoard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713868388169</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="board">
+      <option name="closed" value="true" />
+      <created>1713919589236</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713919589236</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +252,8 @@
     <MESSAGE value="0423-Jihye" />
     <MESSAGE value="0423-Jihye (1)" />
     <MESSAGE value="quick" />
-    <option name="LAST_COMMIT_MESSAGE" value="quick" />
+    <MESSAGE value="board" />
+    <option name="LAST_COMMIT_MESSAGE" value="board" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
