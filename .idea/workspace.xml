@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0423-Jihye (1)">
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="quick">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberProductDetailPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/memberProductDetailPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/quickmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/quickmenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductDetailPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberproduct/memberProductPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/basic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/board.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberboard/memberBoard.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberboard/memberBoard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +241,8 @@
     <MESSAGE value="0422-Jihye" />
     <MESSAGE value="0423-Jihye" />
     <MESSAGE value="0423-Jihye (1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="0423-Jihye (1)" />
+    <MESSAGE value="quick" />
+    <option name="LAST_COMMIT_MESSAGE" value="quick" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
