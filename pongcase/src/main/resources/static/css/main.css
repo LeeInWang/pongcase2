@@ -92,7 +92,8 @@ h1 {
     font-family: 'SOYOMapleBoldTTF';
 }
 /* 태블릿 */
-@media screen and (min-width: 481px) and (max-width: 1023px) {
+@media screen and (min-width: 481px) and (max-width: 1280px) {
+/*@media screen and (min-width: 375px) and (max-width: 1024px) {*/
     h1 {
         font-size: 1.5rem; /* 제목 크기를 크게 조정 */
     }
@@ -138,15 +139,15 @@ h1 {
     .sidebar {
         position: fixed;
         top: 0;
-        left: -250px; /* 사이드바를 왼쪽으로 숨김 */
-        width: 250px;
+        left: -20%; /* 사이드바를 왼쪽으로 숨김 */
+        width: 20%;
         height: 100%;
         background-color: #FFF; /* 배경색은 원하는 색상으로 변경 가능 */
         transition: left 0.3s ease; /* 애니메이션 효과를 주기 위한 transition 속성 */
     }
 
     .sidebar.active {
-        margin-top: 21%;
+        margin-top: 25%;
         left: 0; /* 사이드바를 왼쪽으로 보이게 함 */
     }
 
@@ -156,7 +157,7 @@ h1 {
     }
 
     .menu-item {
-        padding: 10px;
+        padding: 1%;
         border-bottom: 1px solid #CCC; /* 메뉴 항목 구분선 */
     }
 }
