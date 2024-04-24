@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="board">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_21__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_29__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/board.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberboard/memberBoard.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/memberboard/memberBoard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +52,7 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2fGb8E35liGsdmabQbHNYX8f4tj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
