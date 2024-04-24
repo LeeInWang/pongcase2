@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="board">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-18__5_41__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-04-22__6_29__Changes_.xml" afterDir="false" />
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0424final">
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/sjheader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/js/header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/js/sjheader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/faq.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/faq.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/quickmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/quickmenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713919589236</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="0424">
+      <option name="closed" value="true" />
+      <created>1713949672252</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713949672252</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +267,8 @@
     <MESSAGE value="0423-Jihye (1)" />
     <MESSAGE value="quick" />
     <MESSAGE value="board" />
-    <option name="LAST_COMMIT_MESSAGE" value="board" />
+    <MESSAGE value="0424" />
+    <option name="LAST_COMMIT_MESSAGE" value="0424" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

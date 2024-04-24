@@ -1,103 +1,112 @@
-
+body{
+    background-color: #F6F4FC;
+}
 @font-face {
     font-family: 'SOYOMapleBoldTTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
     font-style: normal;
 }
-.container{
-    background-color: #F6F4FC;
-}
-.nav img {
-    max-height: 30%;
-    max-width: 30%;
-    height: auto;
-    width: auto; /* 이미지의 가로세로 비율 유지 */
-}
-.bannernav img{
-    width: 100%;
-    height: auto;
-}
 
-.category {
-    background-color: #FFC0CB;
-    color: navy;
-    display: flex;
-    justify-content: space-between; /* 좌우 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    font-family: 'omyu_pretty';
-    font-weight: bold;
-}
-
-.category >search {
-    order: 1; /* search를 첫 번째로 이동 */
-}
-form.example input[type=text] {
-    padding: 6px;
-    font-size: 15px;
-    border: 1px solid #FFC0CB;
-    float: left;
-    width: 80%;
-    background: #F6F4FC;
-}
-form.example button {
-    width: 10%;
-    padding: 5px;
-    background: #FFC0CB;
-    color: #F0F8FF;
-    font-size: 17px;
-    border: 1px solid #FFC0CB;
-    border-left: none;
-    cursor: pointer;
-    text-align: center;
-}
-.category >navIcon {
-    order: 3; /* categoryNav를 세 번째로 이동 */
-    padding-bottom: 0px;
-}
-.navIcon button {
-    font-size: 17px;
-    color: #F0F8FF;
-    background: #FFC0CB;
-    border: #FFC0CB;
-    cursor: pointer;
-    outline: none;
-}
-/* 기본 스타일 */
-body {
-    display: inline-block;
-    text-align: center;
-    font-family: 'SOYOMapleBoldTTF';
-}
-h1 {
-    color: navy;
-    font-size: 2.5rem;
-}
-.sell_items {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-}
-
-.sell_item {
-    margin-right: 2px; /* 각 항목 사이의 간격 조절 */
-}
-
-.sell_item img {
-    width: 99%;
-    height: 95%;
-    object-fit: cover;
-}
-.footer {
-    text-align: left;
-    font-family: 'SOYOMapleBoldTTF';
-}
 /* 태블릿 */
-@media screen and (min-width: 481px) and (max-width: 1280px) {
-/*@media screen and (min-width: 375px) and (max-width: 1024px) {*/
+/*@media screen and (min-width: 481px) and (max-width: 1280px) {*/
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .container{
+        background-color: #F6F4FC;
+    }
+    .searchsj {
+        display: flex;
+        justify-content: center; /* 수평 가운데 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+        height: 100%; /* 부모 요소의 높이를 100%로 설정 */
+    }
+    .navsj img {
+        display: block; /* 이미지를 블록 레벨 요소로 설정 */
+        margin: auto; /* 가운데 정렬을 위해 자동 마진 설정 */
+        width: 30%; /* 원하는 너비로 설정 */
+        height: 30%; /* 원하는 높이로 설정 */
+    }
+    .bannernav img{
+        width: 100%;
+        height: auto;
+    }
+
+    .categorysj {
+        background-color: #FFC0CB;
+        color: navy;
+        display: flex;
+        justify-content: space-between; /* 좌우 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+        font-family: 'omyu_pretty';
+        font-weight: bold;
+    }
+
+    .categorysj >search {
+        order: 1; /* search를 첫 번째로 이동 */
+    }
+    form.examplesj input[type=text] {
+        padding: 6px;
+        font-size: 15px;
+        border: 1px solid #FFC0CB;
+        float: left;
+        width: 80%;
+        background: #F6F4FC;
+    }
+    form.examplesj button {
+        width: 10%;
+        padding: 5px;
+        background: #FFC0CB;
+        color: #F0F8FF;
+        font-size: 17px;
+        border: 1px solid #FFC0CB;
+        border-left: none;
+        cursor: pointer;
+        text-align: center;
+    }
+    .categorysj >navIcon {
+        order: 3; /* categoryNav를 세 번째로 이동 */
+        padding-bottom: 0px;
+    }
+    .navIconsj button {
+        font-size: 17px;
+        color: #F0F8FF;
+        background: #FFC0CB;
+        border: #FFC0CB;
+        cursor: pointer;
+        outline: none;
+    }
+    /* 기본 스타일 */
+    /*body {*/
+    /*    display: inline-block;*/
+    /*    text-align: center;*/
+    /*    font-family: 'SOYOMapleBoldTTF';*/
+    /*}*/
+    /*h1 {*/
+    /*    color: navy;*/
+    /*    font-size: 2.5rem;*/
+    /*}*/
+    .sell_items {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sell_item {
+        margin-right: 2px; /* 각 항목 사이의 간격 조절 */
+    }
+
+    .sell_item img {
+        width: 99%;
+        height: 95%;
+        object-fit: cover;
+    }
+    .footer {
+        text-align: left;
+        font-family: 'SOYOMapleBoldTTF';
+    }
     h1 {
         font-size: 1.5rem; /* 제목 크기를 크게 조정 */
     }
-    .header {
+    .headersj {
         height: 10%;
     }
 
@@ -127,7 +136,7 @@ h1 {
         transform: rotate(-45deg);
     }
 
-    .bar {
+    .barsj {
         width: 25px;
         height: 3px;
         background-color: #FFC0CB;
@@ -136,7 +145,7 @@ h1 {
     }
 
     /* 추가된 부분: 사이드바 스타일 */
-    .sidebar {
+    .sidebarsj {
         position: fixed;
         top: 0;
         left: -20%; /* 사이드바를 왼쪽으로 숨김 */
@@ -146,17 +155,17 @@ h1 {
         transition: left 0.3s ease; /* 애니메이션 효과를 주기 위한 transition 속성 */
     }
 
-    .sidebar.active {
+    .sidebarsj.active {
         margin-top: 25%;
         left: 0; /* 사이드바를 왼쪽으로 보이게 함 */
     }
 
-    .menu-items {
+    .menu-itemssj {
         list-style-type: none;
         padding: 0;
     }
 
-    .menu-item {
+    .menu-itemsj {
         padding: 1%;
         border-bottom: 1px solid #CCC; /* 메뉴 항목 구분선 */
     }

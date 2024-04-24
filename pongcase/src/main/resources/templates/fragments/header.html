@@ -1,204 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-</head>
-<style>
-    /* 폰트 */
-    @font-face {
-        font-family: 'SOYOMapleBoldTTF';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
-        font-style: normal; /* weight 조절 400 얇은 글씨, 700 굵은 글씨 */
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navigation Bar</title>
 
-    @font-face {
-        font-family: 'omyu_pretty';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
 
-    /* 모바일~태블릿 */
-    @media (min-width: 480px) and (max-width: 767px) {
-        .navLogo {
-            font-size: 1rem; /* 제목 크기를 줄임 */
-        }
 
-        .navIcon button {
-            font-size: 1rem; /* 아이콘 크기를 줄임 */
-        }
 
-        .navbar {
-            font-size: 1rem; /* 아이콘 크기를\ 줄임 */
-            background-color: #F0F8FF; /* 앨리스 블루 */
-        }
-    }
+<link th:href="@{/css/header.css}" rel="stylesheet">
 
-    /* navbar 한줄에 나오도록 */
-    /** {*/
-    /*    box-sizing: border-box; !* 모든 요소의 박스 크기가 요소의 너비와 높이에 포함되도록 설정 *!*/
-    /*    position: relative; !* 요소를 일반 문서 흐름에 따라 배치, 상대적으로 설정 *!*/
-    /*    background-color: #F6F4FC;*/
-    /*}*/
 
-    /*.wrap {*/
-    /*    width: calc(100% - 100px); !* 너비를 화면 너비 - 100px로 설정 *!*/
-    /*    margin-left: 50px; !* 왼쪽 여백 *!*/
-    /*    margin-right: 50px; !* 오른쪽 여백 *!*/
-    /*}*/
-
-    /*body {*/
-    /*    text-align: center; !* body의 텍스트를 중앙 정렬 *!*/
-    /*    margin: 0; !* body의 마진을 0으로 설정 *!*/
-    /*}*/
-
-    .nav {
-        margin-top: 10px; /* 상단 여백 설정 */
-        display: flex; /* 요소들을 가로로 배열 */
-        align-items: center; /* 세로로 정렬 */
-        justify-content: center; /* 가로로 중앙 정렬 */
-    }
-
-    .navLogo {
-        flex: 1; /* 자동으로 공간을 채우도록 설정 */
-        justify-content: space-around;
-        /*border-radius: 10px;*/
-    }
-
-    .navIcon button {
-        margin-top: 30px;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
-
-    .material-symbols-outlined {
-        font-size: 50px; /* 버튼의 아이콘 크기 */
-        margin-left: 10px;
-    }
-
-    .material-symbols-outlined:hover {
-        opacity: 60%;
-    }
-
-    /* 카테고리 */
-    .navbar {
-        width: 100%;
-        overflow: hidden;
-        font-family: 'omyu_pretty';
-        display: flex; /* navbar 요소들을 가로로 정렬(카테고리, 검색어, 버튼까지) */
-        border-radius: 10px; /* 모서리 둥글게 */
-
-    }
-
-    .navbar a {
-        float: left;
-        padding: 30px 30px;
-        background-color: #F8C8C4; /* 카네이션 핑크 */
-        color: white;
-        font-size: 35px;
-        font-weight: bold;
-        width: 25%; /* 너비 설정 */
-        text-align: center; /* 텍스트 가운데 정렬 */
-        display: block; /* 블록 요소로 변경 */
-        text-decoration: none; /* 텍스트에 밑줄 제거 */
-    }
-
-    .navbar a:hover {
-        background-color: #F0F8FF; /* 앨리스 블루 */
-        color: navy;
-        border-radius: 10px; /* 모서리 둥글게 */
-    }
-
-    .searchNav {
-        display: flex; /* 요소들을 가로로 배열 */
-        align-items: center; /* 세로로 정렬 */
-        background-color: #F8C8C4; /* 카네이션 핑크 */
-        padding-right: 50px;
-    }
-
-    .navbar input[type=text] {
-        padding: 6px;
-        margin-top: 8px;
-        font-family: 'omyu_pretty';
-        outline: none; /* 테두리 없음 */
-    }
-
-    .navbar .searchNav button {
-        border-radius: 10px; /* 모서리 둥글게 */
-        float: left;
-        display: flex;
-        margin-top: 8px;
-        margin-right: 0;
-        font-size: 20px;
-        border: none; /* 테두리 없음 */
-        cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    }
-
-    .navbar .searchNav button:hover {
-        background: #F0F8FF; /* 앨리스 블루 */
-        color: navy;
-        font-weight: bold;
-    }
-
-    .searchNav input[type="text"] {
-        padding: 6px;
-        margin-top: 8px;
-        font-size: 30px;
-        border: none;
-        height: 40px;
-        border-radius: 10px;
-    }
-
-    @media (max-width: 767px) {
-        .navbar .searchNav {
-            float: none;
-        }
-
-        .navbar a, .navbar input[type=text], .navbar {
-            float: none;
-            display: block;
-            text-align: left;
-            width: 100%;
-            margin: 0;
-            padding: 14px;
-        }
-
-        .navbar input[type=text] {
-            border: 1px solid #ccc;
-        }
-    }
-
-</style>
-
-<body>
-
-<!-- 공통영역을 설정, header라는이름으로 공통영역으로 사용할게 -->
 <div th:fragment="header">
-
     <div class="wrap" style="padding-top: 10px;">
-        <div class="nav">
-            <div class="navLogo">
-                <a href="logo">
-                    <img id="nav-Logo" src="/static/memberproductimg/logo.png" alt="로고"/>
-                </a></div>
-            <div class="navIcon">
-                <button onclick="login()"><span class="material-symbols-outlined">login</span></button>
-                <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
-                <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <button onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
-
+        <div class="navjh">
+                <div class="navLogo">
+                    <a href="logo">
+                        <img id="nav-Logo" src="/memberproductimg/logo.png" alt="로고"/>
+                    </a></div>
             </div>
+        <div class="jhicon">
+                <div class="navIcon">
+                    <button onclick="login()"><span class="material-symbols-outlined">login</span></button>
+                    <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
+                    <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
+                    <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</a></span></button>
+                </div>
+
         </div>
 
         <!-- 메인카테고리, 검색어박스, 검색버튼 -->
-        <div class="navbar">
+        <div class="navbarjh">
             <a href="#">하드</a>
             <a href="#">젤리</a>
             <a href="#">z-플립</a>
@@ -213,37 +47,102 @@
         </div>
 
     </div>
+
+
+
+
+    <!--요셉님-->
+    <nav class="navHeader">
+
+        <div class="divLogo">
+            <img id="nav-Logo2" src="/memberproductimg/logo.png" alt="로고"/>
+        </div>
+        <div class="divMenu">
+            <div class="menu"> <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; </span></div>
+        </div>
+
+        <div class="wrapys" >
+            <div class="nav2">
+                <div class="navIcon">
+
+
+                </div>
+            </div>
+
+            <div class="divloginLogoutMyInfoShoppingBasket">
+                <button  class="login" onclick="login()"><span class="material-symbols-outlined">login</span></button>
+                <button  class="Logout" onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
+                <button class="myInfo"  onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
+                <button class="shoppingBasket " onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
+            </div>
+
+            <div class="divSearch">
+                <div class="Search">
+                    <!-- 검색 -->
+                    <form class="example" action="action_page.php">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+
+
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">하드케이스</a>
+            <a href="#">젤리케이스</a>
+            <a href="#">카드수납케이스</a>
+            <a href="#">투명케이스</a>
+            <a href="#">Z-플립케이스</a>
+        </div>
+    </div>
+
+
+    <div class="headersj">
+        <div class="navsj">
+            <!-- 로고 이미지 -->
+            <img src="/memberproductimg/logo.png" alt="Logo">
+            <!-- 메뉴 사이드바 이미지 -->
+            <div class="menu menu-icon" onclick="toggleSidebar()">
+                <div class="barsj"></div>
+                <div class="barsj"></div>
+                <div class="barsj"></div>
+            </div>
+            <!-- 사이드바 및 메뉴 항목들 -->
+            <div class="sidebarsj" id="sidebarsj">
+                <ul class="menu-itemssj">
+                    <li class="menu-itemsj">젤리 케이스</li>
+                    <li class="menu-itemsj">하드 케이스</li>
+                    <li class="menu-itemsj">기본 케이스</li>
+                    <!-- 필요한 만큼 메뉴 항목을 추가할 수 있습니다. -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="categorysj">
+            <div class="searchsj">
+                <!-- 검색 -->
+                <form class="examplesj" action="action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="navIconsj">
+                <button onclick="login()"><span class="material-symbols-outlined">login</span></button>
+                <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
+                <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
+                <a th:href="@{/cart}">
+                    <button onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </div>
-</body>
-
-<script>
-    // navIcon
-    function login() {
-        // 로그인
-    }
-
-    function logout() {
-        // 로그아웃
-    }
-
-    function mypage() {
-        // 마이페이지로 이동
-    }
-
-    function shopping() {
-        // 장바구니 이동
-    }
-
-    //navbar
-    function myFunction() {
-        var x = document.getElementById("navbar");
-        if (x.className === "navbar") {
-            x.className += " responsive";
-        } else {
-            x.className = "navbar";
-        }
-    }
-
-</script>
-
 </html>
