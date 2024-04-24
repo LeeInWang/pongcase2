@@ -1,23 +1,19 @@
 <!-- memberProductPage + 상품이미지만 -->
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<!--xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"&ndash;&gt;-->
-<!--      layout:decorate="~{layouts/layout}">-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="/css/memberProductPage.css" />
-    <link rel="stylesheet" href="/css/font.css" />
+<!--    <link rel="stylesheet" href="/css/memberProductPage.css" />-->
+<!--    <link rel="stylesheet" href="/css/font.css" />-->
 <!--    <link th:href="@{/css/memberProductPages.css}" rel="stylesheet">-->
 <!--    <link th:href="@{/css/font.css}" rel="stylesheet">-->
     <title>Member Product Page</title>
 
-</head>
-
-<body>
-
+<div layout:fragment="content" class="content">
 <!-- 상품 -->
 <div class="proWrap">
 
@@ -25,9 +21,9 @@
             <div class="productArea">
                 <div class="productItem">
             <a th:href="@{/products/proList1}" >
-                <img src="/memberproductimg/jelly11.jpeg" class="productImg" style="border-radius: 20px;"></a>
+                <img src="/memberproductimg/jelly11.jpeg" class="productImg" style="border-radius: 20px;">
                 <div class="productName">(젤리) 기본 젤리 케이스</div>
-                <div class="productPrice">5000</div>
+                <div class="productPrice">5000</div></a>
             </div>
 
             <div class="productItem">
@@ -64,5 +60,5 @@
 <!--    </form>-->
 
 </div>
-</body>
+</div>
 </html>
