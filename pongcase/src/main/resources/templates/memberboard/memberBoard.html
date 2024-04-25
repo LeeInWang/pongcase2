@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -8,54 +10,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/board.css">
-    <link rel="stylesheet" type="text/css" href="/css/font.css">
 
-</head>
-<body>
+
+    <div layout:fragment="content" class="content">
+
 <div class="container justify-content-center">
-    <div class= "wrap">
+    <div class= "boardwrap">
 
         <table id="bordertable" class="table table-responsive">
-            <thead id="tableheader">
+            <thead id="tableheaderboard">
             <tr>
-                <th class="th1">No</th>
-                <th class="th2">제목</th>
-                <th class="th3">작성자</th>
-                <th class="th4">작성일</th>
+                <th class="th11">No</th>
+                <th class="th22">제목</th>
+                <th class="th33">작성자</th>
+                <th class="th44">작성일</th>
             </tr>
             </thead>
-            <tbody id="tablebody">
+            <tbody id="tablebodyboard">
             <tr>
-                <td class="td1">${b.getBoardNumber()}</td>
-                <td class="td2"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">${ b.getBoardTitle()}</a></td>
-                <td class="td3">${b.getBoardUser()}</td>
-                <td class="td4">${b.getBoardDate()}</td>
+                <td class="td11">1</td>
+                <td class="td22"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">제목1123123213213</a></td>
+                <td class="td33">홍길동</td>
+                <td class="td44">2024-04-24</td>
             </tr>
             <tr>
-                <td class="td1">${b.getBoardNumber()}</td>
-                <td class="td2"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">${ b.getBoardTitle()}</a></td>
-                <td class="td3">${b.getBoardUser()}</td>
-                <td class="td4">${b.getBoardDate()}</td>
+                <td class="td11">2</td>
+                <td class="td22"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">제목2123213213321</a></td>
+                <td class="td33">홍길동</td>
+                <td class="td44">2024-04-24</td>
             </tr>
             <tr>
-                <td class="td1">${b.getBoardNumber()}</td>
-                <td class="td2"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">${ b.getBoardTitle()}</a></td>
-                <td class="td3">${b.getBoardUser()}</td>
-                <td class="td4">${b.getBoardDate()}</td>
+                <td class="td11">3</td>
+                <td class="td22"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">제목3123123123213</a></td>
+                <td class="td33">홍길동</td>
+                <td class="td44">2024-04-24</td>
             </tr>
             <tr>
-                <td class="td1">${b.getBoardNumber()}</td>
-                <td class="td2"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">${ b.getBoardTitle()}</a></td>
-                <td class="td3">${b.getBoardUser()}</td>
-                <td class="td4">${b.getBoardDate()}</td>
+                <td class="td11">4</td>
+                <td class="td22"><a href="boardSelect.do2?boardNumber=${b.getBoardNumber()}">제목4123123123212</a></td>
+                <td class="td33">홍길동</td>
+                <td class="td44">2024-04-24</td>
             </tr>
             </tbody>
         </table>
     </div>
 
 </div>
-<script src="/js/board.js"></script>
 
-</body>
+
+    </div>
 </html>

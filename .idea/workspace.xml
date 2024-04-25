@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0424 메인, 장바구니">
+    <list default="true" id="849592c0-f41f-418b-a80b-c7bc7491d060" name="Changes" comment="0424final">
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/sjheader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/js/header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/js/sjheader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/faq.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/faq.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/quickmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/static/css/quickmenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pongcase/src/main/resources/templates/layouts/layout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,16 +25,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="jihye1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,54 +60,63 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.footer.html.executor": "Run",
-    "JavaScript Debug.header.html.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "JavaScript Debug.memberCart.html.executor": "Run",
-    "JavaScript Debug.memberProductDetailPage.html.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.PongApplication (1).executor": "Run",
-    "Spring Boot.PongApplication.executor": "Run",
-    "git-widget-placeholder": "sj",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/USER/Documents/카카오톡 받은 파일/shop (1)/shop",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PongApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PongApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/pongcase2/pongcase/src/main/resources/static/css&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\pongcase2\pongcase\src\main\resources\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\springbootshop\pongcase2\pongcase\src\main\resources\templates" />
-      <recent name="C:\springbootshop\pongcase2\pongcase\src\main\resources" />
       <recent name="C:\pongcase2\pongcase\src\main\resources\memberproductimg" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.pongcase" />
-      <recent name="com" />
-    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.PongApplication (1)">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="phongcase" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="phongcase" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PongApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="pong" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pongcase.PongApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PongApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="pong" />
@@ -105,19 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PongApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="pong" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pongcase.PongApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -135,12 +148,9 @@
       <workItem from="1713515498108" duration="1528000" />
       <workItem from="1713525309927" duration="8000" />
       <workItem from="1713776744564" duration="4821000" />
-      <workItem from="1713781600705" duration="1954000" />
-      <workItem from="1713830376485" duration="9610000" />
-      <workItem from="1713919620299" duration="1395000" />
-      <workItem from="1713933303287" duration="3184000" />
-      <workItem from="1713968245024" duration="458000" />
-      <workItem from="1714003789039" duration="2043000" />
+      <workItem from="1713781600705" duration="8956000" />
+      <workItem from="1713862708905" duration="6929000" />
+      <workItem from="1713869889930" duration="1895000" />
     </task>
     <task id="LOCAL-00001" summary="0419-test">
       <option name="closed" value="true" />
@@ -174,23 +184,63 @@
       <option name="project" value="LOCAL" />
       <updated>1713778199105</updated>
     </task>
-    <task id="LOCAL-00005" summary="0423 메인, 장바구니">
+    <task id="LOCAL-00005" summary="0422-Jihye">
       <option name="closed" value="true" />
-      <created>1713871756828</created>
+      <created>1713783802911</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1713871756828</updated>
+      <updated>1713783802911</updated>
     </task>
-    <task id="LOCAL-00006" summary="0424 메인, 장바구니">
+    <task id="LOCAL-00006" summary="0422-Jihye">
       <option name="closed" value="true" />
-      <created>1713949120669</created>
+      <created>1713783931529</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1713949120669</updated>
+      <updated>1713783931529</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="0423-Jihye">
+      <option name="closed" value="true" />
+      <created>1713868013359</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713868013359</updated>
+    </task>
+    <task id="LOCAL-00008" summary="0423-Jihye (1)">
+      <option name="closed" value="true" />
+      <created>1713868264114</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713868264114</updated>
+    </task>
+    <task id="LOCAL-00009" summary="0423-Jihye (1)">
+      <option name="closed" value="true" />
+      <created>1713868388169</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713868388169</updated>
+    </task>
+    <task id="LOCAL-00010" summary="board">
+      <option name="closed" value="true" />
+      <created>1713919589236</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713919589236</updated>
+    </task>
+    <task id="LOCAL-00011" summary="0424">
+      <option name="closed" value="true" />
+      <created>1713949672252</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713949672252</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,10 +262,13 @@
     <MESSAGE value="0418" />
     <MESSAGE value="0419" />
     <MESSAGE value="0422" />
-    <MESSAGE value="04.22 장바구니, 메인페이지 완료(4)" />
-    <MESSAGE value="0423 메인, 장바구니" />
-    <MESSAGE value="0424 메인, 장바구니" />
-    <option name="LAST_COMMIT_MESSAGE" value="0424 메인, 장바구니" />
+    <MESSAGE value="0422-Jihye" />
+    <MESSAGE value="0423-Jihye" />
+    <MESSAGE value="0423-Jihye (1)" />
+    <MESSAGE value="quick" />
+    <MESSAGE value="board" />
+    <MESSAGE value="0424" />
+    <option name="LAST_COMMIT_MESSAGE" value="0424" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

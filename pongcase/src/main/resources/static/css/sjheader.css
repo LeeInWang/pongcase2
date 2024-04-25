@@ -1,0 +1,83 @@
+/* 모바일~태블릿 */
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .navHeader{
+        display: none;
+    }
+    .overlay{
+        display: none;
+    }
+    .navbarjh{
+        display: none;
+    }
+    .navjh{
+        display: none;
+    }
+    h1 {
+        font-size: 1.5rem; /* 제목 크기를 크게 조정*/
+    }
+    .headersj {
+        height: 10%;
+    }
+
+/* 아이콘 크기를 조정 */
+    .navIcons button {
+        font-size: 2rem;
+    }
+    .menu {
+        justify-content: right;
+        cursor: pointer;
+        width: 25px;
+        height: 30px;
+        position: relative;
+    }
+
+    .menu.active .barsj {
+        position: absolute;
+    }
+    .menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu.active .bar:first-child {
+        top: 25%;
+        transform: rotate(45deg);
+    }
+    .menu.active .bar:last-child {
+        top: 25%;
+        transform: rotate(-45deg);
+    }
+
+    .barsj {
+        width: 25px;
+        height: 3px;
+        background-color: #FFC0CB;
+        margin: 6px 0;
+        transition: 1s;
+    }
+
+    /* 추가된 부분: 사이드바 스타일 */
+    .sidebarsj {
+        position: fixed;
+        top: 0;
+        left: -20%; /* 사이드바를 왼쪽으로 숨김 */
+        width: 20%;
+        height: 100%;
+        background-color: #FFF; /* 배경색은 원하는 색상으로 변경 가능 */
+        transition: left 0.3s ease; /* 애니메이션 효과를 주기 위한 transition 속성 */
+    }
+
+    .sidebarsj.active {
+        margin-top: 25%;
+        left: 0; /* 사이드바를 왼쪽으로 보이게 함 */
+    }
+
+    .menu-itemssj {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-itemsj {
+        padding: 1%;
+        border-bottom: 1px solid #CCC; /* 메뉴 항목 구분선 */
+    }
+}

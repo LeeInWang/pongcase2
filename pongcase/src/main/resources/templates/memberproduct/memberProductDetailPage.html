@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns="http://www.w3.org/1999/html">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="/css/memberProductDetailPage.css" />
-    <link rel="stylesheet" href="/css/font.css" />
+<!--    <link rel="stylesheet" href="/css/memberProductDetailPage.css" />-->
+<!--    <link rel="stylesheet" href="/css/font.css" />-->
+
 <!--    <link th:href="@{/css/memberProductPages.css}" rel="stylesheet">-->
 <!--    <link th:href="@{/css/font.css}" rel="stylesheet">-->
-</head>
 
-<body>
+<div layout:fragment="content" class="content">
 <div class="card-wrapper">
 
     <div class="card">
@@ -35,17 +35,17 @@
                 </div>
                 <div class="img-item">
                     <a href="#" data-id="2">
-                        <img src="/memberproductimg/jelly1.jpeg" alt="">
+                        <img src="/memberproductimg/purple.jpeg" alt="">
                     </a>
                 </div>
                 <div class="img-item">
                     <a href="#" data-id="3">
-                        <img src="/memberproductimg/jelly1.jpeg" alt="">
+                        <img src="/memberproductimg/heart.jpeg" alt="">
                     </a>
                 </div>
                 <div class="img-item">
                     <a href="#" data-id="4">
-                        <img src="/memberproductimg/jelly1.jpeg" alt="">
+                        <img src="/memberproductimg/moon.jpeg" alt="">
                     </a>
                 </div>
             </div>
@@ -66,11 +66,20 @@
 
             <div class="product-detail">
                 <h2 class="product-detail1">상세설명:</h2>
-                <p class="product-detail2"> 깔끔한 디자인과 탁월한 보호 기능!<br>변색 걱정 없는 케이스!<br>색상별로 있습니다~</p>
+                <p class="product-detail2"> 깔끔한 디자인과 탁월한 보호 기능!<br>변색 걱정 없는 케이스!<br>디자인별로 있습니다~</p>
+            </div>
+
+            <div class="design-options">디자인:
+                <select class="form-select1" id="case-options"> <!-- 3차옵션-케이스디자인 -->
+                    <option>기본</option>
+                    <option>나비</option>
+                    <option>하트</option>
+                    <option>달</option>
+                </select>
             </div>
 
             <div class="product-option">기종:
-                <select class="form-select1" id="first-option"> <!-- 1차옵션 -->
+                <select class="form-select" id="first-option"> <!-- 1차옵션 -->
                     <option value="아이폰">아이폰</option>
                     <option value="갤럭시">갤럭시</option>
                 </select>
@@ -109,14 +118,16 @@
                     <option>노트20</option>
                     <option>노트20 울트라</option>
                 </select>
+
             </div>
+
             <div class="purchase-info">
                 <p class="purchase-info1">수량: </p>
                 <input class="purchase-info2" type="number" min="0" value="1">
             </div>
 
             <div class="social-links">
-                <p style="font-size: 35px; margin-right: 35px;">Share At: </p>
+                <p style="font-size: 20px; margin-right: 35px;">Share At: </p>
 
                 <a href="javascript:sendNaverLine();">
                     <img id="social-links1" src="/memberproductimg/LineIcon.png" alt="네이버라인"/>
@@ -159,43 +170,6 @@
 <div class="imgContent">
     <img src="/memberproductimg/moon.jpeg" alt="Moon">
 </div>
+</div>>
 
-</body>
-<script>
-    window.onload = function () {
-        // 1차 옵션 선택 시
-        document.getElementById('first-option').addEventListener('change', function () {
-            var selectedOption = this.value
-            var iphoneOptions = document.getElementById('iphone-options');
-            var galaxyOptions = document.getElementById('galaxy-options');
-
-            // 아이폰을 선택한 경우
-            if (selectedOption.toLowerCase() === '아이폰') {
-                iphoneOptions.classList.remove('form-select2');
-                galaxyOptions.classList.add('form-select2');
-            }
-            // 갤럭시를 선택한 경우
-            else if (selectedOption.toLowerCase() === '갤럭시') {
-                iphoneOptions.classList.add('form-select2');
-                galaxyOptions.classList.remove('form-select2');
-            }
-            // 기본 선택(선택 안 함)인 경우
-            else {
-                iphoneOptions.classList.add('form-select2');
-                galaxyOptions.classList.add('form-select2');
-            }
-        });
-    };
-
-    //share sns API
-    //Line
-    var sns_title = "퐁케이스";
-    var sns_br = "\n";
-    var sns_summary = "핸드폰 쇼핑몰 퐁케이스~!"
-    var sns_br = "\n";
-    var sns_img = "/memberproductimg/shareimg.jpg";
-    var link = "http://localhost:8080/";
-    var url = "http://line.me/R/msg/text/?" + encodeURIComponent(sns_title + sns_br + sns_summary + sns_br + sns_link);
-
-</script>
 </html>

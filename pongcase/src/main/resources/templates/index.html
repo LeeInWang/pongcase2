@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{layouts/layout}">-->
-<head>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
     <!-- css 만들어 말어? link rel="stylesheet" href=".resources/static/.css?"-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,81 +12,9 @@
 
     <title>Title</title>
 <!--    #springboot 링크 방식-->
-    <link th:href="@{/css/main.css}" rel="stylesheet">
-    <link th:href="@{/css/basic.css}" rel="stylesheet">
-</head>
-<body>
+
 
 <div class="container">
-    <header class="header">
-        <div class="nav">
-            <!-- 로고 이미지 -->
-            <img src="/memberproductimg/logo.png" alt="Logo">
-            <!-- 메뉴 사이드바 이미지 -->
-            <div class="menu menu-icon" onclick="toggleSidebar()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <!-- 사이드바 및 메뉴 항목들 -->
-            <div class="sidebar" id="sidebar">
-                <ul class="menu-items">
-                    <li class="menu-item">젤리 케이스</li>
-                    <li class="menu-item">하드 케이스</li>
-                    <li class="menu-item">기본 케이스</li>
-                    <!-- 필요한 만큼 메뉴 항목을 추가할 수 있습니다. -->
-                </ul>
-            </div>
-
-            <script>
-                <!-- 메뉴 닫히는 기능 -->
-                function toggleSidebar() {
-                    const menu = document.querySelector(".menu");
-                    const sidebar = document.getElementById("sidebar");
-                    menu.classList.toggle("active");
-                    sidebar.classList.toggle("active");
-                }
-            </script>
-        </div>
-
-        <script>
-            // navIcon
-            function login() {
-                // 로그인
-            }
-
-            function logout() {
-                // 로그아웃
-            }
-
-            function mypage() {
-                // 마이페이지로 이동
-            }
-
-            function shopping() {
-                // 장바구니 이동
-            }
-        </script>
-        <div class="category">
-            <div class="search">
-                <!-- 검색 -->
-                <form class="example" action="action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-            <div class="navIcon">
-                <button onclick="login()"><span class="material-symbols-outlined">login</span></button>
-                <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
-                <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <a th:href="@{/cart}">
-                    <button onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
-                </a>
-            </div>
-        </div>
-
-    </header>
-
     <section class="center">
         <div class="bannernav">
             <img src="/static/memberproductimg/banner.png" alt="Banner">
@@ -108,5 +36,5 @@
         </div>
     </footer>
 </div>
-</body>
+
 </html>

@@ -21,12 +21,12 @@
 /*    }*/
 /*}*/
 .quickmenu {
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     position: absolute;
     width: auto;
     max-width: 10%;
     height: auto;
-    top: 300px;
+    top: 500px;
     background-color: #F8C8C4;
     right: 0;
     text-decoration-line: none;
@@ -34,6 +34,7 @@
     white-space: nowrap; /* 내용이 넘칠 때 줄 바꿈을 방지 */
     overflow: hidden; /* 넘치는 컨텐츠를 숨김 */
     padding: 20px; /* 텍스트와 박스의 여백 설정 */
+    opacity: 60%;
 }
 
 
@@ -41,10 +42,11 @@
     display: block;
     padding: 10px;
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 1rem;
     vertical-align: middle; /* 텍스트를 수직으로 가운데로 정렬 */
     text-align: left; /* 텍스트를 수평으로 가운데로 정렬 */
     line-height: 1.4;
+    background-color: #F8C8C4;
 }
 
 .quick>a{
@@ -56,7 +58,7 @@
 a{
     text-decoration-line: none;
 }
-ul{
+.quickul{
     list-style: none;
     margin: 0;
     padding: 0;
@@ -65,11 +67,11 @@ ul{
     width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1023px) {
     .quickmenu {
         /* 테블릿에 대한 스타일 설정 */
         max-width: 60%;
-        top: 200px;
+        top: 300px;
     }
 
     .quick {
@@ -78,7 +80,7 @@ ul{
 }
 
 /* 모바일에 대한 스타일 */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     .quickmenu {
         /* 모바일에 대한 스타일 설정 */
         display: none;

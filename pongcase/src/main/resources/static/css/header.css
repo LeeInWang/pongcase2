@@ -1,0 +1,539 @@
+/* CSS 리셋 */
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+
+/*}*/
+
+/*
+1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
+2. 테블릿 가로 : 768px ~ 1023px
+3. 모바일 가로, 태블릿 : 480px ~ 767px
+4. 모바일 : ~ 480px
+ */
+
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
+2. 테블릿 가로 : 768px ~ 1023px
+3. 모바일 가로, 태블릿 : 480px ~ 767px
+4. 모바일 : ~ 480px
+*/
+
+
+/* 반응형 스타일 */
+@media screen and (min-width: 480px) {
+
+    /* 폰트 */
+    @font-face {
+        font-family: 'SOYOMapleBoldTTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+        font-style: normal; /* weight 조절 400 얇은 글씨, 700 굵은 글씨 */
+    }
+
+    @font-face {
+        font-family: 'omyu_pretty';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* 모바일~태블릿 */
+    @media (min-width: 480px) and (max-width: 767px) {
+        .navLogo {
+            font-size: 1rem; /* 제목 크기를 줄임 */
+        }
+
+        .navIcon button {
+            font-size: 1rem; /* 아이콘 크기를 줄임 */
+        }
+
+        .navbar {
+            font-size: 1rem; /* 아이콘 크기를\ 줄임 */
+            background-color: #F0F8FF; /* 앨리스 블루 */
+        }
+    }
+
+    /* navbar 한줄에 나오도록 */
+    /** {*/
+    /*    box-sizing: border-box; !* 모든 요소의 박스 크기가 요소의 너비와 높이에 포함되도록 설정 *!*/
+    /*    position: relative; !* 요소를 일반 문서 흐름에 따라 배치, 상대적으로 설정 *!*/
+    /*    background-color: #F6F4FC;*/
+    /*}*/
+
+    .navHeader{
+        box-sizing: border-box; /* 모든 요소의 박스 크기가 요소의 너비와 높이에 포함되도록 설정 */
+        position: relative; /* 요소를 일반 문서 흐름에 따라 배치, 상대적으로 설정 */
+        background-color: #F6F4FC;
+    }
+    .wrapys {
+        width: calc(100% - 100px); /* 너비를 화면 너비 - 100px로 설정 */
+        margin-left: 50px; /* 왼쪽 여백 */
+        margin-right: 50px; /* 오른쪽 여백 */
+    }
+
+    /*body {*/
+    /*    text-align: center; !* body의 텍스트를 중앙 정렬 *!*/
+    /*    margin: 0; !* body의 마진을 0으로 설정 *!*/
+    /*}*/
+
+    .navjh {
+        margin-top: 10px; /* 상단 여백 설정 */
+        display: flex; /* 요소들을 가로로 배열 */
+        justify-content: center; /* 수평 가운데 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+
+    }
+    .navWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 수직 가운데 정렬 */
+    }
+
+    .navLogo{
+        margin: auto;
+    }
+    #nav-Logo {
+        margin:auto;
+    }
+    .jhicon{
+        float: right;
+    }
+    .navIcon{
+        margin-left: auto; /* 이미지 오른쪽으로 이동 */
+        display: flex; /* 아이콘을 가로로 배열하기 위해 */
+        align-items: center; /* 세로 중앙 정렬 */
+        bottom: 0;
+    }
+    .navIcon button {
+        margin-top: 30px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        float: right;
+
+    }
+
+    .material-symbols-outlined {
+        font-size: 50px; /* 버튼의 아이콘 크기 */
+        margin-left: 10px;
+        text-align: right;
+        text-align: right;
+    }
+
+    .material-symbols-outlined:hover {
+        opacity: 60%;
+    }
+
+    /* 카테고리 */
+    .navbarjh {
+        width: 100%;
+        overflow: hidden;
+        font-family: 'omyu_pretty';
+        display: flex; /* navbar 요소들을 가로로 정렬(카테고리, 검색어, 버튼까지) */
+        border-radius: 10px; /* 모서리 둥글게 */
+
+    }
+
+    .navbarjh a {
+        float: left;
+        padding: 10px 10px;
+        background-color: #F8C8C4; /* 카네이션 핑크 */
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        width: 25%; /* 너비 설정 */
+        text-align: center; /* 텍스트 가운데 정렬 */
+        display: block; /* 블록 요소로 변경 */
+        text-decoration: none; /* 텍스트에 밑줄 제거 */
+    }
+
+    .navbarjh a:hover {
+        background-color: #F0F8FF; /* 앨리스 블루 */
+        color: navy;
+        border-radius: 10px; /* 모서리 둥글게 */
+    }
+
+    .searchNav {
+        display: flex; /* 요소들을 가로로 배열 */
+        align-items: center; /* 세로로 정렬 */
+        background-color: #F8C8C4; /* 카네이션 핑크 */
+        padding-right: 50px;
+    }
+
+    .navbarjh input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-family: 'omyu_pretty';
+        outline: none; /* 테두리 없음 */
+    }
+
+    .navbarjh .searchNav button {
+        border-radius: 10px; /* 모서리 둥글게 */
+        float: left;
+        display: flex;
+        margin-top: 8px;
+        margin-right: 0;
+        font-size: 20px;
+        border: none; /* 테두리 없음 */
+        cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    }
+
+    .navbarjh .searchNav button:hover {
+        background: #F0F8FF; /* 앨리스 블루 */
+        color: navy;
+        font-weight: bold;
+    }
+
+    .searchNav input[type="text"] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 30px;
+        border: none;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 767px) {
+        .navbarjh .searchNav {
+            float: none;
+        }
+
+        .navbarjh a, .navbarjh input[type=text], .navbarjh {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+
+        .navbarjh input[type=text] {
+            border: 1px solid #ccc;
+        }
+    }
+
+
+
+
+
+    .navHeader{
+        display: none;
+    }
+    .overlay{
+        display: none;
+    }
+
+}
+
+
+
+/* 반응형 스타일 */
+@media screen and (max-width: 479px) {  /* 3. 모바일 가로, 태블릿 : 480px ~ 767px    4. 모바일 : ~ 480px   */
+
+    .navbarjh{
+        display: none;
+    }
+    .jhicon{
+        display: none;
+    }
+    .navjh{
+        display: none;
+    }
+    .headersj{
+        display: none;
+    }
+
+
+
+
+
+
+    nav ul li {
+        text-align: center;
+    }
+
+
+    /* 네비게이션 바 스타일 */
+    nav {
+        background-color: #F6F4FC;
+        display: flex; /*1) 수직 설정*/
+        flex-direction: column; /* 1)수직 설정*/
+        color: white;
+    }
+
+    /* header */
+    .divloginLogoutMyInfoShoppingBasket, .divSearch{
+        display: flex; /*2) 수평 설정(부모)*/
+        text-align: center;
+        padding: 14px 16px;
+
+    }
+
+    /* 메뉴의 위아래 크기조절 */
+    .divMenu{
+        margin-left: 1%;
+    }
+
+    /* 메뉴 오른쪽 */
+    .menu{
+        margin-left: auto; /*2) 수평 설정(자식)*/
+        color: #F8C8C4;
+    }
+
+    /* 로고 */
+    .divLogo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh; /* 화면 전체 높이를 차지하기 위해 설정 */
+    }
+
+    /* 이미지 스타일 */
+    img {
+        max-width: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+        max-height: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+    }
+
+    .divMenuLogo{
+        background-color: #F6F4FC;
+    }
+
+
+    /* 로그인, 내정보, 장바구니*/
+    .divloginLogoutMyInfoShoppingBasket{
+        justify-content: space-between; /* 좌우 간격조절(부모)*/
+    }
+
+    /* 로그인, 내정보, 장바구니*/
+    .divloginLogoutMyInfoShoppingBasket {
+        flex: 1;  /* 좌우 간격조절*/
+        text-align: center; /* 좌우 간격조절*/
+        padding: 10px;/* 좌우 간격조절*/
+        background-color: #FFC0CB;
+
+    }
+
+    /* 검색 */
+    .divSearch {
+        background-color: #FFC0CB;
+        color: navy;
+        display: flex;
+        justify-content: space-between; /* 좌우 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+        font-family: 'omyu_pretty';
+        font-weight: bold;
+    }
+
+    .divSearch >Search {
+        order: 1; /* search를 첫 번째로 이동 */
+    }
+    form.example input[type=text] {
+        padding: 6px;
+        font-size: 15px;
+        border: 1px solid #FFC0CB;
+        float: left;
+        width: 80%;
+        background: #F6F4FC;
+    }
+    form.example button {
+        width: 10%;
+        padding: 5px;
+        background: #FFC0CB;
+        color: #F0F8FF;
+        font-size: 17px;
+        border: 1px solid #FFC0CB;
+        border-left: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+
+    /*
+    로그인 로그아웃 마이인포 쇼핑몰 아이콘 설정
+    */
+    .login, .Logout, .myInfo, .shoppingBasket {
+        order: 3; /* categoryNav를 세 번째로 이동 */
+        padding-bottom: 0px;
+    }
+    .login, .Logout, .myInfo, .shoppingBasket  {
+        font-size: 17px;
+        color: #F0F8FF;
+        background: #FFC0CB;
+        border: #FFC0CB;
+        cursor: pointer;
+        outline: none;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+    }
+
+    /* 카테고리 부분 */
+    .overlay {
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #F6F4FC;
+        overflow-y: hidden;
+        transition: 0.5s;
+    }
+
+    .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* 카테고리 글자 */
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #F8C8C4;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /* 카테고리 글자 호버 */
+    .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay {overflow-y: auto;}
+        .overlay a {font-size: 20px}
+        .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+    }
+
+
+
+}
+
+
+/* 모바일~태블릿 */
+@media (min-width: 480px) and (max-width: 767px) {
+    .navHeader{
+        display: none;
+    }
+    .overlay{
+        display: none;
+    }
+    .navbarjh{
+        display: none;
+    }
+    .jhicon{
+        display: none;
+    }
+    .navjh{
+        display: none;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* 제목 크기를 크게 조정*/
+    }
+    .headersj {
+        height: 10%;
+    }
+
+    /* 아이콘 크기를 조정 */
+    .navIcons button {
+        font-size: 2rem;
+    }
+    .menu {
+        justify-content: right;
+        cursor: pointer;
+        width: 25px;
+        height: 30px;
+        position: relative;
+    }
+
+    .menu.active .barsj {
+        position: absolute;
+    }
+    .menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu.active .bar:first-child {
+        top: 25%;
+        transform: rotate(45deg);
+    }
+    .menu.active .bar:last-child {
+        top: 25%;
+        transform: rotate(-45deg);
+    }
+
+    .barsj {
+        width: 25px;
+        height: 3px;
+        background-color: #FFC0CB;
+        margin: 6px 0;
+        transition: 1s;
+    }
+
+    /* 추가된 부분: 사이드바 스타일 */
+    .sidebarsj {
+        position: fixed;
+        top: 0;
+        left: -20%; /* 사이드바를 왼쪽으로 숨김 */
+        width: 20%;
+        height: 100%;
+        background-color: #FFF; /* 배경색은 원하는 색상으로 변경 가능 */
+        transition: left 0.3s ease; /* 애니메이션 효과를 주기 위한 transition 속성 */
+    }
+
+    .sidebarsj.active {
+        margin-top: 25%;
+        left: 0; /* 사이드바를 왼쪽으로 보이게 함 */
+    }
+
+    .menu-itemssj {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu-itemsj {
+        padding: 1%;
+        border-bottom: 1px solid #CCC; /* 메뉴 항목 구분선 */
+    }
+}
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 2048px) {
+    /* 테블릿에서 PC 버전으로 변경하는 스타일 작성 */
+    .navHeader {
+        display: none; /* 테블릿에서 헤더 숨기기 */
+    }
+    .overlay {
+        display: none; /* 테블릿에서 오버레이 숨기기 */
+    }
+    .headersj{
+        display: none;
+    }
+}

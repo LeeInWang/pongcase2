@@ -1,43 +1,55 @@
 body{
     color: navy;
 }
-.wrap{
+.boardwrap{
     margin-top: 150px;
-    width: 100%;
     height: 80%;
-
 }
 
-.th2, .td2{
+.th22, .td22{
     text-align: center;
 }
-#tableheader{
+#tableheaderboard{
     background-color: #F7CAC9;
 }
-#tablebody{
+#tablebodyboard{
     background-color: #F6F4FC;
 }
 #bordertable{
     width: 100%;
 }
-th, td{
-    text-align: center;
+#tableheaderboard, #tablebodyboard{
     color: navy;
+    padding: 0px;
+    text-align: left;
 }
-td{
+#tablebodyboard{
     border-top: none; /* 위쪽 선 없애기 */
     border-bottom: none; /* 아랫선 없애기 */
 }
-.th1, .td1{
+.th11, .td11{
     width:5%;
-    text-align: left;
+
+    padding-left: 0px;
 }
-.th2, .td2{
-    width:60%
+.th22, .td22{
+    width:50%
 }
-.th3, .td3{
-    width:10%
+.th33, .td33{
+    width:20%
 }
-.th4, .td4{
-    width:10%
+.th44, .td44{
+    width:25%
+}
+
+@media only screen and (max-width: 480px) {
+    .th11, .td11,
+    .th22, .td22,
+    .th33, .td33,
+    .th44, .td44 {
+        font-size: 12px;
+        display: inline-block;
+        width: auto;
+        vertical-align: top; /* 셀을 상단에 정렬합니다. */
+    }
 }

@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
 
-    <meta charset="UTF-8">
+
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/arrow.css">
+
     <title>Title</title>
 
-  <div class="arrow">
-    <a id="toTop" href="#"><img th:src="@{/memberproductimg/arrow-up-circle.svg}" title="위로 가기"></a>
-  </div>
-  <script src="/js/arrow.js"></script>
+    <div th:fragment="arrow">
+        <div class="arrow">
+            <a id="toTop" href="#"><img src="/memberproductimg/arrow-up-circle.svg" title="위로 가기"></a>
+          </div>
+    </div>
+
+
+</html>
