@@ -37,12 +37,17 @@
 }
 .faqfont{
     text-align: left;
+    background-color: #F8C8C4;
+}
+.faqfont2{
+    text-align: left;
+    background-color: #F0F8FF;
 }
 .panel {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #F8C8C4;
+    background-color:#F0F8FF;
 }
 
 .accordion{

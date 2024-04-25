@@ -2,7 +2,6 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
@@ -13,7 +12,8 @@
 <!--    <link th:href="@{/css/memberProductPages.css}" rel="stylesheet">-->
 <!--    <link th:href="@{/css/font.css}" rel="stylesheet">-->
 
-<div layout:fragment="content" class="content">
+
+    <div layout:fragment="content" class="content">
 <div class="card-wrapper">
 
     <div class="card">
@@ -129,11 +129,16 @@
             <div class="social-links">
                 <p style="font-size: 20px; margin-right: 35px;">Share At: </p>
 
-                <a href="javascript:sendNaverLine();">
-                    <img id="social-links1" src="/memberproductimg/LineIcon.png" alt="네이버라인"/>
+<!--                <a href="javascript:sendNaverLine();">-->
+<!--                    <img id="social-links1" src="/memberproductimg/LineIcon.png" alt="네이버라인"/>-->
+<!--                </a>-->
+
+                <a href="javascript:LineIt.loadButton();">
+<!--                    <img id="social-links1" src= /memberproductimg/LineIcon.png" alt="네이버라인"/>-->
+                    <img id="social-links1" src="https://social-plugins.line.me/lineit/share?url=your_url&text=" />
                 </a>
 
-                <a href="#">
+                                <a href="#">
                     <img id="social-links2" src="/memberproductimg/facebookIcon.png" alt="페이스북"/>
                 </a>
 
@@ -141,18 +146,19 @@
                     <img id="social-links3" src="/memberproductimg/InstagramIcon.png" alt="인스타그램"/>
                 </a>
 
-                <a href="#">
-                    <img id="social-links4" src="/memberproductimg/kakaoIcon.png" alt="카카오톡"/>
-                </a>
-
+                <a href="javascript:sendLink()"><img id="social-links4"
+                                                     src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="카카오톡" /></a>
             </div>
             <hr class="hr2">
             <a th:href="@{/cart}">
             <button type="button" class="btn">
-                장바구니 담기 <i class="fas fa-shopping-cart"></i>
+                장바구니 담기
             </button>
+
             </a>
+            <a th:href= "@{/order}">
             <button type="button" class="btn">구매하기</button>
+            </a>
         </div>
     </div>
 

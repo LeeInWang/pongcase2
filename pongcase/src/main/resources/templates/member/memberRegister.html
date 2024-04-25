@@ -3,672 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!--
     #visual studio code 링크 방식
   <link href="css/memberLogin.css" rel="stylesheet"/>
   <link href="css/basic.css" rel="stylesheet"/>
   -->
-    
+
     <!--
     #springboot 링크 방식 -->
-    <link th:href="@{/css/memberInsert.css}" rel="stylesheet">
+    <link th:href="@{/css/memberRegister.css}" rel="stylesheet">
     <link th:href="@{/css/basic.css}" rel="stylesheet">
-    
-    
-    
+
+
+
     <title>Document</title>
-    <style>
 
 
-        /*
-       1. 낮은 해상도의 PC, 태블릿 가로 : ~1024px 
-       2. 테블릿 가로 : 768px ~ 1023px
-       3. 모바일 가로, 태블릿 : 480px ~ 767px
-       4. 모바일 : ~ 480px
-        */
 
-
-        /* 반응형 스타일 */
-        @media screen and (min-width: 1024px) {
-
-            .wrapper{
-                width: 100%;
-                display: flex;
-            }
-
-
-
-
-
-            select.box {
-                width: 100%;
-                height: 50px;
-                box-sizing: border-box;
-                padding: 5px 0 5px 10px;
-                border-radius: 4px;
-                border: 1px solid #d9d6d6;
-                color: #383838;
-                background-color: #ffffff;
-                font-family: 'Montserrat', 'Pretendard', sans-serif;
-            }
-
-            option {
-                font-size: 16px;
-            }
-
-            .info .box#domain-list option {
-                font-size: 14px;
-                background-color: #ffffff;
-            }
-
-
-            /* SECTION - BIRTH */
-            .info#info__birth {
-                display: flex;
-            }
-
-            .info#info__birth select {
-                margin-left : 7px;
-            }
-
-            .info#info__birth select:first-child {
-                margin-left : 0px;
-            }
-
-
-            .info#info__birth select::-webkit-scrollbar {
-                width: 10px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-thumb {
-                background-color: #b6b6b6;
-                border-radius: 3px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-track {
-                background-color: #ebe9e9;
-                border-radius: 6px;
-            }
-
-            body {
-                font-family: Arial, sans-serif;
-                background-color: aliceblue;
-            }
-            .wrapper {
-                top: 0;
-                margin-bottom : 150px;
-                z-index: 2;
-                display: block;
-            }
-
-            .container {
-                width: 50%;
-                margin: 0 auto;
-                padding: 1.25%;
-                border: 2px solid #ddd;
-                border-radius: 20px;
-                border-color: black;
-                background-color: aliceblue;
-
-            }
-            .form-group {
-                margin-bottom: 15px;
-            }
-            .form-group label {
-                display: block;
-                margin-bottom: 5px;
-            }
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 70%;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 20px;
-                font-size: 1.2rem;
-            }
-
-            /*  핸드폰  */
-            #userPhoneNumber1, #userPhoneNumber2, #userPhoneNumber3{
-                width:8%;
-                text-align: center;
-            }
-
-            /*  이메일  */
-            #userEmail1, #userEmail2{
-                width:25%;
-                text-align: center;
-            }
-
-            /*  주소 버튼  */
-            #zipbtn{
-                width:20%;
-                text-align: center;
-            }
-
-            /*  주소  */
-            #userZipcode, #userAddress1, #userAddress2{
-                width:50%;
-                text-align: center;
-            }
-
-            /*  년 월 일  */
-            #userBirthdayYear, #userBirthdayMonth, #userBirthdayDay{
-                width:20%;
-                text-align: center;
-            }
-
-
-
-
-            .form-group button, #userInsertSubmit {
-                width: 80%;
-                padding: 10px;
-                background-color: #b85c9c;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-
-            #overlapCheck{
-                width: 20%;
-            }
-
-
-            .form-group button:hover {
-                background-color: #b85c9c;
-            }
-
-
-
-
-        }
-
-
-        /* 반응형 스타일 */
-        @media screen and (min-width: 768px) {
-            .wrapper{
-                width: 100%;
-                display: flex;
-            }
-
-
-
-
-
-            select.box {
-                width: 100%;
-                height: 50px;
-                box-sizing: border-box;
-                padding: 5px 0 5px 10px;
-                border-radius: 4px;
-                border: 1px solid #d9d6d6;
-                color: #383838;
-                background-color: #ffffff;
-                font-family: 'Montserrat', 'Pretendard', sans-serif;
-            }
-
-            option {
-                font-size: 16px;
-            }
-
-            .info .box#domain-list option {
-                font-size: 14px;
-                background-color: #ffffff;
-            }
-
-
-            /* SECTION - BIRTH */
-            .info#info__birth {
-                display: flex;
-            }
-
-            .info#info__birth select {
-                margin-left : 7px;
-            }
-
-            .info#info__birth select:first-child {
-                margin-left : 0px;
-            }
-
-
-            .info#info__birth select::-webkit-scrollbar {
-                width: 10px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-thumb {
-                background-color: #b6b6b6;
-                border-radius: 3px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-track {
-                background-color: #ebe9e9;
-                border-radius: 6px;
-            }
-
-            body {
-                font-family: Arial, sans-serif;
-                background-color: aliceblue;
-
-            }
-            .wrapper {
-                top: 0;
-                z-index: 2;
-                display: block;
-            }
-
-            .container {
-                width: 50%;
-                padding: 1.25%;
-                margin: 0 auto;
-                border: 2px solid #ddd;
-                border-radius: 20px;
-                border-color: black;
-                background-color: aliceblue;
-
-            }
-            .form-group {
-                margin-bottom: 15px;
-            }
-            .form-group label {
-                display: block;
-                margin-bottom: 5px;
-            }
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 70%;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 20px;
-                font-size: 1.2rem;
-            }
-
-            /*  핸드폰  */
-            #userPhoneNumber1, #userPhoneNumber2, #userPhoneNumber3{
-                width:8%;
-                text-align: center;
-            }
-
-            /*  이메일  */
-            #userEmail1, #userEmail2{
-                width:25%;
-                text-align: center;
-            }
-
-            /*  주소 버튼  */
-            #zipbtn{
-                width:20%;
-                text-align: center;
-            }
-
-            /*  주소  */
-            #userZipcode, #userAddress1, #userAddress2{
-                width:50%;
-                text-align: center;
-            }
-
-            /*  년 월 일  */
-            #userBirthdayYear, #userBirthdayMonth, #userBirthdayDay{
-                width:20%;
-                text-align: center;
-            }
-
-
-
-
-            .form-group button, #userInsertSubmit {
-                width: 80%;
-                padding: 10px;
-                background-color: #b85c9c;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-
-            #overlapCheck{
-                width: 10%;
-            }
-
-
-            .form-group button:hover {
-                background-color: #b85c9c;
-            }
-
-
-
-        }
-
-
-
-        /* 모바일 가로 버전 */
-        @media screen and (max-width: 767px) {
-            .wrapper{
-                width: 90%;
-                display: flex;
-            }
-
-
-
-
-
-            select.box {
-                width: 90%;
-                height: 50px;
-                box-sizing: border-box;
-                margin-left: 5px;
-                padding: 5px 0 5px 10px;
-                border-radius: 4px;
-                border: 1px solid #d9d6d6;
-                color: #383838;
-                background-color: #ffffff;
-                font-family: 'Montserrat', 'Pretendard', sans-serif;
-            }
-
-            option {
-                font-size: 16px;
-            }
-
-            .info .box#domain-list option {
-                font-size: 14px;
-                background-color: #ffffff;
-            }
-
-
-            /* SECTION - BIRTH */
-            .info#info__birth {
-                display: flex;
-            }
-
-            .info#info__birth select {
-                margin-left : 7px;
-            }
-
-            .info#info__birth select:first-child {
-                margin-left : 0px;
-            }
-
-
-            .info#info__birth select::-webkit-scrollbar {
-                width: 10px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-thumb {
-                background-color: #b6b6b6;
-                border-radius: 3px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-track {
-                background-color: #ebe9e9;
-                border-radius: 6px;
-            }
-
-            body {
-                font-family: Arial, sans-serif;
-                background-color: aliceblue;
-         
-            }
-            .wrapper {
-                top: 0;
-         
-                z-index: 2;
-                display: block;
-            }
-
-            .container {
-                width: 50%;
-                padding: 1.25%;
-                margin: 0 auto;
-                border: 2px solid #ddd;
-                border-radius: 20px;
-                border-color: black;
-                background-color: aliceblue;
-
-            }
-            .form-group {
-                margin-bottom: 15px;
-            }
-            .form-group label {
-                display: block;
-                margin-bottom: 5px;
-            }
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 70%;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 20px;
-                font-size: 1.2rem;
-            }
-
-            /*  핸드폰  */
-            #userPhoneNumber1, #userPhoneNumber2, #userPhoneNumber3{
-                width:8%;
-                text-align: center;
-            }
-
-            /*  이메일  */
-            #userEmail1, #userEmail2{
-                width:25%;
-                text-align: center;
-            }
-
-            /*  주소 버튼  */
-            #zipbtn{
-                width:20%;
-                text-align: center;
-            }
-
-            /*  주소  */
-            #userZipcode, #userAddress1, #userAddress2{
-                width:50%;
-                text-align: center;
-            }
-
-            /*  년 월 일  */
-            #userBirthdayYear, #userBirthdayMonth, #userBirthdayDay{
-                width:20%;
-                text-align: center;
-            }
-
-
-
-
-            .form-group button, #userInsertSubmit {
-                width: 80%;
-                padding: 10px;
-                background-color: #b85c9c;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-
-            #overlapCheck{
-                width: 10%;
-            }
-
-
-            .form-group button:hover {
-                background-color: #b85c9c;
-            }
-
-
-        }
-
-        
-        
-        /* 모바일 세로 버전 */
-        @media screen and (max-width: 480px) {
-
-            .wrapper{
-                width: 90%;
-                display: flex;
-            }
-
-
-
-
-
-            select.box {
-                width: 100%;
-                height: 50px;
-                box-sizing: border-box;
-           
-                padding: 5px 0 5px 10px;
-                border-radius: 4px;
-                border: 1px solid #d9d6d6;
-                color: #383838;
-                background-color: #ffffff;
-                font-family: 'Montserrat', 'Pretendard', sans-serif;
-            }
-
-            option {
-                font-size: 16px;
-            }
-
-            .info .box#domain-list option {
-                font-size: 14px;
-                background-color: #ffffff;
-            }
-
-
-            /* SECTION - BIRTH */
-            .info#info__birth {
-                display: flex;
-            }
-
-            .info#info__birth select {
-                margin-left : 7px;
-            }
-
-            .info#info__birth select:first-child {
-                margin-left : 0px;
-            }
-
-
-            .info#info__birth select::-webkit-scrollbar {
-                width: 10px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-thumb {
-                background-color: #b6b6b6;
-                border-radius: 3px;
-            }
-
-            .info#info__birth select::-webkit-scrollbar-track {
-                background-color: #ebe9e9;
-                border-radius: 6px;
-            }
-
-            body {
-                font-family: Arial, sans-serif;
-                background-color: aliceblue;
-              
-            }
-            .wrapper {
-                top: 0;
-                display: block;
-            }
-
-            .container {
-                width: 90%;
-                padding: 1.25%;
-                margin: 0 auto;
-                border: 2px solid #ddd;
-                border-radius: 20px;
-                border-color: black;
-                background-color: aliceblue;
-
-            }
-            .form-group {
-                margin-bottom: 15px;
-            }
-            .form-group label {
-                display: block;
-                margin-bottom: 5px;
-            }
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 70%;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 20px;
-                font-size: 1.2rem;
-            }
-
-            /*  핸드폰  */
-            #userPhoneNumber1, #userPhoneNumber2, #userPhoneNumber3{
-                width:15%;
-                text-align: center;
-            }
-
-            /*  이메일  */
-            #userEmail1, #userEmail2{
-                width:45%;
-                text-align: center;
-            }
-
-            /*  주소 버튼  */
-            #zipbtn{
-                width:30%;
-                text-align: center;
-            }
-
-            /*  주소  */
-            #userZipcode, #userAddress1, #userAddress2{
-                width:80%;
-                text-align: center;
-            }
-
-            /*  년 월 일  */
-            #userBirthdayYear, #userBirthdayMonth, #userBirthdayDay{
-                width:20%;
-                text-align: center;
-            }
-
-
-
-
-            .form-group button, #userInsertSubmit {
-                width: 100%;
-                padding: 10px;
-                background-color: #b85c9c;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-
-            /* 중복확인 */
-            #overlapCheck{
-                width: 15%;
-            }
-
-
-            .form-group button:hover {
-                background-color: #b85c9c;
-            }
-
-
-
-        }
-
-        
-        
-        
-    
-    
-    </style>
-    
-    
-    
-    
     <!--
     #1. 주소
     -->
@@ -734,7 +86,7 @@
                     }
                 }).open();
 
-            });	//zipbtn이 클릭되었을 때 동작의 끝
+            });   //zipbtn이 클릭되었을 때 동작의 끝
 
         });
 
@@ -751,14 +103,14 @@
             if(password1 !== password2){
                 let span = document.querySelector("#passwordText");
                 document.querySelector("#passwordText").textContent() = "비밀번호가 일치하지 않습니다.";
-            
+
             }else{
-            
+
             } */
 
             //jQuery
-            let password1 = $('#userPwd1').val();	//value 값
-            let password2 = $('#userPwd2').val();	//value 값
+            let password1 = $('#userPwd1').val();   //value 값
+            let password2 = $('#userPwd2').val();   //value 값
             if(password1 !== password2){
                 $("#passwordText").text("비밀번호가 일치하지 않습니다.")
             }else{
@@ -794,10 +146,10 @@
 
             });
         }
-    
-    
-    
-    
+
+
+
+
     </script>
 
 
@@ -807,29 +159,29 @@
 
 <div class="wrap">
     <header>
-    
+
     </header>
-    
+
     <div class="wrapper">
         <article>
     </div>
     <aside class="side">
-    
+
     </aside>
     </article>
     <article>
         <div class="container">
-            
+
             <h2>회원가입</h2>
             <form action="userInsert.do5" method="post" name="userMember">
-                
+
                 <div class="form-group">
-                    
+
                     <label for="userId">아이디:</label>
                     <input type="text" class="input1" name="userId" id="userId"  required="required" placeholder="6~12자리 입력" minlength="6" maxlength="12">
                     <button type="button" class="btn" id="overlapCheck" onclick="registerFunction()">중복체크</button><br>
                     <span id="idText"></span>
-                
+
                 </div>
                 <div class="form-group">
                     <label for="userPwd1">비밀번호:</label>
@@ -840,29 +192,29 @@
                     <input type="password" class="input1" name="userPwd2" id="userPwd2" onkeyup="passwordCheckFunction()" required="required" placeholder="6~12자리 입력" minlength="6" maxlength="12">
                     <br><span id="passwordText"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="userName">이름:</label>
                     <input type="text" id="userName" name="userName" >
                 </div>
-                
-                
-                
+
+
+
                 <div class="form-group phone">
                     <label for="userPhoneNumber">휴대폰 번호:</label>
                     <input type="text" id="userPhoneNumber1" name="userPhoneNumber1"  required="required" readonly="readonly" value="010" >
                     <input type="text" id="userPhoneNumber2" name="userPhoneNumber2" required="required" placeholder="0000" minlength="4" maxlength="4">
                     <input type="text" id="userPhoneNumber3" name="userPhoneNumber3" required="required" placeholder="0000"minlength="4" maxlength="4">
                 </div>
-                
-                
-                
+
+
+
                 <div class="form-group">
                     <label for="userPhoneNumber">이메일:</label>
                     <input type="text" id="userEmail1" name="userEmail1">
-                    
-                    
-                    
+
+
+
                     <select class="box" id="userEmail2" name="userEmail2">
                         <option value="@naver.com">@naver.com</option>
                         <option value="@google.com">@google.com</option>
@@ -871,38 +223,38 @@
                         <option value="@kakao.com">@kakao.com</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="post"></label>
                     <button type="button" class="btn" id="zipbtn">우편번호</button>
                     <br>
                     <br>
-                    
+
                     <input type="text" class="input1 ipost" name="userZipcode" id="userZipcode" required="required">
                 </div>
-                
-                
+
+
                 <div class="form-group">
                     <label for="userAddress1">주소</label>
                     <input type="text" class="input1 iaddress" name="userAddress1" id="userAddress1" readonly="readonly" required="required">
                 </div>
-                
-                
+
+
                 <div class="form-group">
                     <label for="userAddress2">상세주소</label>
                     <input type="text" class="input1 iaddress" name="userAddress2" id="userAddress2">
                 </div>
-                
-                
+
+
                 <div class="form-group">
                     <label for="userAddress2">생년월일</label>
                     <input type="text" class="input1 iaddress" id="userBirthdayYear" name="userBirthdayYear" required="required" placeholder="0000" minlength="4" maxlength="4">년
                     <input type="text" class="input1 iaddress" id="userBirthdayMonth" name="userBirthdayMonth" required="required" placeholder="00" minlength="2" maxlength="2">월
                     <input type="text" class="input1 iaddress" id="userBirthdayDay" name="userBirthdayDay" required="required" placeholder="00" minlength="2" maxlength="2">일
                 </div>
-                
+
                 <div class="form-group">
-                    <input type="submit" value="가입" id="userInsertSubmit">
+                    <input type="submit" value="가입" id="userInsertSubmit" th:onclick="|location.href='@{/}'|">
                 </div>
             </form>
     </article>

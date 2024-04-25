@@ -198,8 +198,9 @@
         margin-top: 8px;
         font-size: 30px;
         border: none;
-        height: 40px;
+        height: 20px;
         border-radius: 10px;
+
     }
 
     @media (max-width: 767px) {
@@ -275,6 +276,7 @@
         display: flex; /*2) 수평 설정(부모)*/
         text-align: center;
         padding: 14px 16px;
+        background-color: #F8C8C4;
 
     }
 
@@ -344,16 +346,17 @@
         width: 80%;
         background: #F6F4FC;
     }
-    form.example button {
-        width: 10%;
+    .example button{
+        width: 100%;
         padding: 5px;
         background: #FFC0CB;
-        color: #F0F8FF;
+        color: black;
         font-size: 17px;
         border: 1px solid #FFC0CB;
         border-left: none;
         cursor: pointer;
         text-align: center;
+        right: 0;
     }
 
 
@@ -490,7 +493,6 @@
     .barsj {
         width: 25px;
         height: 3px;
-        background-color: #FFC0CB;
         margin: 6px 0;
         transition: 1s;
     }
@@ -502,7 +504,6 @@
         left: -20%; /* 사이드바를 왼쪽으로 숨김 */
         width: 20%;
         height: 100%;
-        background-color: #FFF; /* 배경색은 원하는 색상으로 변경 가능 */
         transition: left 0.3s ease; /* 애니메이션 효과를 주기 위한 transition 속성 */
     }
 
@@ -536,4 +537,17 @@
     .headersj{
         display: none;
     }
+}
+
+.material-symbols-outlined{
+    color: black;
+}
+
+.fa-search, .fa{
+    color: black;
+}
+
+.fainput{
+    color: black;
+    background-color: #F8C8C4;
 }

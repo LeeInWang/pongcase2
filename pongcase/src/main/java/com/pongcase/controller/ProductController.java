@@ -15,4 +15,10 @@ public class ProductController {
     public String product1(Model model){
         return "/memberproduct/memberProductDetailPage";
     }
+
+
+    @GetMapping("/products/proList2")
+    public String product2(Model model){
+        return "/memberproduct/memberProductPage";
+    }
 }

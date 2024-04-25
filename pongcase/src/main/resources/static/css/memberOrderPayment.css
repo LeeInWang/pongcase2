@@ -22,20 +22,22 @@
 }
 
 body{
-    background: #F6F4FC;
     color: navy;
-    margin: 5% 0;
+
 }
-.container{
+.containeriw{
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    margin: auto;
+    margin-top: 50px;
+
 }
 @media (min-width: 1200px)
 {
-    .container{
+    .containeriw{
         max-width: 1140px;
     }
 }
@@ -48,7 +50,7 @@ body{
     border-radius: 0 0 10px 10px;
     padding: 25px;
 }
-form{
+.iwform{
     flex: 4;
 }
 .Yorder{
@@ -65,26 +67,27 @@ form{
     padding: 20px;
     color: aliceblue;
 }
-h2{
+.iwh2{
     margin: 0;
-    padding-left: 15px;
+    background-color: #F8C8C4;
 }
 .required{
     color: red;
 }
 
 
-label, table{
+.address, .iwtable, .iwname, .intel, .fname{
     display: block;
     margin: 15px;
 }
-label>span{
+.iwname>span, .intel>span{
     float: left;
     width: 25%;
     margin-top: 12px;
     padding-right: 10px;
 }
-input[type="text"], input[type="tel"], input[type="email"], select
+
+.fname[type="text"], .fname[type="tel"], .fname[type="email"], select
 {
     width: 70%;
     height: 30px;
@@ -94,44 +97,42 @@ input[type="text"], input[type="tel"], input[type="email"], select
     color: navy;
 }
 
+.fname[type = "email"]{
+    width: 80%;
+   margin-left: 15px;
+}
 .Yorder{
     margin-top: 15px;
     height: 600px;
     padding: 20px;
     border: 1px solid #F8C8C4;
 }
-table{
+.iwtable{
     margin: 0;
     padding: 0;
 }
-th{
+.iwth{
     border-bottom: 1px solid #F8C8C4;
     padding: 10px 0;
 }
-tr>td:nth-child(1){
+.iwtr>td:nth-child(1){
     text-align: left;
     color: navy;
 }
-tr>td:nth-child(2){
+.iwtr>td:nth-child(2){
     text-align: right;
     color: navy;
 }
-td{
+.iwtd{
     border-bottom: 1px solid #F8C8C4;
     padding: 25px 25px 25px 0;
 }
 
-p{
-    display: block;
-    color: navy;
-    margin: 0;
-    padding-left: 25px;
-}
 .Yorder>div{
     padding: 15px 0;
 }
 
-button{
+.iwbtn{
     width: 100%;
     margin-top: 10px;
     padding: 10px;
@@ -142,7 +143,7 @@ button{
     font-size: 15px;
     font-weight: bold;
 }
-button:hover{
+.iwbtn:hover{
     cursor: pointer;
     background: #F8C8C4;
 }
@@ -150,6 +151,16 @@ button:hover{
 
 #postcode{
     width: 20%;
+    margin: 0px;
+}
+
+#roadAddress , #jibunAddress{
+    width: 70%;
+    margin: 0px;
+}
+
+#detailAdd{
+    width: 50%;
     margin: 0px;
 }
 
@@ -171,9 +182,13 @@ button:hover{
 }
 
 .fname{
+    display: block;
     padding: 5px 10px;
     margin-bottom: 5px;
-    padding-left: 15px;
+}
+
+#iwemail{
+    margin-left: 15px;
 }
 
 #requiredelivery{
@@ -189,7 +204,12 @@ button:hover{
         order: 2; /* Yorder를 두 번째로 배치합니다. */
     }
 
-    form {
+    .iwform {
         order: 1; /* form을 첫 번째로 배치합니다. */
+    }
+
+
+    #postcode, #roadAddress, #jibunAddress, #detailAdd, #addressselect{
+        width: 80%;
     }
 }

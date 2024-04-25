@@ -4,61 +4,61 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <!--    <link rel="stylesheet" href="/css/memberProductPage.css" />-->
 <!--    <link rel="stylesheet" href="/css/font.css" />-->
 <!--    <link th:href="@{/css/memberProductPages.css}" rel="stylesheet">-->
 <!--    <link th:href="@{/css/font.css}" rel="stylesheet">-->
-    <title>Member Product Page</title>
+<title>Member Product Page</title>
 
 <div layout:fragment="content" class="content">
-<!-- 상품 -->
-<div class="proWrap">
+    <!-- 상품 -->
+    <div class="proWrap">
 
-            <!-- 상품 3개를 렌더링 -->
-            <div class="productArea">
-                <div class="productItem">
-            <a th:href="@{/products/proList1}" >
-                <img src="/memberproductimg/jelly11.jpeg" class="productImg" style="border-radius: 20px;">
-                <div class="productName">(젤리) 기본 젤리 케이스</div>
-                <div class="productPrice">5000</div></a>
+        <!-- 상품 3개를 렌더링 -->
+        <div class="productArea">
+            <div class="productItem">
+                <a th:href="@{/products/proList1}">
+                    <img src="/memberproductimg/jelly11.jpeg" class="productImg" style="border-radius: 20px;">
+                    <div class="productName">(젤리) 기본 젤리 케이스</div>
+                    <div class="productPrice">5000</div>
+                </a>
             </div>
 
             <div class="productItem">
 
-<!--                &lt;!&ndash;                    <img th:src="../memberproductimg/img_mountains_wide.jpg" th:alt="Product_2_Name" class="productImg">&ndash;&gt;-->
-<!--                <a th:href="@{/products/proList1}" >-->
+                <!--                &lt;!&ndash;                    <img th:src="../memberproductimg/img_mountains_wide.jpg" th:alt="Product_2_Name" class="productImg">&ndash;&gt;-->
+                <!--                <a th:href="@{/products/proList1}" >-->
                 <img src="/memberproductimg/basiccaseBeige.jpeg" class="productImg">
 
-                <div class="productName">(하드) 기본 베이지 케이스</div>
+                <div class="productName">(젤리) 기본 베이지 케이스</div>
                 <div class="productPrice">10000</div>
             </div>
             <div class="productItem">
                 <img src="/memberproductimg/basiccaseMint.jpeg" alt="Product_3_Name" class="productImg">
-                <div class="productName">(하드) 기본 민트 케이스</div>
-                <div class="productPrice">15000</div>
+                <div class="productName">(젤리) 기본 민트 케이스</div>
+                <div class="productPrice">10000</div>
             </div>
             <div class="productItem">
                 <img src="/memberproductimg/basiccaseRed.jpeg" alt="Product_4_Name" class="productImg">
-                <div class="productName">(하드) 기본 레드 케이스</div>
-                <div class="productPrice">15000</div>
+                <div class="productName">(젤리) 기본 레드 케이스</div>
+                <div class="productPrice">10000</div>
             </div>
             <div class="productItem">
                 <img src="/memberproductimg/basiccaseNavy.jpeg" alt="Product_5_Name" class="productImg">
-                <div class="productName">(하드) 기본 네이비 케이스</div>
-                <div class="productPrice">15000</div>
+                <div class="productName">(젤리) 기본 네이비 케이스</div>
+                <div class="productPrice">10000</div>
             </div>
             <div class="productItem">
                 <img src="/memberproductimg/basiccaseBlack.jpeg" alt="Product_6_Name" class="productImg">
-                <div class="productName">(하드) 기본 블랙 케이스</div>
-                <div class="productPrice">15000</div>
+                <div class="productName">(젤리) 기본 블랙 케이스</div>
+                <div class="productPrice">10000</div>
             </div>
         </div>
 
-<!--    </form>-->
-
-</div>
+    </div>
 </div>
 </html>

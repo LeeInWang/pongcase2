@@ -23,10 +23,10 @@
             </div>
         <div class="jhicon">
                 <div class="navIcon">
-                    <button onclick="login()"><span class="material-symbols-outlined">login</span></button>
-                    <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
+                    <button th:onclick="|location.href='@{/member/login}'|" ><span class="material-symbols-outlined">login</span></button>
+                    <button th:onclick="|location.href='@{/member/login}'|"><span class="material-symbols-outlined">logout</span></button>
                     <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                    <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</a></span></button>
+                    <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
                 </div>
 
         </div>
@@ -34,7 +34,7 @@
         <!-- 메인카테고리, 검색어박스, 검색버튼 -->
         <div class="navbarjh">
             <a href="#">하드</a>
-            <a href="#">젤리</a>
+            <a th:href="@{/products/proList2}" >젤리</a>
             <a href="#">z-플립</a>
             <a href="#">공지사항</a>
             <div class="searchNav">
@@ -70,20 +70,21 @@
             </div>
 
             <div class="divloginLogoutMyInfoShoppingBasket">
-                <button  class="login" onclick="login()"><span class="material-symbols-outlined">login</span></button>
-                <button  class="Logout" onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
-                <button class="myInfo"  onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <button class="shoppingBasket " onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
+                <button th:onclick="|location.href='@{/member/login}'|" ><span class="material-symbols-outlined">login</span></button>
+                <button th:onclick="|location.href='@{/member/login}'|"><span class="material-symbols-outlined">logout</span></button>
+                <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
+                <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
             </div>
 
             <div class="divSearch">
                 <div class="Search">
                     <!-- 검색 -->
                     <form class="example" action="action_page.php">
-                        <input type="text" placeholder="Search.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <input type="text" class="fainput" placeholder="Search.." name="search">
                     </form>
+                    <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
+
             </div>
         </div>
 
@@ -129,17 +130,15 @@
             <div class="searchsj">
                 <!-- 검색 -->
                 <form class="examplesj" action="action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
+                    <input class="fainput" type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="navIconsj">
-                <button onclick="login()"><span class="material-symbols-outlined">login</span></button>
-                <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
+                <button th:onclick="|location.href='@{/member/login}'|" ><span class="material-symbols-outlined">login</span></button>
+                <button th:onclick="|location.href='@{/member/login}'|"><span class="material-symbols-outlined">logout</span></button>
                 <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <a th:href="@{/cart}">
-                    <button onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
-                </a>
+                <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
             </div>
         </div>
     </div>
