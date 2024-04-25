@@ -17,7 +17,7 @@
     <div class="wrap" style="padding-top: 10px;">
         <div class="navjh">
                 <div class="navLogo">
-                    <a href="logo">
+                    <a href="logo /">
                         <img id="nav-Logo" src="/memberproductimg/logo.png" alt="로고"/>
                     </a></div>
             </div>
@@ -55,7 +55,7 @@
     <nav class="navHeader">
 
         <div class="divLogo">
-            <img id="nav-Logo2" src="/memberproductimg/logo.png" alt="로고"/>
+            <a th:href="@{/cart}"><img id="nav-Logo2" src="/memberproductimg/logo.png" alt="로고"/></a>
         </div>
         <div class="divMenu">
             <div class="menu"> <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; </span></div>
@@ -73,7 +73,7 @@
                 <button  class="login" onclick="login()"><span class="material-symbols-outlined">login</span></button>
                 <button  class="Logout" onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
                 <button class="myInfo"  onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <button class="shoppingBasket " onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
+                <button class="shoppingBasket " onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
             </div>
 
             <div class="divSearch">
@@ -107,7 +107,7 @@
     <div class="headersj">
         <div class="navsj">
             <!-- 로고 이미지 -->
-            <img src="/memberproductimg/logo.png" alt="Logo">
+            <a th:href="@{/}"><img src="/memberproductimg/logo.png" alt="Logo"></a>
             <!-- 메뉴 사이드바 이미지 -->
             <div class="menu menu-icon" onclick="toggleSidebar()">
                 <div class="barsj"></div>
@@ -138,7 +138,7 @@
                 <button onclick="logout()"><span class="material-symbols-outlined">logout</span></button>
                 <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
                 <a th:href="@{/cart}">
-                    <button onclick="shopping()"><span class="material-symbols-outlined">shopping_bag</span></button>
+                    <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
                 </a>
             </div>
         </div>
