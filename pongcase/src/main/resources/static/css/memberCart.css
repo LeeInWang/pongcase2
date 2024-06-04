@@ -1,25 +1,56 @@
-* {
-    /*box-sizing: border-box;*/
+/** {*/
+/*    !*box-sizing: border-box;*!*/
+/*}*/
+/*html {*/
+/*    margin: 0 auto;*/
+/*    padding: 20px;*/
+/*    font-family: Arial, "San Fransisco", "Helvetica Neue", Helvetica, Tahoma, sans-serif;*/
+/*}*/
+
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: 1000;
+    font-style: normal;
 }
-html {
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, "San Fransisco", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
+@font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    font-family: 'SOYOMapleBoldTTF', 'omyu_pretty';
+}
+.cart-container{
+    padding-top: 2.5%;
+}
+
+.cart-summary--fields{
+    background-color: #FFEFEF;
+}
+
 
 .order-detail {
     background: transparent;
     margin: 0 auto;
-    max-width: 1200px;
+
     position: relative;
     vertical-align: top;
-    width: 100%;
+    width: 80%;
 }
 .order-detail--wrapper {
     background-color: inherit;
     display: inline-block;
-    padding: 32px 32px 32px 32px;
-    margin: 0 320px 0 0;
+    padding: 32px 1px 32px 32px;
+    margin: 0 10px 0 0;
     position: static;
     vertical-align: top;
     width: auto;
@@ -34,8 +65,7 @@ html {
 .order-detail--title {
     display: inline-block;
     float: left;
-    font-family: "United Sans Condensed";
-    font-size: 36px;
+    font-size: 2%;
     min-height: 40px;
     margin: 0 0 0 0;
     padding: 0 0 12px 0;
@@ -48,7 +78,7 @@ html {
     padding: 0 0 12px 0;
     position: absolute;
     right: 0;
-    width: 50%;
+    width: 65%; /* 수량,가격 위치조정1) */
 }
 .order-detail__legend--action {
     display: none;
@@ -59,7 +89,7 @@ html {
     float: left;
     font-size: 16px;
     line-height: 2.5;
-    min-width: 50%;
+    min-width: 30%;  /* 수량,가격 위치조정2) */
     padding: 0 8px;
     text-align: center;
     width: auto;
@@ -82,7 +112,7 @@ html {
 }
 .cart-item--shopping-cart {
     border-bottom: 1px solid currentColor;
-    padding: 10px 0 150px 0;
+
 }
 .cart-item--shopping-cart:first-child {
     border-top: 1px solid currentColor;
@@ -129,7 +159,6 @@ html {
 }
 .cart-item--title {
     display: block;
-    font-family: "United Sans Condensed";
     font-size: 24px;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
@@ -280,8 +309,9 @@ html {
     bottom: 0;
     display: inline-block;
     margin: 0 0 0 0;
-    max-width: 320px;
-    padding: 36px 16px 32px 16px;
+    max-width: 30%;
+    padding-top:2.5%;
+
     position: absolute;
     right: 0;
     top: 0;
@@ -292,7 +322,6 @@ html {
     border-bottom: 1px solid currentColor;
     border-top: 1px solid currentColor;
     display: inline-block;
-    font-family: "United Sans Condensed";
     margin: 0;
     padding: 12px 0;
     text-align: left;
@@ -351,6 +380,8 @@ html {
     width: 100%;
 }
 .cart-summary--promo-code-wrapper {
+    background-color: #FFEFEF;
+    display: flex;
     width: 100%;
 }
 .cart-summary--promo-code-label {
@@ -366,7 +397,7 @@ html {
     height: 32px;
     float: left;
     padding: 2px 10px;
-    width: 66.666%;
+    width: 80%;
 }
 .cart-summary--promo-code-input::placeholder {
     color: #888888;
@@ -376,12 +407,13 @@ html {
     border: 0;
     border-radius: 0 2px 2px 0;
     color: #F0F8FF;
-    height: 32px;
+    height: 100%;
     letter-spacing: 0.25px;
-    float: right;
-    font-size: 12px;
+
+    font-size:20px;
     text-transform: uppercase;
-    width: 33.333%;
+    width: 30%;
+    justify-content: flex-end;
 }
 .cart-summary--promo-code-submit:hover {
     color: #F0F8FF;
@@ -389,6 +421,7 @@ html {
 }
 .cart-summary--order-actions {
     min-height: 140px;
+    background-color: #FFEFEF;;
 }
 .cart-summary--order-action {
     background-color: #F8C8C4;
@@ -454,7 +487,7 @@ html {
     }
 
     .order-detail__legend--action {
-        background-color: #F8C8C4;
+        background-color: #FFFFFF;
         color: #FFFFFF;
         display: block;
         font-size: 16px;
@@ -499,17 +532,19 @@ html {
         text-align: right;
         vertical-align: bottom;
     }
-
+    .cart-item--title{
+        width: max-content;
+    }
     .cart-summary {
-        background-color: #FFFFFF;
+        background-color: #FFEFEF;
         padding: 0 0 32px 0;
     }
     .cart-summary table {
         margin: 8px 0 0 0;
     }
     .cart-summary--fields {
-        background-color: #F8F8F8;
-        padding: 4px 16px 4px 16px;
+        background-color: #FFEFEF;
+
     }
 }
 @media all and (min-width: 640px) and (max-width: 920px) {
@@ -528,5 +563,7 @@ html {
     }
     .cart-summary--promo-code {
         margin: 16px 0 16px 0;
+
+
     }
 }

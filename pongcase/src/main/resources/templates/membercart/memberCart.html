@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <!--    #springboot 링크 방식-->
-    <link th:href="@{/css/memberCart.css}" rel="stylesheet">
-    <link th:href="@{/css/basic.css}" rel="stylesheet">
+
 
 </head>
 
@@ -15,12 +17,16 @@
 
 <body>
 
+<div layout:fragment="content" class="content">
+
+    <div class="cart-container">
+
 <section class="order-detail row">
     <div class="order-detail--wrapper col-xs-12 col-md-12 col-lg-9">
         <header class="order-detail--head row">
             <h1 class="order-detail--title col-xs-12 col-md-12 col-lg-12">장바구니</h1>
             <div class="order-detail__legend row">
-                <a class="order-detail__legend--action btn" href="@Url.ContentUrl(Model.StartPage.CheckoutPage)">결제하기</a>
+
                 <div class="order-detail__legend--item" id="order-detail__legend--quantity" aria-hidden="true" role="presentation">수량</div>
                 <div class="order-detail__legend--item" id="order-detail__legend--price" aria-hidden="true" role="presentation">가격</div>
             </div>
@@ -37,10 +43,10 @@
                             </a>
                             <div class="cart-item--description">
                                 <a class="cart-item--link cart-item--text-link" href="@cartItem.LineItem.AddedFromUrl()">
-                                    <h2 class="cart-item--title">아이폰 젤리 무지</h2>
-                                    <p class="cart-item--number">SED-1241</p>
+                                    <h2 class="cart-item--title">(젤리) 기본 케이스</h2>
+                                    <p class="cart-item--number">H-2404-001</p>
                                 </a>
-                                <div class="cart-item--detail cart-item--size">COLOR : red</div>
+                                <div class="cart-item--detail cart-item--size">plain</div>
                                 <div class="cart-item--action">
                                     <form action="/shopping-cart/removelineitem/" data-product-id="2880123" method="post" novalidate="novalidate"><input id="code1" name="code" type="hidden" value="v-2880123">
                                         <input id="code2" name="code" type="hidden" value="v-2880123">
@@ -56,7 +62,7 @@
                                     <button class="cart-item--quantity-update cart-item--submit" aria-label="Update Quantity" type="submit">Update</button>
                                 </form>
                             </div>
-                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>20000</span></div>
+                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>10000</span></div>
                         </div>
                     </div>
                 </div>
@@ -70,10 +76,10 @@
                             </a>
                             <div class="cart-item--description">
                                 <a class="cart-item--link cart-item--text-link" href="@cartItem.LineItem.AddedFromUrl()">
-                                    <h2 class="cart-item--title">아이폰 젤리 무지</h2>
-                                    <p class="cart-item--number">SED-1242</p>
+                                    <h2 class="cart-item--title">(젤리) 기본 케이스</h2>
+                                    <p class="cart-item--number">H-2404-002</p>
                                 </a>
-                                <div class="cart-item--detail cart-item--size">COLOR : black</div>
+                                <div class="cart-item--detail cart-item--size">haert</div>
                                 <div class="cart-item--action">
                                     <form action="/shopping-cart/removelineitem/" data-product-id="2880123" method="post" novalidate="novalidate"><input id="code3" name="code" type="hidden" value="v-2880123">
                                         <input id="code4" name="code" type="hidden" value="v-2880123">
@@ -89,7 +95,7 @@
                                     <button class="cart-item--quantity-update cart-item--submit" aria-label="Update Quantity" type="submit">Update</button>
                                 </form>
                             </div>
-                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>20000</span></div>
+                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>10000</span></div>
                         </div>
                     </div>
                 </div>
@@ -103,10 +109,10 @@
                             </a>
                             <div class="cart-item--description">
                                 <a class="cart-item--link cart-item--text-link" href="@cartItem.LineItem.AddedFromUrl()">
-                                    <h2 class="cart-item--title">아이폰 젤리 무지</h2>
-                                    <p class="cart-item--number">SED-1243</p>
+                                    <h2 class="cart-item--title">(젤리) 기본 케이스</h2>
+                                    <p class="cart-item--number">H-2404-003</p>
                                 </a>
-                                <div class="cart-item--detail cart-item--size">COLOR : navy</div>
+                                <div class="cart-item--detail cart-item--size">star</div>
                                 <div class="cart-item--action">
                                     <form action="/shopping-cart/removelineitem/" data-product-id="2880123" method="post" novalidate="novalidate"><input id="code5" name="code" type="hidden" value="v-2880123">
                                         <input id="code" name="code" type="hidden" value="v-2880123">
@@ -123,7 +129,7 @@
                                     <button class="cart-item--quantity-update cart-item--submit" aria-label="Update Quantity" type="submit">Update</button>
                                 </form>
                             </div>
-                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>20000</span></div>
+                            <div class="cart-item--price" aria-labelledby="order-detail__legend--price"><span>10000</span></div>
                         </div>
                     </div>
                 </div>
@@ -138,16 +144,16 @@
                     <tbody class="cart-summary--table-body">
                     <tr class="cart-summary--table-row">
                         <td class="cart-summary--table-col" scope="row">상품</td>
-                        <td class="cart-summary--table-col">60000</td>
+                        <td class="cart-summary--table-col">30000</td>
                     </tr>
                     <tr class="cart-summary--table-row">
                         <td class="cart-summary--table-col" scope="row">할인 금액</td>
-                        <td class="cart-summary--table-col">6000</td>
+                        <td class="cart-summary--table-col">15000</td>
                     </tr>
-<!--                    <tr class="cart-summary&#45;&#45;table-row">-->
-<!--                        <td class="cart-summary&#45;&#45;table-col" scope="row">Estimated Tax</td>-->
-<!--                        <td class="cart-summary&#45;&#45;table-col">$22.00</td>-->
-<!--                    </tr>-->
+                    <!--                    <tr class="cart-summary&#45;&#45;table-row">-->
+                    <!--                        <td class="cart-summary&#45;&#45;table-col" scope="row">Estimated Tax</td>-->
+                    <!--                        <td class="cart-summary&#45;&#45;table-col">$22.00</td>-->
+                    <!--                    </tr>-->
                     </tbody>
                     <tfoot class="cart-summary--table-foot">
                     <tr class="cart-summary--table-row">
@@ -156,7 +162,7 @@
                         </td>
                         <td class="cart-summary--table-col">
                             <div>
-                                <span class="cart-summary--table-total">54000</span>
+                                <span class="cart-summary--table-total">15000</span>
                                 <span class="cart-summary--table-currency">KOR</span>
                             </div>
                         </td>
@@ -169,8 +175,9 @@
                             <label class="cart-summary--promo-code-label" for="promocode">추가 할인 코드</label>
                             <div class="cart-summary--promo-code-wrapper">
                                 <input class="cart-summary--promo-code-input" type="text" placeholder="Enter code" id="promocode"></input>
-                                <button class="cart-summary--promo-code-submit btn" type="submit">확인</button>
+                                <button class="cart-summary--promo-code-submit" type="submit">확인</button>
                             </div>
+
                         </form>
                     </section>
                     <section class="cart-summary--order-actions">
@@ -183,5 +190,8 @@
     </div>
 </section>
 <div id="cart"></div>
+
+    </div>
+</div>
 </body>
 </html>

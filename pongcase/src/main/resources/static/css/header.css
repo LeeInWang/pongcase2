@@ -68,6 +68,9 @@
     /*    background-color: #F6F4FC;*/
     /*}*/
 
+
+
+
     .navHeader{
         box-sizing: border-box; /* 모든 요소의 박스 크기가 요소의 너비와 높이에 포함되도록 설정 */
         position: relative; /* 요소를 일반 문서 흐름에 따라 배치, 상대적으로 설정 */
@@ -292,7 +295,7 @@
     }
 
     /* 로고 */
-    .divLogo{
+    .divLogo2{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -320,13 +323,39 @@
         flex: 1;  /* 좌우 간격조절*/
         text-align: center; /* 좌우 간격조절*/
         padding: 10px;/* 좌우 간격조절*/
-        background-color: #FFC0CB;
+        background-color: #F8C8C4;
 
     }
 
+    .divloginLogoutMyInfoShoppingBasket button{
+        background-color: #F8C8C4;
+        border: 1px solid #F8C8C4;
+
+    }
+
+    .material-symbols-outlined{
+        background-color: #F8C8C4;
+    }
+
+    .Search{
+        background-color: #F8C8C4;
+    }
+
+    .Search button{
+        background-color: #F8C8C4;
+        border: 1px solid #F8C8C4;
+    }
+
+    .fa-search, .fa{
+        background-color: #F8C8C4;
+
+    }
+
+
+
     /* 검색 */
     .divSearch {
-        background-color: #FFC0CB;
+        background-color: #F8C8C4;
         color: navy;
         display: flex;
         justify-content: space-between; /* 좌우 정렬 */
@@ -341,7 +370,7 @@
     form.example input[type=text] {
         padding: 6px;
         font-size: 15px;
-        border: 1px solid #FFC0CB;
+        border: 1px solid #F8C8C4;
         float: left;
         width: 80%;
         background: #F6F4FC;
@@ -349,10 +378,10 @@
     .example button{
         width: 100%;
         padding: 5px;
-        background: #FFC0CB;
+        background: #F8C8C4;
         color: black;
         font-size: 17px;
-        border: 1px solid #FFC0CB;
+        border: 1px solid #F8C8C4;
         border-left: none;
         cursor: pointer;
         text-align: center;
@@ -370,8 +399,8 @@
     .login, .Logout, .myInfo, .shoppingBasket  {
         font-size: 17px;
         color: #F0F8FF;
-        background: #FFC0CB;
-        border: #FFC0CB;
+        background: #F8C8C4;
+        border: #F8C8C4;
         cursor: pointer;
         outline: none;
     }
@@ -379,6 +408,8 @@
     body {
         font-family: 'Lato', sans-serif;
     }
+
+
 
     /* 카테고리 부분 */
     .overlay {
@@ -463,9 +494,33 @@
         height: 10%;
     }
 
+    .fa-search, .fa{
+        background-color: #F8C8C4;
+    }
+
+    .examplesj{
+        background-color: #F8C8C4;
+    }
+
+    .fainput{
+        background-color: #F8C8C4;
+    }
+
+    .submit{
+        background-color: #F8C8C4;
+    }
+
     /* 아이콘 크기를 조정 */
-    .navIcons button {
+    .navIconsj button {
         font-size: 2rem;
+        background-color: #F8C8C4;
+    }
+    .material-symbols-outlined{
+        background-color: #F8C8C4;
+
+    }
+    .navIconsj{
+        background-color: #F8C8C4;
     }
     .menu {
         justify-content: right;

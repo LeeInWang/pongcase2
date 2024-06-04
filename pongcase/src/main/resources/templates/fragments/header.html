@@ -26,7 +26,7 @@
                     <button th:onclick="|location.href='@{/member/login}'|" ><span class="material-symbols-outlined">login</span></button>
                     <button th:onclick="|location.href='@{/member/login}'|"><span class="material-symbols-outlined">logout</span></button>
                     <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                    <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
+                    <button th:onclick="|location.href='@{/cart}'|" ><span class="material-symbols-outlined">shopping_bag</span></button>
                 </div>
 
         </div>
@@ -73,7 +73,7 @@
                 <button th:onclick="|location.href='@{/member/login}'|" ><span class="material-symbols-outlined">login</span></button>
                 <button th:onclick="|location.href='@{/member/login}'|"><span class="material-symbols-outlined">logout</span></button>
                 <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
+                <button th:onclick="|location.href='@{/cart}'|" ><span class="material-symbols-outlined">shopping_bag</span></button>
             </div>
 
             <div class="divSearch">
@@ -133,12 +133,14 @@
                     <input class="fainput" type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
+
             </div>
             <div class="navIconsj">
                 <button th:onclick="|location.href='@{/member/login}'|" ><span class="material-symbols-outlined">login</span></button>
                 <button th:onclick="|location.href='@{/member/login}'|"><span class="material-symbols-outlined">logout</span></button>
                 <button onclick="mypage()"><span class="material-symbols-outlined">person</span></button>
-                <button onclick="shopping()"><a th:href="@{/cart}"><span class="material-symbols-outlined">shopping_bag</span></a></button>
+                <button th:onclick="|location.href='@{/cart}'|" ><span class="material-symbols-outlined">shopping_bag</span></button>
+
             </div>
         </div>
     </div>
